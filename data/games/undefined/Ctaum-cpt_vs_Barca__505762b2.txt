@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:51:37.130Z
+
+id=1772774825591
+uid=505762b2
+date=undefined
+home=Ctaum-cpt
+away=Barca.
+homeGoals=3
+awayGoals=0
+result=home
+winner=Ctaum-cpt
+loggedAt=2026-04-18T22:51:37.130Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Ctaum-cpt_vs_Barca._1772774824290.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
