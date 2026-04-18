@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:49:13.793Z
+
+id=1771957100408
+uid=3f973aa1
+date=undefined
+home=XWRLD_REAPERS
+away=MGSatarou
+homeGoals=0
+awayGoals=3
+result=away
+winner=MGSatarou
+loggedAt=2026-04-18T22:49:13.793Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/XWRLD_REAPERS_vs_MGSatarou_1771957099194.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
