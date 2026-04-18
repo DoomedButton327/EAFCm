@@ -1,0 +1,140 @@
+/* ================================================================
+   METTLESTATE × EA FC MOBILE — animations.css
+   22 @keyframes · entrance animations · micro-interactions
+================================================================ */
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(14px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeScale {
+  from { opacity: 0; transform: scale(.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(.7); }
+  75%  { transform: scale(1.06); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .5; }
+}
+@keyframes holoPulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--acid-border); }
+  50%       { box-shadow: 0 0 0 6px transparent; }
+}
+@keyframes countUp {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+@keyframes borderTrace {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
+}
+@keyframes rowSlide {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes navPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.35); }
+  100% { transform: scale(1.15); }
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(10px) scale(.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes spinOnce {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  33%       { transform: translateY(-18px) scale(1.04); }
+  66%       { transform: translateY(10px) scale(.97); }
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: scale(.97) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .3; }
+}
+@keyframes tabIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes pulseBar {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .65; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* ── Shimmer loading skeleton ── */
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-2) 25%, var(--bg-3) 50%, var(--bg-2) 75%);
+  background-size: 200% 100%;
+  border-radius: var(--radius-sm);
+  animation: shimmer 1.5s infinite;
+}
+
+/* ── Ambient orbs background ── */
+.orb-field {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .06;
+  animation: orbFloat linear infinite;
+}
+.orb-1 { width: 300px; height: 300px; background: var(--acid); top: -80px; left: -100px; animation-duration: 18s; }
+.orb-2 { width: 200px; height: 200px; background: var(--cyan); top: 40%; right: -60px; animation-duration: 24s; animation-delay: -8s; }
+.orb-3 { width: 250px; height: 250px; background: var(--acid-dim); bottom: 20%; left: 30%; animation-duration: 20s; animation-delay: -4s; }
+
+/* ── Section entrance stagger helper ── */
+.stagger > * { animation: slideUp .3s cubic-bezier(.22,1,.36,1) both; }
+.stagger > *:nth-child(1)  { animation-delay: .00s; }
+.stagger > *:nth-child(2)  { animation-delay: .04s; }
+.stagger > *:nth-child(3)  { animation-delay: .08s; }
+.stagger > *:nth-child(4)  { animation-delay: .12s; }
+.stagger > *:nth-child(5)  { animation-delay: .16s; }
+.stagger > *:nth-child(6)  { animation-delay: .20s; }
+.stagger > *:nth-child(7)  { animation-delay: .24s; }
+.stagger > *:nth-child(8)  { animation-delay: .28s; }
+
+/* ── Hover glow lift ── */
+.hover-lift {
+  transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+}
+.hover-lift:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.3); }

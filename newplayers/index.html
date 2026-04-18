@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#050a0e">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Join the League · Mettlestate × EA FC Mobile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --acid: #C8F135; --acid-soft: rgba(200,241,53,.12); --acid-border: rgba(200,241,53,.25);
+      --bg: #050a0e; --bg-1: #0a1218; --bg-2: #101c24; --bg-3: #162230;
+      --border: rgba(200,241,53,.12); --text: #f0f4f8; --text-soft: #b0bec5; --muted: #607d8b;
+      --green: #34C759; --red: #FF2D55;
+    }
+    html, body { min-height: 100%; background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--text); }
+
+    /* Orbs */
+    .orb-field { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .06; }
+    .orb-1 { width: 350px; height: 350px; background: var(--acid); top: -100px; left: -80px; animation: orbFloat 18s ease-in-out infinite; }
+    .orb-2 { width: 220px; height: 220px; background: #00d4ff; bottom: 15%; right: -50px; animation: orbFloat 24s ease-in-out infinite reverse; }
+    @keyframes orbFloat { 0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)} }
+
+    /* Page */
+    .page { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 16px env(safe-area-inset-bottom); }
+
+    /* Card */
+    .card {
+      width: 100%; max-width: 440px;
+      background: rgba(16,28,36,.8);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      backdrop-filter: blur(16px);
+      animation: cardIn .5s cubic-bezier(.22,1,.36,1) both;
+    }
+    @keyframes cardIn { from{opacity:0;transform:scale(.95) translateY(20px)} to{opacity:1;transform:scale(1) translateY(0)} }
+
+    /* Header */
+    .header { text-align: center; margin-bottom: 28px; }
+    .logo-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px; }
+    .logo-icon { font-size: 1.6rem; color: var(--acid); }
+    .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: .1em; color: var(--acid); }
+    .header-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: .05em; margin-bottom: 4px; }
+    .header-sub { font-size: .85rem; color: var(--text-soft); }
+
+    /* Rules image */
+    .rules-img-wrap {
+      margin-bottom: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--acid-border);
+    }
+    .rules-img-wrap img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Form */
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-family: 'JetBrains Mono', monospace; font-size: .68rem; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; margin-bottom: 6px; }
+    .form-input {
+      width: 100%; padding: 12px 14px;
+      background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); font-size: .92rem; font-family: 'DM Sans', sans-serif;
+      transition: border-color .15s, background .15s;
+    }
+    .form-input:focus { outline: none; border-color: var(--acid-border); background: var(--bg-3); }
+    .form-input::placeholder { color: var(--muted); }
+    textarea.form-input { resize: vertical; min-height: 70px; }
+
+    /* Phone row with country code */
+    .phone-row { display: flex; gap: 8px; }
+    .country-select {
+      flex-shrink: 0;
+      width: 110px;
+      padding: 12px 10px;
+      background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); font-size: .88rem; font-family: 'DM Sans', sans-serif;
+      cursor: pointer; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23607d8b' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      padding-right: 28px;
+      transition: border-color .15s, background .15s;
+    }
+    .country-select:focus { outline: none; border-color: var(--acid-border); background-color: var(--bg-3); }
+    .phone-row .form-input { flex: 1; }
+
+    /* Submit */
+    .btn-submit {
+      width: 100%; padding: 13px;
+      background: var(--acid); color: #000;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: .08em;
+      border-radius: 8px; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: opacity .15s, transform .1s;
+      margin-top: 8px;
+    }
+    .btn-submit:active { transform: scale(.97); opacity: .85; }
+    .btn-submit:disabled { opacity: .5; cursor: not-allowed; }
+
+    /* Status */
+    .status-msg {
+      text-align: center; font-size: .85rem; padding: 12px;
+      border-radius: 8px; margin-top: 12px; display: none;
+    }
+    .status-success { background: rgba(52,199,89,.12); color: var(--green); border: 1px solid rgba(52,199,89,.25); display: block; }
+    .status-error   { background: rgba(255,45,85,.12); color: var(--red); border: 1px solid rgba(255,45,85,.25); display: block; }
+
+    /* Footer */
+    .footer { margin-top: 20px; text-align: center; font-size: .75rem; color: var(--muted); }
+    .footer a { color: var(--acid); }
+
+    /* Error hints */
+    .field-error { font-size: .75rem; color: var(--red); margin-top: 4px; display: none; }
+    .field-error.show { display: block; }
+  </style>
+</head>
+<body>
+
+<div class="orb-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<div class="page">
+  <div class="card">
+    <div class="header">
+      <div class="logo-row">
+        <span class="logo-icon"><i class="fas fa-bolt"></i></span>
+        <span class="logo-text">METTLESTATE</span>
+      </div>
+      <h1 class="header-title">Join the League</h1>
+      <p class="header-sub">EA FC Mobile · South Africa</p>
+    </div>
+
+    <div class="rules-img-wrap">
+      <img src="rules/rules.png" alt="League Rules">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="reg-wa-username">WhatsApp Username *</label>
+      <input class="form-input" id="reg-wa-username" type="text" placeholder="e.g. @Tyron" autocomplete="off" spellcheck="false">
+      <div class="field-error" id="err-wa-username">WhatsApp username is required.</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="reg-phone">WhatsApp Number *</label>
+      <div class="phone-row">
+        <select class="country-select" id="reg-country-code" aria-label="Country code">
+          <option value="+27">🇿🇦 +27</option>
+          <option value="+263">🇿🇼 +263</option>
+          <option value="+260">🇿🇲 +260</option>
+          <option value="+267">🇧🇼 +267</option>
+          <option value="+264">🇳🇦 +264</option>
+          <option value="+266">🇱🇸 +266</option>
+          <option value="+268">🇸🇿 +268</option>
+          <option value="+258">🇲🇿 +258</option>
+          <option value="+255">🇹🇿 +255</option>
+          <option value="+254">🇰🇪 +254</option>
+          <option value="+234">🇳🇬 +234</option>
+          <option value="+233">🇬🇭 +233</option>
+          <option value="+44"> 🇬🇧 +44</option>
+          <option value="+1">  🇺🇸 +1</option>
+          <option value="+61"> 🇦🇺 +61</option>
+        </select>
+        <input class="form-input" id="reg-phone" type="tel" placeholder="81 234 5678" autocomplete="tel">
+      </div>
+      <div class="field-error" id="err-phone">Please enter your WhatsApp number.</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="reg-username">EA FC Mobile Username *</label>
+      <input class="form-input" id="reg-username" type="text" placeholder="Your in-game tag" autocomplete="off" spellcheck="false">
+      <div class="field-error" id="err-username">Username must be at least 2 characters.</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="reg-note">Questions / Additional Info (optional)</label>
+      <textarea class="form-input" id="reg-note" placeholder="Any questions or important info for the admin…"></textarea>
+    </div>
+
+    <button class="btn-submit" id="reg-btn" onclick="submitRegistration()">
+      <i class="fas fa-paper-plane"></i> Register for League
+    </button>
+
+    <div class="status-msg" id="reg-status"></div>
+  </div>
+
+  <div class="footer">
+  </div>
+</div>
+
+<script>
+  const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1493198521623384168/LP6NfibHZuqY0wqwIDUo6Ai3OG8ik9rJYAnhHNCUmuQT20oD0NfFOO5ANxf8pVUpmrQL';
+
+  function clearErrors() {
+    document.querySelectorAll('.field-error').forEach(e => e.classList.remove('show'));
+  }
+
+  async function submitRegistration() {
+    clearErrors();
+    const waUsername = document.getElementById('reg-wa-username').value.trim();
+    const countryCode = document.getElementById('reg-country-code').value;
+    const phoneRaw    = document.getElementById('reg-phone').value.trim();
+    const phone       = phoneRaw ? `${countryCode} ${phoneRaw}` : '';
+    const username    = document.getElementById('reg-username').value.trim();
+    const note        = document.getElementById('reg-note').value.trim();
+
+    let valid = true;
+    if (!waUsername)         { document.getElementById('err-wa-username').classList.add('show'); valid = false; }
+    if (!phoneRaw)           { document.getElementById('err-phone').classList.add('show'); valid = false; }
+    if (username.length < 2) { document.getElementById('err-username').classList.add('show'); valid = false; }
+    if (!valid) return;
+
+    const btn = document.getElementById('reg-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Registering…';
+
+    try {
+      // Save to localStorage (pending list for admin)
+      const key = 'eafc_pending_registrations';
+      const existing = JSON.parse(localStorage.getItem(key) || '[]');
+      existing.push({ waUsername, phone, username, note, submittedAt: new Date().toISOString() });
+      localStorage.setItem(key, JSON.stringify(existing));
+
+      // Discord notification
+      if (DISCORD_WEBHOOK && !DISCORD_WEBHOOK.includes('YOUR_')) {
+        await fetch(DISCORD_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            embeds: [{
+              color: 0xC8F135,
+              title: '🆕 New Player Registration',
+              fields: [
+                { name: 'WhatsApp Username', value: waUsername,         inline: true },
+                { name: 'WhatsApp Number',   value: phone,              inline: true },
+                { name: 'EA FC Username',    value: username,           inline: true },
+                { name: 'Note',              value: note || '—',        inline: false },
+              ],
+              timestamp: new Date().toISOString(),
+            }],
+          }),
+        });
+      }
+
+      const status = document.getElementById('reg-status');
+      status.className = 'status-msg status-success';
+      status.innerHTML = `<i class="fas fa-check-circle"></i> Registration submitted! The admin will add you to the league shortly.`;
+
+      // Reset form after 4s
+      setTimeout(() => {
+        document.getElementById('reg-wa-username').value = '';
+        document.getElementById('reg-phone').value = '';
+        document.getElementById('reg-username').value = '';
+        document.getElementById('reg-note').value = '';
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-plus"></i> Register Another';
+        status.className = 'status-msg';
+      }, 4000);
+
+    } catch(err) {
+      const status = document.getElementById('reg-status');
+      status.className = 'status-msg status-error';
+      status.innerHTML = `<i class="fas fa-exclamation-circle"></i> Something went wrong. Please try again or contact @Tyron.`;
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Register for League';
+    }
+  }
+</script>
+</body>
+</html>

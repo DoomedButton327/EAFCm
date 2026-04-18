@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#050a0e">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Mettlestate × EA FC Mobile League</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<!-- Ambient orbs -->
+<div class="orb-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- Toast area -->
+<div id="toast-area" aria-live="polite"></div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close"><i class="fas fa-times"></i></button>
+  <img id="lightbox-img" src="" alt="Match evidence">
+  <div id="lightbox-caption" class="lightbox-caption"></div>
+</div>
+
+<!-- ════ EDIT RESULT MODAL ════ -->
+<div id="edit-result-modal" class="player-modal" role="dialog" aria-modal="true">
+  <div class="player-modal-inner" style="max-width:420px">
+    <button class="modal-close-btn" onclick="closeEditResultModal()" aria-label="Close"><i class="fas fa-times"></i></button>
+    <div style="padding:1.5rem">
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem">
+        <div style="width:36px;height:36px;border-radius:8px;background:var(--theme-accent-glow,rgba(139,92,246,.2));display:flex;align-items:center;justify-content:center;color:var(--theme-accent,#8b5cf6)">
+          <i class="fas fa-pen"></i>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:1rem;color:var(--theme-text-primary,#e2e8f0)">Edit Result</div>
+          <div id="edit-result-date" style="font-size:.75rem;color:var(--theme-text-muted,#94a3b8)"></div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:.75rem;align-items:center;margin-bottom:1.25rem">
+        <div style="text-align:center">
+          <div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--theme-text-muted,#94a3b8);margin-bottom:.35rem">Home</div>
+          <div id="edit-result-home-label" style="font-weight:700;font-size:.9rem;color:var(--theme-text-primary,#e2e8f0);margin-bottom:.5rem;word-break:break-all"></div>
+          <input id="edit-home-goals" class="form-input" type="number" min="0" max="99" placeholder="0"
+            style="text-align:center;font-size:1.5rem;font-weight:800;padding:.5rem;width:100%">
+        </div>
+        <div style="font-size:1.25rem;color:var(--theme-text-muted,#94a3b8);margin-top:1.5rem">–</div>
+        <div style="text-align:center">
+          <div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--theme-text-muted,#94a3b8);margin-bottom:.35rem">Away</div>
+          <div id="edit-result-away-label" style="font-weight:700;font-size:.9rem;color:var(--theme-text-primary,#e2e8f0);margin-bottom:.5rem;word-break:break-all"></div>
+          <input id="edit-away-goals" class="form-input" type="number" min="0" max="99" placeholder="0"
+            style="text-align:center;font-size:1.5rem;font-weight:800;padding:.5rem;width:100%">
+        </div>
+      </div>
+
+      <p style="font-size:.75rem;color:var(--theme-text-muted,#94a3b8);margin-bottom:1rem;text-align:center">
+        <i class="fas fa-info-circle"></i> All player points and stats will be fully recalculated.
+      </p>
+
+      <div style="display:flex;gap:.75rem">
+        <button class="btn-primary" style="flex:1" onclick="saveEditedResult()">
+          <i class="fas fa-check"></i> Save Changes
+        </button>
+        <button class="btn-secondary" onclick="closeEditResultModal()">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Player Modal -->
+<div id="player-modal" class="player-modal" role="dialog" aria-modal="true">
+  <div class="player-modal-inner">
+    <button class="modal-close-btn" onclick="closePlayerModal()" aria-label="Close"><i class="fas fa-times"></i></button>
+    <div id="player-modal-content"></div>
+  </div>
+</div>
+
+<!-- ── App shell ── -->
+<div id="app">
+
+  <!-- Bottom / Sidebar Nav -->
+  <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
+    <button class="nav-btn" data-tab="standings-tab" aria-label="Standings">
+      <i class="fas fa-trophy"></i>
+      <span class="nav-label">Standings</span>
+    </button>
+    <button class="nav-btn" data-tab="fixtures-tab" aria-label="Fixtures">
+      <i class="fas fa-calendar-alt"></i>
+      <span class="nav-label">Fixtures</span>
+    </button>
+    <button class="nav-btn" data-tab="results-tab" aria-label="Results">
+      <i class="fas fa-futbol"></i>
+      <span class="nav-label">Results</span>
+    </button>
+    <button class="nav-btn" data-tab="players-tab" aria-label="Players">
+      <i class="fas fa-users"></i>
+      <span class="nav-label">Players</span>
+    </button>
+    <button class="nav-btn" data-tab="calendar-tab" aria-label="Calendar">
+      <i class="fas fa-calendar"></i>
+      <span class="nav-label">Calendar</span>
+    </button>
+    <button class="nav-btn" data-tab="rules-tab" aria-label="Rules">
+      <i class="fas fa-book"></i>
+      <span class="nav-label">Rules</span>
+    </button>
+    <button class="nav-btn" data-tab="admin-tab" aria-label="Admin">
+      <i class="fas fa-cog"></i>
+      <span class="nav-label">Admin</span>
+    </button>
+  </nav>
+
+  <!-- Main content -->
+  <div class="main-content" role="main">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="topbar-logo">
+        <i class="fas fa-bolt"></i>
+        <span>METTLESTATE</span>
+      </div>
+      <div class="topbar-right">
+        <div class="gh-status">
+          <span id="gh-status-dot" class="status-dot status-local"></span>
+          <span id="gh-status-label">Local only</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Live bar -->
+    <div id="live-bar" class="live-bar">
+      <div class="live-bar-dot"></div>
+      <span id="live-bar-text">SEASON IN PROGRESS</span>
+    </div>
+
+    <!-- Sync bar -->
+    <div id="sync-bar" class="sync-bar hidden" aria-live="polite">
+      <span id="sync-icon"></span>
+      <span id="sync-msg"></span>
+    </div>
+
+    <!-- ════════════════════════════════════════════
+         STANDINGS TAB
+    ════════════════════════════════════════════ -->
+    <section id="standings-tab" class="tab-content">
+      <div class="section-title"><i class="fas fa-trophy"></i> League Standings</div>
+      <div id="standings-subtitle" class="standings-subtitle"></div>
+
+      <!-- Stats ticker -->
+      <div class="stats-ticker">
+        <div class="ticker-card">
+          <div class="ticker-val" id="stat-players">0</div>
+          <div class="ticker-lbl">PLAYERS</div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-val" id="stat-matches">0</div>
+          <div class="ticker-lbl">MATCHES</div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-val" id="stat-goals">0</div>
+          <div class="ticker-lbl">GOALS</div>
+        </div>
+        <div class="ticker-card">
+          <div class="ticker-val" id="stat-pending">0</div>
+          <div class="ticker-lbl">PENDING</div>
+        </div>
+      </div>
+
+      <!-- Podium -->
+      <div id="podium-area" class="podium-area"></div>
+
+      <!-- Table -->
+      <div class="leaderboard-wrap glass">
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>#</th><th>Player</th><th>P</th><th>W</th><th>D</th><th>L</th>
+              <th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Form</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboardBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Export -->
+      <div class="export-btn-row">
+        <button class="btn-secondary" onclick="exportStandingsImage()">
+          <i class="fas fa-image"></i> Export Image
+        </button>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         FIXTURES TAB
+    ════════════════════════════════════════════ -->
+    <section id="fixtures-tab" class="tab-content">
+      <div class="section-title"><i class="fas fa-calendar-alt"></i> Fixtures</div>
+      <div class="fixture-search-row">
+        <input class="form-input" id="fixture-filter-input" placeholder="Search fixtures…" autocomplete="off">
+      </div>
+      <div id="fixturesContainer"></div>
+      <div class="export-btn-row">
+        <button class="btn-secondary" onclick="exportFixturesImage()">
+          <i class="fas fa-image"></i> Export Image
+        </button>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         RESULTS TAB
+    ════════════════════════════════════════════ -->
+    <section id="results-tab" class="tab-content">
+      <div class="section-title"><i class="fas fa-futbol"></i> Results</div>
+      <div class="results-search-row">
+        <input class="form-input" id="results-search-input" placeholder="Search results…" autocomplete="off">
+      </div>
+      <div id="resultsContainer"></div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         PLAYERS TAB
+    ════════════════════════════════════════════ -->
+    <section id="players-tab" class="tab-content">
+      <div class="section-title">
+        <i class="fas fa-users"></i> Players
+        <span id="player-count-label" class="badge badge-acid" style="margin-left:auto"></span>
+      </div>
+      <div class="players-search-row">
+        <input class="form-input" id="player-search-input" placeholder="Search players…" autocomplete="off">
+      </div>
+      <div class="players-table-wrap glass">
+        <table class="players-table">
+          <thead>
+            <tr>
+              <th>#</th><th>Player</th><th>Username</th><th>Tokens</th>
+              <th>Record</th><th>GD</th><th>Pts</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="playersBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         CALENDAR TAB
+    ════════════════════════════════════════════ -->
+    <section id="calendar-tab" class="tab-content">
+      <div class="section-title"><i class="fas fa-calendar"></i> Calendar</div>
+
+      <!-- SAST clock -->
+      <div class="sast-clock-widget glass">
+        <div id="sast-clock">
+          <span class="clock-time">--:--:--</span>
+          <span class="clock-label">SAST · Loading…</span>
+        </div>
+      </div>
+
+      <!-- Calendar grid -->
+      <div class="calendar-header">
+        <button class="cal-nav-btn" onclick="calPrev()" aria-label="Previous month"><i class="fas fa-chevron-left"></i></button>
+        <span id="cal-month-label" class="cal-month-label"></span>
+        <button class="cal-nav-btn" onclick="calNext()" aria-label="Next month"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div id="cal-grid" class="cal-grid"></div>
+
+      <!-- Legend -->
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;">
+        <span style="display:flex;align-items:center;gap:5px;font-size:.72rem;color:var(--muted);font-family:var(--font-mono)">
+          <span class="cal-dot dot-holiday" style="display:inline-block"></span> SA Holiday
+        </span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:.72rem;color:var(--muted);font-family:var(--font-mono)">
+          <span class="cal-dot dot-event" style="display:inline-block"></span> Mettlestate Event
+        </span>
+        <span style="display:flex;align-items:center;gap:5px;font-size:.72rem;color:var(--muted);font-family:var(--font-mono)">
+          <span class="cal-dot dot-fixture" style="display:inline-block"></span> Fixtures
+        </span>
+      </div>
+
+      <!-- Upcoming panel -->
+      <div class="upcoming-panel">
+        <div class="section-title" style="font-size:.95rem"><i class="fas fa-clock"></i> Upcoming 30 Days</div>
+        <div id="upcoming-list"></div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         RULES TAB
+    ════════════════════════════════════════════ -->
+    <section id="rules-tab" class="tab-content">
+      <div class="section-title"><i class="fas fa-book"></i> League Rules</div>
+
+      <div class="rules-hero">
+        <span class="rules-pts-badge pts-win"><i class="fas fa-check"></i> Win = 3 pts</span>
+        <span class="rules-pts-badge pts-draw"><i class="fas fa-minus"></i> Draw = 1 pt</span>
+        <span class="rules-pts-badge pts-loss"><i class="fas fa-times"></i> Loss = 0 pts</span>
+        <span style="font-family:var(--font-mono);font-size:.72rem;color:var(--muted);margin-left:auto">Tiebreak: GD → GF</span>
+      </div>
+
+      <div class="rules-section">
+        <div class="rules-section-title"><i class="fas fa-calendar-check"></i> Fixtures & Scheduling</div>
+        <ul class="rules-list">
+          <li>Fixtures are generated by the admin and posted in the Discord server.</li>
+          <li>All matches must be played within the fixture week unless postponed.</li>
+          <li>Scheduled dates are in SAST (GMT+2). Check the calendar for public holidays.</li>
+          <li>Do not play on Mettlestate event days unless fixtures are confirmed.</li>
+        </ul>
+      </div>
+
+      <div class="rules-section">
+        <div class="rules-section-title"><i class="fas fa-futbol"></i> Result Submission</div>
+        <ul class="rules-list">
+          <li>Results must be submitted with a screenshot of the final scoreline.</li>
+          <li>Tag @Tyron or @Astral in the Discord with your result screenshot.</li>
+          <li>Both players must agree on the scoreline before it is logged.</li>
+          <li>Disputed results will be reviewed by the admin — decision is final.</li>
+        </ul>
+      </div>
+
+      <div class="rules-section">
+        <div class="rules-section-title"><i class="fas fa-user-slash"></i> No-Shows</div>
+        <ul class="rules-list">
+          <li>If your opponent does not show within 15 minutes of the agreed time, tag @Tyron or @Astral.</li>
+          <li>Confirmed no-shows result in a 3–0 win for the present player.</li>
+          <li>Repeated no-shows may result in suspension from the league.</li>
+        </ul>
+      </div>
+
+      <div class="rules-section">
+        <div class="rules-section-title"><i class="fas fa-clock"></i> Postponements</div>
+        <ul class="rules-list">
+          <li>Each player has <strong>20 postponement tokens</strong> for the season.</li>
+          <li>Postponing a match costs 1 token. Tokens cannot be transferred.</li>
+          <li>Attempting to postpone with 0 tokens results in an automatic 3–0 forfeit.</li>
+          <li>To postpone, tag @Tyron or @Astral and mention the fixture you wish to postpone.</li>
+        </ul>
+      </div>
+
+      <div class="rules-section">
+        <div class="rules-section-title"><i class="fas fa-wifi"></i> Disconnections</div>
+        <ul class="rules-list">
+          <li>If a disconnection occurs before kick-off, the match must be replayed.</li>
+          <li>If a disconnection occurs during a match with a clear scoreline, that score stands.</li>
+          <li>Repeated deliberate disconnections are treated as forfeits.</li>
+        </ul>
+      </div>
+
+      <div class="rules-section">
+        <div class="rules-section-title"><i class="fas fa-ban"></i> Prohibited Conduct</div>
+        <ul class="rules-list">
+          <li>Unsportsmanlike behaviour, harassment, or trash talk will not be tolerated.</li>
+          <li>Using exploits, glitches, or modded accounts is grounds for immediate removal.</li>
+          <li>Colluding to manipulate standings is a permanent ban offence.</li>
+        </ul>
+      </div>
+
+      <div class="rules-section">
+        <div class="rules-section-title"><i class="fas fa-gavel"></i> Disputes</div>
+        <ul class="rules-list">
+          <li>Raise disputes in the Discord #disputes channel within 24 hours of the match.</li>
+          <li>Admin decisions are final and non-negotiable.</li>
+        </ul>
+      </div>
+
+      <div class="export-btn-row">
+        <button class="btn-secondary" onclick="exportRulesImage()">
+          <i class="fas fa-image"></i> Export Rules Image
+        </button>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         ADMIN TAB
+    ════════════════════════════════════════════ -->
+    <section id="admin-tab" class="tab-content">
+      <div class="section-title"><i class="fas fa-cog"></i> Admin Panel</div>
+
+      <div class="acc-grid">
+
+        <!-- GitHub Sync -->
+        <div class="acc-item acc-open">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fab fa-github"></i></div>
+              <span class="acc-title">GitHub Sync</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div class="form-group">
+                <label class="form-label">GitHub Owner</label>
+                <input class="form-input" id="ghOwner" placeholder="username or org">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Repository</label>
+                <input class="form-input" id="ghRepo" placeholder="repo-name">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Branch</label>
+                  <input class="form-input" id="ghBranch" placeholder="main" value="main">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Personal Access Token</label>
+                <input class="form-input" id="ghToken" type="password" placeholder="ghp_…">
+              </div>
+              <div class="action-row">
+                <button class="btn-primary" onclick="saveGitHubConfig()"><i class="fas fa-save"></i> Save</button>
+                <button class="btn-secondary" id="btn-test-gh" onclick="testGitHubConnection()"><i class="fas fa-plug"></i> Test</button>
+                <button class="btn-secondary" onclick="loadFromGitHub()"><i class="fas fa-cloud-download-alt"></i> Load</button>
+                <button class="btn-secondary" id="btn-force-sync" onclick="forceSync()" style="display:none"><i class="fas fa-sync"></i> Force Sync</button>
+              </div>
+              <button class="btn-secondary" style="color:var(--red);border-color:rgba(255,45,85,.3)" onclick="disconnectGitHub()"><i class="fas fa-unlink"></i> Disconnect</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Log Score -->
+        <div class="acc-item">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fas fa-pen"></i></div>
+              <span class="acc-title">Log Score</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div class="form-group">
+                <label class="form-label">Select Fixture</label>
+                <select class="form-select" id="scoreFixtureSelect"></select>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Home Goals</label>
+                  <input class="form-input" id="homeGoals" type="number" min="0" max="99" placeholder="0">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Away Goals</label>
+                  <input class="form-input" id="awayGoals" type="number" min="0" max="99" placeholder="0">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Evidence Screenshot (optional)</label>
+                <div class="file-input-row">
+                  <label class="file-input-label" for="matchImageInput">
+                    <i class="fas fa-camera"></i> Choose Image
+                  </label>
+                  <input type="file" id="matchImageInput" accept="image/*">
+                  <span class="file-name" id="match-file-chosen">No file</span>
+                </div>
+              </div>
+              <button class="btn-primary w-full" onclick="submitLogScore()"><i class="fas fa-check"></i> Log Result</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Generate Fixtures -->
+        <div class="acc-item">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fas fa-random"></i></div>
+              <span class="acc-title">Generate Fixtures</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div class="form-group">
+                <label class="form-label">Mode</label>
+                <div class="radio-group">
+                  <label class="radio-label"><input type="radio" name="gen-mode" value="random" checked> Random Pairs</label>
+                  <label class="radio-label"><input type="radio" name="gen-mode" value="roundrobin"> Round Robin</label>
+                </div>
+              </div>
+              <button class="btn-primary w-full" onclick="submitGenerateFixtures()"><i class="fas fa-dice"></i> Generate Draw</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Manual Match -->
+        <div class="acc-item">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fas fa-plus-circle"></i></div>
+              <span class="acc-title">Manual Fixture</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <datalist id="player-datalist"></datalist>
+              <div class="form-group">
+                <label class="form-label">Home Player</label>
+                <input class="form-input" id="manualHome" list="player-datalist" placeholder="Username">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Away Player</label>
+                <input class="form-input" id="manualAway" list="player-datalist" placeholder="Username">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Date (optional)</label>
+                <input class="form-input" id="manualDate" type="date">
+              </div>
+              <button class="btn-primary w-full" onclick="submitAddManualFixture()"><i class="fas fa-plus"></i> Add Fixture</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Player -->
+        <div class="acc-item">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fas fa-user-plus"></i></div>
+              <span class="acc-title">Add Player</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input class="form-input" id="newPlayerName" placeholder="Player name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">In-Game Username</label>
+                <input class="form-input" id="newPlayerUsername" placeholder="EA FC username">
+              </div>
+              <div class="form-group">
+                <label class="form-label">WhatsApp Number</label>
+                <input class="form-input" id="newPlayerPhone" type="tel" placeholder="+27…">
+              </div>
+              <button class="btn-primary w-full" onclick="submitAddPlayer()"><i class="fas fa-user-plus"></i> Add Player</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Import Players -->
+        <div class="acc-item">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fas fa-file-import"></i></div>
+              <span class="acc-title">Import Players</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div class="info-box">Format: one player per line<br><strong>Name, Username, Phone</strong></div>
+              <div class="file-input-row">
+                <label class="file-input-label" for="playerImport">
+                  <i class="fas fa-file-alt"></i> Choose .txt
+                </label>
+                <input type="file" id="playerImport" accept=".txt">
+                <span class="file-name" id="file-chosen">No file chosen</span>
+              </div>
+              <button class="btn-primary w-full" onclick="importPlayersFromFile()"><i class="fas fa-upload"></i> Import</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Auto-Scheduler -->
+        <div class="acc-item">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fas fa-robot"></i></div>
+              <span class="acc-title">Auto-Scheduler</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div class="info-box">Runs daily at <strong>02:00 SAST</strong>. Tab must remain open.</div>
+              <div class="toggle-row">
+                <div class="toggle-label">Auto-generate fixtures<span class="toggle-sub">Create random pairs at 2 AM</span></div>
+                <label class="toggle-input">
+                  <input type="checkbox" id="sched-autogen" class="sched-toggle">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div class="toggle-label">Auto-draw<span class="toggle-sub">Re-shuffle home/away at 2 AM</span></div>
+                <label class="toggle-input">
+                  <input type="checkbox" id="sched-autodraw" class="sched-toggle">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div class="toggle-label">Skip SA holidays<span class="toggle-sub">Don't generate on public holidays</span></div>
+                <label class="toggle-input">
+                  <input type="checkbox" id="sched-skip-holidays" class="sched-toggle" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div class="toggle-label">Skip event days<span class="toggle-sub">Don't generate on Mettlestate events</span></div>
+                <label class="toggle-input">
+                  <input type="checkbox" id="sched-skip-events" class="sched-toggle" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Ignore list (usernames, comma-separated)</label>
+                <input class="form-input" id="sched-ignore-list" placeholder="user1, user2">
+              </div>
+              <button class="btn-secondary w-full" onclick="saveAutoScheduleConfig()"><i class="fas fa-save"></i> Save Config</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp OCR -->
+        <div class="acc-item">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fab fa-whatsapp"></i></div>
+              <span class="acc-title">WhatsApp OCR</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div class="form-group">
+                <label class="form-label">Gemini API Key</label>
+                <input class="form-input" id="gemini-api-key" type="password" placeholder="AIza…">
+                <span id="gemini-key-status"></span>
+              </div>
+              <button class="btn-secondary btn-sm" onclick="saveGeminiKey()"><i class="fas fa-key"></i> Save Key</button>
+              <hr class="acc-divider">
+              <div class="file-input-row">
+                <label class="file-input-label" for="whatsappImageInput">
+                  <i class="fas fa-camera"></i> Screenshot
+                </label>
+                <input type="file" id="whatsappImageInput" accept="image/*">
+                <span class="file-name" id="whatsapp-file-chosen">No file</span>
+              </div>
+              <button class="btn-primary w-full" onclick="runWhatsAppOCR()"><i class="fas fa-search"></i> Analyse Screenshot</button>
+              <div id="ocr-status" class="status-row"></div>
+              <div id="ocr-results-area"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Theme -->
+        <div class="acc-item">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fas fa-palette"></i></div>
+              <span class="acc-title">Theme</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div id="theme-grid" class="theme-grid"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Match Evidence -->
+        <div class="acc-item">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fas fa-images"></i></div>
+              <span class="acc-title">Match Evidence</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div id="evidence-grid" class="evidence-grid"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Public Leaderboard -->
+        <div class="acc-item">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fas fa-globe"></i></div>
+              <span class="acc-title">Public Leaderboard</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div class="form-group">
+                <label class="form-label">Owner</label>
+                <input class="form-input" id="pubOwner" placeholder="github-username">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Repository</label>
+                <input class="form-input" id="pubRepo" placeholder="public-repo-name">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Branch</label>
+                  <input class="form-input" id="pubBranch" placeholder="main" value="main">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Token</label>
+                <input class="form-input" id="pubToken" type="password" placeholder="ghp_…">
+              </div>
+              <div class="action-row">
+                <button class="btn-secondary" onclick="savePublicRepoConfig()"><i class="fas fa-save"></i> Save</button>
+                <button class="btn-primary" onclick="pushPublicLeaderboard()"><i class="fas fa-upload"></i> Push</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pending Registrations -->
+        <div class="acc-item">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fas fa-user-clock"></i></div>
+              <span class="acc-title">Pending Registrations</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div id="pending-regs-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Management -->
+        <div class="acc-item">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fas fa-database"></i></div>
+              <span class="acc-title">Data Management</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <button class="btn-secondary w-full" onclick="exportBackup()"><i class="fas fa-download"></i> Export JSON Backup</button>
+              <div class="file-input-row">
+                <label class="file-input-label" for="importBackup"><i class="fas fa-upload"></i> Restore Backup</label>
+                <input type="file" id="importBackup" accept=".json">
+              </div>
+              <a href="migrate/" class="btn-secondary w-full" style="text-align:center;display:flex;justify-content:center">
+                <i class="fas fa-exchange-alt"></i> Migration Tool
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Danger Zone -->
+        <div class="acc-item danger-zone">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon"><i class="fas fa-skull-crossbones"></i></div>
+              <span class="acc-title">Danger Zone</span>
+            </div>
+            <i class="fas fa-chevron-down acc-chevron"></i>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <div class="info-box" style="border-color:rgba(255,45,85,.3);color:var(--red)">
+                ⚠ These actions are <strong>permanent and cannot be undone</strong>.
+              </div>
+              <button class="btn-secondary btn-danger w-full" onclick="resetLeague()">
+                <i class="fas fa-trash-alt"></i> Reset All League Data
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /acc-grid -->
+    </section><!-- /admin-tab -->
+
+  </div><!-- /main-content -->
+</div><!-- /app -->
+
+<!-- html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<!-- App scripts (order matters) -->
+<script src="js/config.js"></script>
+<script src="js/state.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/github.js"></script>
+<script src="js/discord.js"></script>
+<script src="js/themes.js"></script>
+<script src="js/players.js"></script>
+<script src="js/fixtures.js"></script>
+<script src="js/results.js"></script>
+<script src="js/standings.js"></script>
+<script src="js/calendar.js"></script>
+<script src="js/ocr.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

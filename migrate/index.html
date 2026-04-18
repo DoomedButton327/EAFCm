@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Migration Tool · Mettlestate</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --acid: #C8F135; --acid-soft: rgba(200,241,53,.12); --acid-border: rgba(200,241,53,.25);
+      --bg: #050a0e; --bg-1: #0a1218; --bg-2: #101c24; --bg-3: #162230;
+      --border: rgba(200,241,53,.12); --text: #f0f4f8; --text-soft: #b0bec5; --muted: #607d8b;
+      --green: #34C759; --red: #FF2D55; --orange: #FF9500;
+    }
+    html, body { min-height: 100vh; background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--text); }
+    .page { max-width: 720px; margin: 0 auto; padding: 24px 16px 60px; }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: .08em; color: var(--acid); margin-bottom: 4px; }
+    .sub { color: var(--muted); font-size: .9rem; margin-bottom: 24px; }
+    .card { background: rgba(16,28,36,.8); border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin-bottom: 16px; backdrop-filter: blur(12px); }
+    .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: .06em; color: var(--acid); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .form-label { display: block; font-family: 'JetBrains Mono', monospace; font-size: .68rem; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; margin-bottom: 6px; }
+    .form-input { width: 100%; padding: 10px 14px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: .9rem; font-family: 'DM Sans', sans-serif; }
+    .form-input:focus { outline: none; border-color: var(--acid-border); }
+    .file-zone { border: 2px dashed var(--border); border-radius: 10px; padding: 28px; text-align: center; cursor: pointer; transition: border-color .15s, background .15s; margin-bottom: 14px; }
+    .file-zone:hover, .file-zone.drag-over { border-color: var(--acid-border); background: var(--acid-soft); }
+    .file-zone i { font-size: 2rem; color: var(--muted); margin-bottom: 8px; display: block; }
+    .file-zone p { font-size: .88rem; color: var(--text-soft); }
+    .file-zone .fname { font-family: 'JetBrains Mono', monospace; font-size: .78rem; color: var(--acid); margin-top: 6px; }
+    input[type=file] { display: none; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px; font-size: .9rem; cursor: pointer; border: none; transition: opacity .15s; }
+    .btn-acid { background: var(--acid); color: #000; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: .06em; }
+    .btn-secondary { background: var(--bg-2); color: var(--text); border: 1px solid var(--border); }
+    .btn:disabled { opacity: .4; cursor: not-allowed; }
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .info-box { background: var(--acid-soft); border: 1px solid var(--acid-border); border-radius: 8px; padding: 12px; font-size: .84rem; color: var(--text-soft); line-height: 1.6; margin-bottom: 12px; }
+    .info-box strong { color: var(--acid); }
+    .warn-box { background: rgba(255,149,0,.08); border: 1px solid rgba(255,149,0,.25); border-radius: 8px; padding: 12px; font-size: .82rem; color: var(--orange); margin-bottom: 12px; }
+    .result-tree { font-family: 'JetBrains Mono', monospace; font-size: .78rem; background: var(--bg-1); border-radius: 8px; padding: 14px; overflow-x: auto; white-space: pre; color: var(--text-soft); line-height: 1.8; margin: 12px 0; }
+    .result-tree .acid { color: var(--acid); }
+    .result-tree .green { color: var(--green); }
+    .result-tree .muted { color: var(--muted); }
+    .step { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
+    .step:last-child { border-bottom: none; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--acid-soft); border: 1px solid var(--acid-border); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: .8rem; color: var(--acid); flex-shrink: 0; }
+    .step-content p { font-size: .86rem; color: var(--text-soft); line-height: 1.5; margin-top: 2px; }
+    .step-title { font-weight: 600; color: var(--text); }
+    .tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: .68rem; padding: 2px 8px; border-radius: 4px; background: var(--acid-soft); color: var(--acid); border: 1px solid var(--acid-border); margin: 2px; }
+    .progress-bar-wrap { background: var(--bg-2); border-radius: 99px; height: 6px; margin: 10px 0; }
+    .progress-bar { height: 6px; background: var(--acid); border-radius: 99px; width: 0; transition: width .3s; }
+    .log-area { background: var(--bg-1); border-radius: 8px; padding: 12px; font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--text-soft); max-height: 200px; overflow-y: auto; line-height: 1.8; }
+    .log-ok  { color: var(--green); }
+    .log-err { color: var(--red); }
+    .log-info { color: var(--acid); }
+    a.back { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: .84rem; text-decoration: none; margin-bottom: 16px; }
+    a.back:hover { color: var(--acid); }
+  </style>
+</head>
+<body>
+<div class="page">
+  <a href="../" class="back"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+  <h1><i class="fas fa-exchange-alt" style="font-size:1.4rem"></i> Migration Tool</h1>
+  <p class="sub">Convert your old <code>league-data.json</code> to the new date-partitioned folder structure.</p>
+
+  <!-- What changes -->
+  <div class="card">
+    <div class="card-title"><i class="fas fa-info-circle"></i> What This Tool Does</div>
+    <div class="info-box">
+      Converts the old single-file format into the new split structure:<br>
+      <strong>data/player-data.json</strong> — all player records<br>
+      <strong>data/index.json</strong> — index of all match days<br>
+      <strong>data/YYYY-MM/YYYY-MM-DD/match-day.json</strong> — fixtures + results per day
+    </div>
+    <div class="result-tree"><span class="acid">NEW STRUCTURE</span>
+<span class="green">data/</span>
+├── <span class="acid">player-data.json</span>     <span class="muted">← all players</span>
+├── <span class="acid">index.json</span>           <span class="muted">← match day index</span>
+└── <span class="green">2026-04/</span>
+    ├── <span class="green">2026-04-15/</span>
+    │   ├── <span class="acid">match-day.json</span>  <span class="muted">← fixtures + results</span>
+    │   └── <span class="green">match-images/</span>
+    └── <span class="green">2026-04-20/</span>
+        └── <span class="acid">match-day.json</span></div>
+  </div>
+
+  <!-- Step 1: Upload -->
+  <div class="card">
+    <div class="card-title"><i class="fas fa-upload"></i> Step 1 — Upload Old Data</div>
+    <label for="old-file">
+      <div class="file-zone" id="drop-zone">
+        <i class="fas fa-file-code"></i>
+        <p>Drop your <strong>league-data.json</strong> here or click to browse</p>
+        <div class="fname" id="file-name-display"></div>
+      </div>
+    </label>
+    <input type="file" id="old-file" accept=".json">
+    <div id="parse-result" style="display:none" class="info-box"></div>
+  </div>
+
+  <!-- Step 2: Options -->
+  <div class="card" id="options-card" style="display:none">
+    <div class="card-title"><i class="fas fa-sliders-h"></i> Step 2 — Options</div>
+    <div class="warn-box"><i class="fas fa-exclamation-triangle"></i> Fixtures without a <code>scheduledDate</code> will be assigned today's date.</div>
+    <label class="form-label" style="margin-bottom:6px">Default date for undated fixtures</label>
+    <input type="date" class="form-input" id="default-date" style="max-width:220px">
+  </div>
+
+  <!-- Step 3: Convert -->
+  <div class="card" id="convert-card" style="display:none">
+    <div class="card-title"><i class="fas fa-cogs"></i> Step 3 — Convert & Download</div>
+    <p style="font-size:.86rem;color:var(--text-soft);margin-bottom:14px">
+      The tool will generate all required JSON files as a ZIP download. Extract it into your GitHub repo root.
+    </p>
+    <div class="progress-bar-wrap" id="prog-wrap" style="display:none">
+      <div class="progress-bar" id="prog-bar"></div>
+    </div>
+    <div class="log-area" id="log-area" style="display:none"></div>
+    <div class="btn-row">
+      <button class="btn btn-acid" id="btn-convert" onclick="runConversion()">
+        <i class="fas fa-magic"></i> Convert & Download ZIP
+      </button>
+    </div>
+  </div>
+
+  <!-- Step 4: Manual instructions -->
+  <div class="card" id="manual-card" style="display:none">
+    <div class="card-title"><i class="fas fa-terminal"></i> Step 4 — Deploy to GitHub</div>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Extract the downloaded ZIP</div>
+        <p>Extract <code>mettlestate-migration.zip</code> — you'll see a <code>data/</code> folder.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Commit to your GitHub repo root</div>
+        <p>Drag the <code>data/</code> folder into your repo via the GitHub web UI, or push via git.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Open the dashboard and click "Load from GitHub"</div>
+        <p>In Admin → GitHub Sync, click <strong>Load</strong>. Your data will populate from the new structure.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Delete the old <code>league-data.json</code></div>
+        <p>Once confirmed working, remove the old file from your repo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── JSZip inline (tiny implementation for JSON files only) ─────
+// We build files manually and download as individual files since
+// we can't import JSZip without a bundler. Instead we download
+// each file individually and show copy-paste content.
+
+let _oldData = null;
+
+// Drag & drop
+const dropZone = document.getElementById('drop-zone');
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) handleFile(file);
+});
+document.getElementById('old-file').addEventListener('change', e => {
+  if (e.target.files[0]) handleFile(e.target.files[0]);
+});
+
+function handleFile(file) {
+  document.getElementById('file-name-display').textContent = file.name;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      _oldData = JSON.parse(ev.target.result);
+      showParseResult();
+    } catch(e) {
+      showError('Could not parse JSON: ' + e.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+function showParseResult() {
+  const d = _oldData;
+  const players  = (d.players  || []).length;
+  const fixtures = (d.fixtures || []).length;
+  const results  = (d.results  || []).length;
+  const pr = document.getElementById('parse-result');
+  pr.style.display = 'block';
+  pr.innerHTML = `<i class="fas fa-check-circle" style="color:var(--green)"></i>
+    Loaded successfully — <strong>${players} players</strong>,
+    <strong>${fixtures} fixtures</strong>,
+    <strong>${results} results</strong>.`;
+
+  // Set default date
+  const today = new Date().toISOString().slice(0,10);
+  document.getElementById('default-date').value = today;
+
+  document.getElementById('options-card').style.display = 'block';
+  document.getElementById('convert-card').style.display = 'block';
+}
+
+function showError(msg) {
+  const pr = document.getElementById('parse-result');
+  pr.style.display = 'block';
+  pr.innerHTML = `<i class="fas fa-times-circle" style="color:var(--red)"></i> ${msg}`;
+  pr.style.background = 'rgba(255,45,85,.08)';
+  pr.style.borderColor = 'rgba(255,45,85,.25)';
+  pr.style.color = 'var(--red)';
+}
+
+// ── Run conversion ─────────────────────────────────────────────
+function runConversion() {
+  if (!_oldData) return;
+  const btn = document.getElementById('btn-convert');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Converting…';
+
+  const defaultDate = document.getElementById('default-date').value || new Date().toISOString().slice(0,10);
+  const log = document.getElementById('log-area');
+  const prog = document.getElementById('prog-bar');
+  log.style.display = 'block';
+  document.getElementById('prog-wrap').style.display = 'block';
+  log.innerHTML = '';
+
+  function addLog(msg, cls='') { log.innerHTML += `<div class="${cls}">${msg}</div>`; log.scrollTop = log.scrollHeight; }
+  function setProgress(pct) { prog.style.width = pct + '%'; }
+
+  try {
+    addLog('<span class="log-info">Starting migration…</span>');
+    setProgress(10);
+
+    const players  = _oldData.players  || [];
+    const fixtures = _oldData.fixtures || [];
+    const results  = _oldData.results  || [];
+
+    // ── Build player-data.json ──────────────────────────────
+    const playerData = { players, lastUpdated: new Date().toISOString() };
+    addLog(`<span class="log-ok">✓</span> player-data.json (${players.length} players)`);
+    setProgress(30);
+
+    // ── Group fixtures + results by date ────────────────────
+    const dayMap = {};
+    const ensure = d => { if (!dayMap[d]) dayMap[d] = { date: d, fixtures: [], results: [] }; };
+
+    fixtures.forEach(f => {
+      const d = f.scheduledDate || defaultDate;
+      ensure(d);
+      dayMap[d].fixtures.push(f);
+    });
+    results.forEach(r => {
+      const d = r.date || defaultDate;
+      ensure(d);
+      dayMap[d].results.push(r);
+    });
+
+    const matchDays = Object.keys(dayMap).sort();
+    addLog(`<span class="log-info">→</span> Found ${matchDays.length} match day(s)`);
+    setProgress(50);
+
+    // ── Build index.json ────────────────────────────────────
+    const indexData = {
+      matchDays: matchDays.map(d => ({
+        date: d,
+        path: `data/${d.slice(0,7)}/${d}/match-day.json`,
+      })),
+      lastUpdated: new Date().toISOString(),
+    };
+    addLog(`<span class="log-ok">✓</span> index.json (${matchDays.length} entries)`);
+    setProgress(65);
+
+    // ── Generate and download all files ────────────────────
+    const filesToDownload = [
+      { path: 'data/player-data.json', content: JSON.stringify(playerData, null, 2) },
+      { path: 'data/index.json',       content: JSON.stringify(indexData, null, 2) },
+    ];
+
+    matchDays.forEach(d => {
+      const day = dayMap[d];
+      day.lastUpdated = new Date().toISOString();
+      const ym = d.slice(0, 7);
+      filesToDownload.push({
+        path: `data/${ym}/${d}/match-day.json`,
+        content: JSON.stringify(day, null, 2),
+      });
+      addLog(`<span class="log-ok">✓</span> data/${ym}/${d}/match-day.json (${day.fixtures.length}F ${day.results.length}R)`);
+    });
+
+    setProgress(85);
+
+    // Download each file
+    let i = 0;
+    function downloadNext() {
+      if (i >= filesToDownload.length) {
+        setProgress(100);
+        addLog(`<span class="log-info">✅ All ${filesToDownload.length} files downloaded!</span>`);
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-check"></i> Done!';
+        document.getElementById('manual-card').style.display = 'block';
+        return;
+      }
+      const f = filesToDownload[i++];
+      const blob = new Blob([f.content], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      // Use filename only (browser can't create folders via download)
+      const fname = f.path.replace(/\//g, '__') + '.txt';
+      a.download = fname;
+      a.click();
+      URL.revokeObjectURL(a.href);
+      setTimeout(downloadNext, 400);
+    }
+
+    addLog(`<span class="log-info">→</span> Downloading ${filesToDownload.length} files…`);
+    addLog(`<span class="log-info">Note: files named with __ separators showing path — rename when placing in repo.</span>`);
+    setTimeout(downloadNext, 300);
+
+  } catch(err) {
+    addLog(`<span class="log-err">ERROR: ${err.message}</span>`);
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fas fa-magic"></i> Convert & Download';
+  }
+}
+</script>
+</body>
+</html>
