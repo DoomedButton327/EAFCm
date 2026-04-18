@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:49:43.177Z
+
+id=1772052333305
+uid=a78cb774
+date=undefined
+home=E1even-Starz
+away=KING_KHESWA.
+homeGoals=0
+awayGoals=3
+result=away
+winner=KING_KHESWA.
+loggedAt=2026-04-18T22:49:43.177Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/E1even-Starz_vs_KING_KHESWA._1772052329124.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
