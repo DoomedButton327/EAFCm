@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:48:56.975Z
+
+id=1771859120392
+uid=5b7a6544
+date=undefined
+home=bhaze
+away=DiliboL
+homeGoals=1
+awayGoals=0
+result=home
+winner=bhaze
+loggedAt=2026-04-18T22:48:56.975Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/bhaze_vs_XWRLD_REAPERS_1771859117895.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
