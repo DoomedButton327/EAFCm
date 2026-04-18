@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:59:15.985Z
+
+id=1776228568236
+uid=cde284a4
+date=undefined
+home=RFT07
+away=KING_KHESWA.
+homeGoals=1
+awayGoals=1
+result=draw
+winner=DRAW
+loggedAt=2026-04-18T22:59:15.985Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/RFT07_vs_KING_KHESWA._1776228563518.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
