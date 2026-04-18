@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:56:14.883Z
+
+id=1774471863894
+uid=0eabd641
+date=undefined
+home=RFT07
+away=leomessi
+homeGoals=2
+awayGoals=1
+result=home
+winner=RFT07
+loggedAt=2026-04-18T22:56:14.883Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/RFT07_vs_leomessi_1774471863219.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
