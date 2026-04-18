@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:52:54.966Z
+
+id=1773299858189
+uid=1821ee07
+date=undefined
+home=MGSatarou
+away=Nigelmj21
+homeGoals=0
+awayGoals=3
+result=away
+winner=Nigelmj21
+loggedAt=2026-04-18T22:52:54.966Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/MGSatarou_vs_Nigelmj21_1773299856507.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
