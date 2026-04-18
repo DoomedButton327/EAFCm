@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:49:41.618Z
+
+id=1772051889153
+uid=d48348f3
+date=undefined
+home=CRANK_
+away=ExequielThwala
+homeGoals=1
+awayGoals=2
+result=away
+winner=ExequielThwala
+loggedAt=2026-04-18T22:49:41.618Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/CRANK__vs_ExequielThwala_1772051888165.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
