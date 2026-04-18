@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T23:00:06.836Z
+
+id=1776549197058
+uid=64c0b5b2
+date=undefined
+home=DARK-_-CEO
+away=KING_KHESWA.
+homeGoals=0
+awayGoals=3
+result=away
+winner=KING_KHESWA.
+loggedAt=2026-04-18T23:00:06.836Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
