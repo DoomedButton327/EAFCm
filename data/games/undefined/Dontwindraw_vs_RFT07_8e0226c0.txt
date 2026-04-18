@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:53:25.704Z
+
+id=1773473499623
+uid=8e0226c0
+date=undefined
+home=Dontwindraw
+away=RFT07
+homeGoals=0
+awayGoals=0
+result=draw
+winner=DRAW
+loggedAt=2026-04-18T22:53:25.705Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Dontwindraw_vs_RFT07_1773473498679.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
