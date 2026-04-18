@@ -69,6 +69,38 @@ async function forceSync() {
   await GH.syncDataNow();
 }
 
+// ── Match images repo ─────────────────────────────────────────
+function saveImgRepoConfig() {
+  const owner  = document.getElementById('imgRepoOwner')?.value?.trim();
+  const repo   = document.getElementById('imgRepoName')?.value?.trim();
+  const branch = document.getElementById('imgRepoBranch')?.value?.trim() || 'main';
+  if (!owner || !repo) { toast('Owner and repo name are required.', 'error'); return; }
+  Storage.saveImgRepo({ owner, repo, branch });
+  _updateImgRepoStatus();
+  toast('Image repo saved!', 'success');
+}
+
+function clearImgRepoConfig() {
+  if (!confirm('Clear image repo config? Screenshots will go to the main repo.')) return;
+  Storage.removeImgRepo();
+  ['imgRepoOwner', 'imgRepoName', 'imgRepoBranch'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = id === 'imgRepoBranch' ? 'main' : '';
+  });
+  _updateImgRepoStatus();
+  toast('Image repo cleared.', 'info');
+}
+
+function _updateImgRepoStatus() {
+  const el  = document.getElementById('img-repo-status');
+  if (!el) return;
+  const cfg = Storage.loadImgRepo();
+  el.textContent = cfg?.owner && cfg?.repo
+    ? `\u2713 Images \u2192 ${cfg.owner}/${cfg.repo} (${cfg.branch || 'main'})`
+    : 'Not set — images will fall back to main repo';
+  el.style.color = cfg?.owner ? 'var(--green)' : 'var(--muted)';
+}
+
 // ── Public leaderboard ────────────────────────────────────────
 function savePublicRepoConfig() {
   const owner  = document.getElementById('pubOwner')?.value?.trim();
