@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:56:25.623Z
+
+id=1774563930123
+uid=91553bd8
+date=undefined
+home=Ctaum-cpt
+away=RoyalAM
+homeGoals=3
+awayGoals=1
+result=home
+winner=Ctaum-cpt
+loggedAt=2026-04-18T22:56:25.623Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Ctaum-cpt_vs_RoyalAM_1774563929446.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
