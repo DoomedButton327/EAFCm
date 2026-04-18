@@ -1,0 +1,17 @@
+# Mettlestate × EA FC Mobile — Player File
+# Auto-generated: 2026-04-18T22:48:33.083Z
+
+name=Dilibo
+username=DiliboL
+phone=0760348136
+played=40
+wins=24
+draws=9
+losses=7
+points=81
+gf=60
+ga=24
+form=W,L,W,D,W,W,D,W,L,W
+postponements=19
+suspended=false
+addedAt=2026-04-18T22:48:33.083Z
