@@ -1,5 +1,5 @@
 # Mettlestate × EA FC Mobile — Player File
-# Auto-generated: 2026-04-18T23:29:01.590Z
+# Auto-generated: 2026-04-18T23:30:16.337Z
 
 name=A H 〽️ A D
 username=Barca.
@@ -14,4 +14,4 @@ ga=43
 form=D,D,L,L,L,D,D,D,D,D
 postponements=19
 suspended=false
-addedAt=2026-04-18T23:29:01.591Z
+addedAt=2026-04-18T23:30:16.337Z
