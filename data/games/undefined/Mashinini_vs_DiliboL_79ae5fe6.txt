@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:50:24.629Z
+
+id=1772261958573
+uid=79ae5fe6
+date=undefined
+home=Mashinini
+away=DiliboL
+homeGoals=undefined
+awayGoals=undefined
+result=away
+winner=DiliboL
+loggedAt=2026-04-18T22:50:24.629Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
