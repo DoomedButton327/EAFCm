@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:51:43.615Z
+
+id=1772775346634
+uid=1094800a
+date=undefined
+home=SMANGALISO
+away=E1even-Starz
+homeGoals=0
+awayGoals=0
+result=draw
+winner=DRAW
+loggedAt=2026-04-18T22:51:43.615Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/SMANGALISO_vs_E1even-Starz_1772775344397.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
