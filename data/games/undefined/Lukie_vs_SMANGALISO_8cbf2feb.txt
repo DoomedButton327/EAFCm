@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:57:11.505Z
+
+id=1774911576757
+uid=8cbf2feb
+date=undefined
+home=Lukie
+away=SMANGALISO
+homeGoals=undefined
+awayGoals=undefined
+result=home
+winner=Lukie
+loggedAt=2026-04-18T22:57:11.505Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
