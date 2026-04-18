@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:57:06.903Z
+
+id=1774910836220
+uid=aae6f838
+date=undefined
+home=Ctaum-cpt
+away=DARK-_-CEO
+homeGoals=3
+awayGoals=0
+result=home
+winner=Ctaum-cpt
+loggedAt=2026-04-18T22:57:06.903Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Ctaum-cpt_vs_DARK-_-CEO_1774910835548.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
