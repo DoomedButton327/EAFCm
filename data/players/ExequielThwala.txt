@@ -1,5 +1,5 @@
 # Mettlestate × EA FC Mobile — Player File
-# Auto-generated: 2026-04-18T23:28:07.934Z
+# Auto-generated: 2026-04-18T23:28:43.563Z
 
 name=Sihle👑
 username=ExequielThwala
@@ -14,4 +14,4 @@ ga=24
 form=L,L,L,D,D,W,W,L,D,W
 postponements=20
 suspended=true
-addedAt=2026-04-18T23:28:07.934Z
+addedAt=2026-04-18T23:28:43.563Z
