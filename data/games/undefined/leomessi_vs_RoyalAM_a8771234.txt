@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:57:51.529Z
+
+id=1775170397091
+uid=a8771234
+date=undefined
+home=leomessi
+away=RoyalAM
+homeGoals=undefined
+awayGoals=undefined
+result=draw
+winner=DRAW
+loggedAt=2026-04-18T22:57:51.529Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
