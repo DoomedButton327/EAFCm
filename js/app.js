@@ -48,6 +48,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (el) el.innerHTML = '<span style="color:var(--acid)"><i class="fas fa-check"></i> API key loaded</span>';
   }
 
+  // ── 10b. Image repo fields ─────────────────────────────────
+  const imgCfg = Storage.loadImgRepo();
+  if (imgCfg) {
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = v || ''; };
+    set('imgRepoOwner',  imgCfg.owner);
+    set('imgRepoName',   imgCfg.repo);
+    set('imgRepoBranch', imgCfg.branch || 'main');
+  }
+  _updateImgRepoStatus();
+
   // ── 11. Discord ping ───────────────────────────────────────
   sendDiscordWebhook({ type: 'pageload' });
 });
