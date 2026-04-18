@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:58:34.061Z
+
+id=1775860722040
+uid=6102ef79
+date=undefined
+home=ExequielThwala
+away=Barca.
+homeGoals=undefined
+awayGoals=undefined
+result=home
+winner=ExequielThwala
+loggedAt=2026-04-18T22:58:34.061Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
