@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:57:26.484Z
+
+id=1774989869463
+uid=ee9c7f8e
+date=undefined
+home=CRANK_
+away=SMANGALISO
+homeGoals=3
+awayGoals=0
+result=home
+winner=CRANK_
+loggedAt=2026-04-18T22:57:26.484Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/CRANK__vs_SMANGALISO_1774989868054.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
