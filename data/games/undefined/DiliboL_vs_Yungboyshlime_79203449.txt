@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:57:08.483Z
+
+id=1774910857103
+uid=79203449
+date=undefined
+home=DiliboL
+away=Yungboyshlime
+homeGoals=3
+awayGoals=0
+result=home
+winner=DiliboL
+loggedAt=2026-04-18T22:57:08.483Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/DiliboL_vs_Yungboyshlime_1774910856396.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
