@@ -1,5 +1,5 @@
 # Mettlestate × EA FC Mobile — Player File
-# Auto-generated: 2026-04-18T23:28:10.786Z
+# Auto-generated: 2026-04-18T23:28:47.206Z
 
 name=@Ctaum
 username=Ctaum-cpt
@@ -14,4 +14,4 @@ ga=25
 form=L,D,W,W,W,D,D,W,W,D
 postponements=19
 suspended=false
-addedAt=2026-04-18T23:28:10.786Z
+addedAt=2026-04-18T23:28:47.206Z
