@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:51:07.168Z
+
+id=1772568264989
+uid=42a5757d
+date=undefined
+home=MGSatarou
+away=KING_KHESWA.
+homeGoals=3
+awayGoals=2
+result=home
+winner=MGSatarou
+loggedAt=2026-04-18T22:51:07.168Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/MGSatarou_vs_KING_KHESWA._1772568264014.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
