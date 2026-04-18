@@ -13,6 +13,7 @@ const Storage = (() => {
     gemini:    'eafc_gemini_key',
     ghConfig:  'eafc_gh_config',
     pubRepo:   'eafc_pub_repo',
+    imgRepo:   'eafc_img_repo',
     meEvents:  'eafc_mettlestate_events',
     meLastFetch: 'eafc_events_last_fetch',
     pending:   'eafc_pending_registrations',
@@ -72,6 +73,12 @@ const Storage = (() => {
     // ── Public repo config ────────────────────────────────────
     savePubRepo(cfg)  { save(KEYS.pubRepo, cfg); },
     loadPubRepo()     { return load(KEYS.pubRepo, null); },
+
+    // ── Match images repo config ──────────────────────────────
+    // Uses the same PAT as ghConfig — only owner/repo/branch are stored here
+    saveImgRepo(cfg)  { save(KEYS.imgRepo, cfg); },
+    loadImgRepo()     { return load(KEYS.imgRepo, null); },
+    removeImgRepo()   { remove(KEYS.imgRepo); },
 
     // ── Mettlestate events cache ──────────────────────────────
     saveMEEvents(events, ts) {
