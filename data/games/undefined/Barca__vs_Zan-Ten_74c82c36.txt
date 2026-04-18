@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:57:25.042Z
+
+id=1774989822567
+uid=74c82c36
+date=undefined
+home=Barca.
+away=Zan-Ten
+homeGoals=0
+awayGoals=3
+result=away
+winner=Zan-Ten
+loggedAt=2026-04-18T22:57:25.042Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Barca._vs_Zan-Ten_1774989821278.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
