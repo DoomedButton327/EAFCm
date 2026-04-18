@@ -1,0 +1,17 @@
+# Mettlestate × EA FC Mobile — Player File
+# Auto-generated: 2026-04-18T22:48:27.111Z
+
+name=Sailor
+username=Sailor
+phone=0677514331
+played=41
+wins=7
+draws=13
+losses=21
+points=34
+gf=21
+ga=45
+form=D,D,D,L,L,L,L,L,L,L
+postponements=19
+suspended=false
+addedAt=2026-04-18T22:48:27.111Z
