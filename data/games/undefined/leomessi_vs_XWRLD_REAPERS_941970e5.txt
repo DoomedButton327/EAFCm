@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:49:49.387Z
+
+id=1772097705367
+uid=941970e5
+date=undefined
+home=leomessi
+away=XWRLD_REAPERS
+homeGoals=4
+awayGoals=1
+result=home
+winner=leomessi
+loggedAt=2026-04-18T22:49:49.387Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/leomessi_vs_XWRLD_REAPERS_1772097704250.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
