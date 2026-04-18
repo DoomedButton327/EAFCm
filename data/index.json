@@ -1,6 +1,2947 @@
 {
   "version": 2,
-  "lastUpdated": "2026-04-18T22:26:41.863Z",
-  "games": [],
-  "playerCount": 0
+  "lastUpdated": "2026-04-18T23:00:19.310Z",
+  "games": [
+    {
+      "path": "data/games/undefined/bhaze_vs_DiliboL_5b7a6544.txt",
+      "id": 1771859120392,
+      "home": "bhaze",
+      "away": "DiliboL",
+      "uid": "5b7a6544"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_leomessi_9b426ec7.txt",
+      "id": 1771862132357,
+      "home": "MGSatarou",
+      "away": "leomessi",
+      "uid": "9b426ec7"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_E1even-Starz_ac086b1e.txt",
+      "id": 1771865331590,
+      "home": "SMANGALISO",
+      "away": "E1even-Starz",
+      "uid": "ac086b1e"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_Lukie_19ff14c2.txt",
+      "id": 1771865938006,
+      "home": "Sailor",
+      "away": "Lukie",
+      "uid": "19ff14c2"
+    },
+    {
+      "path": "data/games/undefined/Mashinini_vs_Sxge_exe_bb7c4b73.txt",
+      "id": 1771872217077,
+      "home": "Mashinini",
+      "away": "Sxge.exe",
+      "uid": "bb7c4b73"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_KING_KHESWA__1e139eef.txt",
+      "id": 1771880592887,
+      "home": "RFT07",
+      "away": "KING_KHESWA.",
+      "uid": "1e139eef"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_Ctaum-cpt_88122c54.txt",
+      "id": 1771880630548,
+      "home": "Nigelmj21",
+      "away": "Ctaum-cpt",
+      "uid": "88122c54"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_wham_89a47e91.txt",
+      "id": 1771880800662,
+      "home": "ExequielThwala",
+      "away": "wham",
+      "uid": "89a47e91"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_Yungboyshlime_c5b42b38.txt",
+      "id": 1771881026784,
+      "home": "RoyalAM",
+      "away": "Yungboyshlime",
+      "uid": "c5b42b38"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_CRANK__cdec82bf.txt",
+      "id": 1771881057835,
+      "home": "Barca.",
+      "away": "CRANK_",
+      "uid": "cdec82bf"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_Ctaum-cpt_95b5106d.txt",
+      "id": 1771935672220,
+      "home": "ExequielThwala",
+      "away": "Ctaum-cpt",
+      "uid": "95b5106d"
+    },
+    {
+      "path": "data/games/undefined/XWRLD_REAPERS_vs_MGSatarou_3f973aa1.txt",
+      "id": 1771957100408,
+      "home": "XWRLD_REAPERS",
+      "away": "MGSatarou",
+      "uid": "3f973aa1"
+    },
+    {
+      "path": "data/games/undefined/HyperDrive27_vs_RFT07_6a5ca816.txt",
+      "id": 1771957166839,
+      "home": "HyperDrive27",
+      "away": "RFT07",
+      "uid": "6a5ca816"
+    },
+    {
+      "path": "data/games/undefined/DJRonaldoZA_vs_Yungboyshlime_2633716d.txt",
+      "id": 1771957246349,
+      "home": "DJRonaldoZA",
+      "away": "Yungboyshlime",
+      "uid": "2633716d"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_Barca__9d120dae.txt",
+      "id": 1771957452912,
+      "home": "SMANGALISO",
+      "away": "Barca.",
+      "uid": "9d120dae"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_wham_27ff2a2a.txt",
+      "id": 1771957518867,
+      "home": "KING_KHESWA.",
+      "away": "wham",
+      "uid": "27ff2a2a"
+    },
+    {
+      "path": "data/games/undefined/Sxge_exe_vs_Dontwindraw_8e9d85b6.txt",
+      "id": 1771959667569,
+      "home": "Sxge.exe",
+      "away": "Dontwindraw",
+      "uid": "8e9d85b6"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_bhaze_78afd93b.txt",
+      "id": 1771992799895,
+      "home": "Sailor",
+      "away": "bhaze",
+      "uid": "78afd93b"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_CRANK__1dfb36c1.txt",
+      "id": 1771992825937,
+      "home": "Nigelmj21",
+      "away": "CRANK_",
+      "uid": "1dfb36c1"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_E1even-Starz_f640efc8.txt",
+      "id": 1771992891629,
+      "home": "leomessi",
+      "away": "E1even-Starz",
+      "uid": "f640efc8"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_HyperDrive27_feac93f4.txt",
+      "id": 1771992908473,
+      "home": "Dontwindraw",
+      "away": "HyperDrive27",
+      "uid": "feac93f4"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_RoyalAM_6ddd477f.txt",
+      "id": 1771992951521,
+      "home": "Lukie",
+      "away": "RoyalAM",
+      "uid": "6ddd477f"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_HyperDrive27_572f4e4f.txt",
+      "id": 1771992958093,
+      "home": "RoyalAM",
+      "away": "HyperDrive27",
+      "uid": "572f4e4f"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_Mashinini_b5482387.txt",
+      "id": 1772008418526,
+      "home": "bhaze",
+      "away": "Mashinini",
+      "uid": "b5482387"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_Dontwindraw_6dd6be06.txt",
+      "id": 1772047359765,
+      "home": "Sailor",
+      "away": "Dontwindraw",
+      "uid": "6dd6be06"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_DiliboL_4c6d19b9.txt",
+      "id": 1772047382228,
+      "home": "Lukie",
+      "away": "DiliboL",
+      "uid": "4c6d19b9"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_RFT07_7c08fa70.txt",
+      "id": 1772047435067,
+      "home": "Yungboyshlime",
+      "away": "RFT07",
+      "uid": "7c08fa70"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_Barca__0eb9b6b4.txt",
+      "id": 1772047494743,
+      "home": "leomessi",
+      "away": "Barca.",
+      "uid": "0eb9b6b4"
+    },
+    {
+      "path": "data/games/undefined/CRANK__vs_ExequielThwala_d48348f3.txt",
+      "id": 1772051889153,
+      "home": "CRANK_",
+      "away": "ExequielThwala",
+      "uid": "d48348f3"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_KING_KHESWA__a78cb774.txt",
+      "id": 1772052333305,
+      "home": "E1even-Starz",
+      "away": "KING_KHESWA.",
+      "uid": "a78cb774"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_wham_3496882a.txt",
+      "id": 1772057765063,
+      "home": "MGSatarou",
+      "away": "wham",
+      "uid": "3496882a"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_Dontwindraw_43d85e9a.txt",
+      "id": 1772093333223,
+      "home": "bhaze",
+      "away": "Dontwindraw",
+      "uid": "43d85e9a"
+    },
+    {
+      "path": "data/games/undefined/HyperDrive27_vs_DJRonaldoZA_50f23630.txt",
+      "id": 1772094896096,
+      "home": "HyperDrive27",
+      "away": "DJRonaldoZA",
+      "uid": "50f23630"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_XWRLD_REAPERS_941970e5.txt",
+      "id": 1772097705367,
+      "home": "leomessi",
+      "away": "XWRLD_REAPERS",
+      "uid": "941970e5"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_RFT07_4a07354e.txt",
+      "id": 1772127118734,
+      "home": "Sailor",
+      "away": "RFT07",
+      "uid": "4a07354e"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_ExequielThwala_a7cce5a9.txt",
+      "id": 1772127162228,
+      "home": "SMANGALISO",
+      "away": "ExequielThwala",
+      "uid": "a7cce5a9"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_DJRonaldoZA_8e56acfb.txt",
+      "id": 1772131067126,
+      "home": "SMANGALISO",
+      "away": "DJRonaldoZA",
+      "uid": "8e56acfb"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_wham_3ec2220f.txt",
+      "id": 1772131114072,
+      "home": "Lukie",
+      "away": "wham",
+      "uid": "3ec2220f"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_Nigelmj21_13761bac.txt",
+      "id": 1772132804546,
+      "home": "Ctaum-cpt",
+      "away": "Nigelmj21",
+      "uid": "13761bac"
+    },
+    {
+      "path": "data/games/undefined/Mashinini_vs_RoyalAM_db5f344d.txt",
+      "id": 1772165658110,
+      "home": "Mashinini",
+      "away": "RoyalAM",
+      "uid": "db5f344d"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_KING_KHESWA__6ea8a6d8.txt",
+      "id": 1772165692390,
+      "home": "E1even-Starz",
+      "away": "KING_KHESWA.",
+      "uid": "6ea8a6d8"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_CRANK__11df4803.txt",
+      "id": 1772165743205,
+      "home": "Barca.",
+      "away": "CRANK_",
+      "uid": "11df4803"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_Ctaum-cpt_93eef792.txt",
+      "id": 1772165797710,
+      "home": "MGSatarou",
+      "away": "Ctaum-cpt",
+      "uid": "93eef792"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_Nigelmj21_04f9c446.txt",
+      "id": 1772165798421,
+      "home": "Yungboyshlime",
+      "away": "Nigelmj21",
+      "uid": "04f9c446"
+    },
+    {
+      "path": "data/games/undefined/Mashinini_vs_CRANK__8061c7c4.txt",
+      "id": 1772165873255,
+      "home": "Mashinini",
+      "away": "CRANK_",
+      "uid": "8061c7c4"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_leomessi_fbb14078.txt",
+      "id": 1772231364515,
+      "home": "Barca.",
+      "away": "leomessi",
+      "uid": "fbb14078"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_ExequielThwala_35e0a1b0.txt",
+      "id": 1772231403279,
+      "home": "SMANGALISO",
+      "away": "ExequielThwala",
+      "uid": "35e0a1b0"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_DJRonaldoZA_9e638a78.txt",
+      "id": 1772231427388,
+      "home": "Ctaum-cpt",
+      "away": "DJRonaldoZA",
+      "uid": "9e638a78"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_Dontwindraw_47cdb685.txt",
+      "id": 1772231451028,
+      "home": "MGSatarou",
+      "away": "Dontwindraw",
+      "uid": "47cdb685"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_Nigelmj21_3c2b841f.txt",
+      "id": 1772232788906,
+      "home": "Sailor",
+      "away": "Nigelmj21",
+      "uid": "3c2b841f"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_DiliboL_32959402.txt",
+      "id": 1772261774554,
+      "home": "bhaze",
+      "away": "DiliboL",
+      "uid": "32959402"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_RFT07_49b33f6c.txt",
+      "id": 1772261776522,
+      "home": "Yungboyshlime",
+      "away": "RFT07",
+      "uid": "49b33f6c"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_HyperDrive27_e10646a2.txt",
+      "id": 1772261788443,
+      "home": "wham",
+      "away": "HyperDrive27",
+      "uid": "e10646a2"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_KING_KHESWA__e176810f.txt",
+      "id": 1772261789389,
+      "home": "E1even-Starz",
+      "away": "KING_KHESWA.",
+      "uid": "e176810f"
+    },
+    {
+      "path": "data/games/undefined/Mashinini_vs_DiliboL_79ae5fe6.txt",
+      "id": 1772261958573,
+      "home": "Mashinini",
+      "away": "DiliboL",
+      "uid": "79ae5fe6"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_Dontwindraw_6875717c.txt",
+      "id": 1772319329881,
+      "home": "SMANGALISO",
+      "away": "Dontwindraw",
+      "uid": "6875717c"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_RoyalAM_f803b8b9.txt",
+      "id": 1772319368026,
+      "home": "ExequielThwala",
+      "away": "RoyalAM",
+      "uid": "f803b8b9"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_HyperDrive27_ba033757.txt",
+      "id": 1772319392087,
+      "home": "RoyalAM",
+      "away": "HyperDrive27",
+      "uid": "ba033757"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_Barca__803d2914.txt",
+      "id": 1772319502717,
+      "home": "leomessi",
+      "away": "Barca.",
+      "uid": "803d2914"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_CRANK__ddaf5b64.txt",
+      "id": 1772319525466,
+      "home": "wham",
+      "away": "CRANK_",
+      "uid": "ddaf5b64"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_HyperDrive27_8b76a2a1.txt",
+      "id": 1772319608132,
+      "home": "RFT07",
+      "away": "HyperDrive27",
+      "uid": "8b76a2a1"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_KING_KHESWA__7b0f5953.txt",
+      "id": 1772352467969,
+      "home": "MGSatarou",
+      "away": "KING_KHESWA.",
+      "uid": "7b0f5953"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_RoyalAM_753f6bcd.txt",
+      "id": 1772432035179,
+      "home": "Lukie",
+      "away": "RoyalAM",
+      "uid": "753f6bcd"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_Lukie_32eed9b9.txt",
+      "id": 1772432035761,
+      "home": "RoyalAM",
+      "away": "Lukie",
+      "uid": "32eed9b9"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_Yungboyshlime_f3cbf558.txt",
+      "id": 1772432036184,
+      "home": "bhaze",
+      "away": "Yungboyshlime",
+      "uid": "f3cbf558"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_Ctaum-cpt_901e2bc5.txt",
+      "id": 1772432036646,
+      "home": "Sailor",
+      "away": "Ctaum-cpt",
+      "uid": "901e2bc5"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_DJRonaldoZA_545b68fc.txt",
+      "id": 1772432037065,
+      "home": "Lukie",
+      "away": "DJRonaldoZA",
+      "uid": "545b68fc"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_E1even-Starz_0dae4052.txt",
+      "id": 1772432037469,
+      "home": "Nigelmj21",
+      "away": "E1even-Starz",
+      "uid": "0dae4052"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_DiliboL_2aa0d4c1.txt",
+      "id": 1772487148797,
+      "home": "RFT07",
+      "away": "DiliboL",
+      "uid": "2aa0d4c1"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_Sailor_0e0ffd01.txt",
+      "id": 1772487170464,
+      "home": "Barca.",
+      "away": "Sailor",
+      "uid": "0e0ffd01"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_Yungboyshlime_b09ce215.txt",
+      "id": 1772487236799,
+      "home": "KING_KHESWA.",
+      "away": "Yungboyshlime",
+      "uid": "b09ce215"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_leomessi_c9efb1b4.txt",
+      "id": 1772487265612,
+      "home": "Dontwindraw",
+      "away": "leomessi",
+      "uid": "c9efb1b4"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_ExequielThwala_c7872cb2.txt",
+      "id": 1772487289425,
+      "home": "wham",
+      "away": "ExequielThwala",
+      "uid": "c7872cb2"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_MGSatarou_cda82252.txt",
+      "id": 1772487306938,
+      "home": "Lukie",
+      "away": "MGSatarou",
+      "uid": "cda82252"
+    },
+    {
+      "path": "data/games/undefined/HyperDrive27_vs_CRANK__165d01f6.txt",
+      "id": 1772487347699,
+      "home": "HyperDrive27",
+      "away": "CRANK_",
+      "uid": "165d01f6"
+    },
+    {
+      "path": "data/games/undefined/Mashinini_vs_bhaze_3d11664e.txt",
+      "id": 1772522457523,
+      "home": "Mashinini",
+      "away": "bhaze",
+      "uid": "3d11664e"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_DJRonaldoZA_dcb79ca6.txt",
+      "id": 1772522460753,
+      "home": "Nigelmj21",
+      "away": "DJRonaldoZA",
+      "uid": "dcb79ca6"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_SMANGALISO_0d95a75c.txt",
+      "id": 1772522461467,
+      "home": "RoyalAM",
+      "away": "SMANGALISO",
+      "uid": "0d95a75c"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_E1even-Starz_50b3c650.txt",
+      "id": 1772522462188,
+      "home": "Ctaum-cpt",
+      "away": "E1even-Starz",
+      "uid": "50b3c650"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_bhaze_2af5a6bd.txt",
+      "id": 1772568143391,
+      "home": "Ctaum-cpt",
+      "away": "bhaze",
+      "uid": "2af5a6bd"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_wham_ffcce9d7.txt",
+      "id": 1772568169701,
+      "home": "SMANGALISO",
+      "away": "wham",
+      "uid": "ffcce9d7"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_Yungboyshlime_abbfe484.txt",
+      "id": 1772568237709,
+      "home": "Sailor",
+      "away": "Yungboyshlime",
+      "uid": "abbfe484"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_KING_KHESWA__42a5757d.txt",
+      "id": 1772568264989,
+      "home": "MGSatarou",
+      "away": "KING_KHESWA.",
+      "uid": "42a5757d"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_E1even-Starz_803dcfea.txt",
+      "id": 1772568282466,
+      "home": "Dontwindraw",
+      "away": "E1even-Starz",
+      "uid": "803dcfea"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_DJRonaldoZA_16cd46a8.txt",
+      "id": 1772568301765,
+      "home": "DiliboL",
+      "away": "DJRonaldoZA",
+      "uid": "16cd46a8"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_Zan-Ten_39575cd2.txt",
+      "id": 1772568332607,
+      "home": "RoyalAM",
+      "away": "Zan-Ten",
+      "uid": "39575cd2"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_leomessi_04f1e918.txt",
+      "id": 1772568349797,
+      "home": "RFT07",
+      "away": "leomessi",
+      "uid": "04f1e918"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_ExequielThwala_448aeb4a.txt",
+      "id": 1772568761923,
+      "home": "Lukie",
+      "away": "ExequielThwala",
+      "uid": "448aeb4a"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_Ctaum-cpt_5696330d.txt",
+      "id": 1772661830991,
+      "home": "Zan-Ten",
+      "away": "Ctaum-cpt",
+      "uid": "5696330d"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_Lukie_04d3e4de.txt",
+      "id": 1772661843838,
+      "home": "leomessi",
+      "away": "Lukie",
+      "uid": "04d3e4de"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_DiliboL_8705e4e3.txt",
+      "id": 1772661866395,
+      "home": "Yungboyshlime",
+      "away": "DiliboL",
+      "uid": "8705e4e3"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_Barca__cb171db2.txt",
+      "id": 1772661885665,
+      "home": "RFT07",
+      "away": "Barca.",
+      "uid": "cb171db2"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_E1even-Starz_e766f4ec.txt",
+      "id": 1772661910389,
+      "home": "ExequielThwala",
+      "away": "E1even-Starz",
+      "uid": "e766f4ec"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_Dontwindraw_fff9ee03.txt",
+      "id": 1772661928272,
+      "home": "Sailor",
+      "away": "Dontwindraw",
+      "uid": "fff9ee03"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_DJRonaldoZA_a683184c.txt",
+      "id": 1772661942965,
+      "home": "KING_KHESWA.",
+      "away": "DJRonaldoZA",
+      "uid": "a683184c"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_CRANK__4ae36752.txt",
+      "id": 1772662178169,
+      "home": "Barca.",
+      "away": "CRANK_",
+      "uid": "4ae36752"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_CRANK__1354227f.txt",
+      "id": 1772662375202,
+      "home": "Nigelmj21",
+      "away": "CRANK_",
+      "uid": "1354227f"
+    },
+    {
+      "path": "data/games/undefined/DJRonaldoZA_vs_KING_KHESWA__69761b2c.txt",
+      "id": 1772774319043,
+      "home": "DJRonaldoZA",
+      "away": "KING_KHESWA.",
+      "uid": "69761b2c"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_Sailor_281c0c53.txt",
+      "id": 1772774341188,
+      "home": "Zan-Ten",
+      "away": "Sailor",
+      "uid": "281c0c53"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_RoyalAM_f5c6c547.txt",
+      "id": 1772774356945,
+      "home": "ExequielThwala",
+      "away": "RoyalAM",
+      "uid": "f5c6c547"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_RFT07_7aa87c42.txt",
+      "id": 1772774734715,
+      "home": "Yungboyshlime",
+      "away": "RFT07",
+      "uid": "7aa87c42"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_DiliboL_83e0df32.txt",
+      "id": 1772774775543,
+      "home": "Lukie",
+      "away": "DiliboL",
+      "uid": "83e0df32"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_Barca__505762b2.txt",
+      "id": 1772774825591,
+      "home": "Ctaum-cpt",
+      "away": "Barca.",
+      "uid": "505762b2"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_MGSatarou_8104e88f.txt",
+      "id": 1772775095078,
+      "home": "RoyalAM",
+      "away": "MGSatarou",
+      "uid": "8104e88f"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_bhaze_956c388c.txt",
+      "id": 1772775216527,
+      "home": "wham",
+      "away": "bhaze",
+      "uid": "956c388c"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_CRANK__57aa9b4c.txt",
+      "id": 1772775289820,
+      "home": "leomessi",
+      "away": "CRANK_",
+      "uid": "57aa9b4c"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_E1even-Starz_1094800a.txt",
+      "id": 1772775346634,
+      "home": "SMANGALISO",
+      "away": "E1even-Starz",
+      "uid": "1094800a"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_SMANGALISO_1aa295c6.txt",
+      "id": 1772775438829,
+      "home": "bhaze",
+      "away": "SMANGALISO",
+      "uid": "1aa295c6"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_MGSatarou_fadeeb46.txt",
+      "id": 1772775439535,
+      "home": "Nigelmj21",
+      "away": "MGSatarou",
+      "uid": "fadeeb46"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_leomessi_e374a05e.txt",
+      "id": 1772840388339,
+      "home": "bhaze",
+      "away": "leomessi",
+      "uid": "e374a05e"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_KING_KHESWA__83d52156.txt",
+      "id": 1772840417091,
+      "home": "Dontwindraw",
+      "away": "KING_KHESWA.",
+      "uid": "83d52156"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_wham_a2b27692.txt",
+      "id": 1772840456522,
+      "home": "RoyalAM",
+      "away": "wham",
+      "uid": "a2b27692"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_wham_e72f01a2.txt",
+      "id": 1772840456813,
+      "home": "RoyalAM",
+      "away": "wham",
+      "uid": "e72f01a2"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_Lukie_9f276e48.txt",
+      "id": 1772840489835,
+      "home": "E1even-Starz",
+      "away": "Lukie",
+      "uid": "9f276e48"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_ExequielThwala_7cf2e2d6.txt",
+      "id": 1772840718846,
+      "home": "SMANGALISO",
+      "away": "ExequielThwala",
+      "uid": "7cf2e2d6"
+    },
+    {
+      "path": "data/games/undefined/DJRonaldoZA_vs_Sailor_270fe0b7.txt",
+      "id": 1772840745727,
+      "home": "DJRonaldoZA",
+      "away": "Sailor",
+      "uid": "270fe0b7"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_RFT07_26f68afc.txt",
+      "id": 1772840765049,
+      "home": "Nigelmj21",
+      "away": "RFT07",
+      "uid": "26f68afc"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_DiliboL_83d94f12.txt",
+      "id": 1772840875164,
+      "home": "Zan-Ten",
+      "away": "DiliboL",
+      "uid": "83d94f12"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_Yungboyshlime_b716a233.txt",
+      "id": 1772840995038,
+      "home": "Barca.",
+      "away": "Yungboyshlime",
+      "uid": "b716a233"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_Ctaum-cpt_ace6ab3c.txt",
+      "id": 1773003647145,
+      "home": "MGSatarou",
+      "away": "Ctaum-cpt",
+      "uid": "ace6ab3c"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_E1even-Starz_812907aa.txt",
+      "id": 1773003739435,
+      "home": "KING_KHESWA.",
+      "away": "E1even-Starz",
+      "uid": "812907aa"
+    },
+    {
+      "path": "data/games/undefined/DJRonaldoZA_vs_RFT07_35d0f22f.txt",
+      "id": 1773003765132,
+      "home": "DJRonaldoZA",
+      "away": "RFT07",
+      "uid": "35d0f22f"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_RoyalAM_4f75e7f7.txt",
+      "id": 1773003798618,
+      "home": "ExequielThwala",
+      "away": "RoyalAM",
+      "uid": "4f75e7f7"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_Sailor_d72b2154.txt",
+      "id": 1773003826726,
+      "home": "leomessi",
+      "away": "Sailor",
+      "uid": "d72b2154"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_Dontwindraw_9ed0a023.txt",
+      "id": 1773004185615,
+      "home": "Ctaum-cpt",
+      "away": "Dontwindraw",
+      "uid": "9ed0a023"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_Nigelmj21_4b3fb70e.txt",
+      "id": 1773004382124,
+      "home": "Zan-Ten",
+      "away": "Nigelmj21",
+      "uid": "4b3fb70e"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_wham_b7e3a4b6.txt",
+      "id": 1773004504216,
+      "home": "DiliboL",
+      "away": "wham",
+      "uid": "b7e3a4b6"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_Yungboyshlime_c93e56c8.txt",
+      "id": 1773004504745,
+      "home": "bhaze",
+      "away": "Yungboyshlime",
+      "uid": "c93e56c8"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_SMANGALISO_6fd3a8f7.txt",
+      "id": 1773004505196,
+      "home": "MGSatarou",
+      "away": "SMANGALISO",
+      "uid": "6fd3a8f7"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_Barca__ad88d147.txt",
+      "id": 1773004506014,
+      "home": "Lukie",
+      "away": "Barca.",
+      "uid": "ad88d147"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_RoyalAM_cd50e56d.txt",
+      "id": 1773056390500,
+      "home": "SMANGALISO",
+      "away": "RoyalAM",
+      "uid": "cd50e56d"
+    },
+    {
+      "path": "data/games/undefined/DJRonaldoZA_vs_bhaze_381cbede.txt",
+      "id": 1773087004962,
+      "home": "DJRonaldoZA",
+      "away": "bhaze",
+      "uid": "381cbede"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_KING_KHESWA__23a5339f.txt",
+      "id": 1773087040332,
+      "home": "ExequielThwala",
+      "away": "KING_KHESWA.",
+      "uid": "23a5339f"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_RFT07_dd6df9c7.txt",
+      "id": 1773087067890,
+      "home": "MGSatarou",
+      "away": "RFT07",
+      "uid": "dd6df9c7"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_Lukie_69b451ae.txt",
+      "id": 1773087097478,
+      "home": "leomessi",
+      "away": "Lukie",
+      "uid": "69b451ae"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_DiliboL_42ace643.txt",
+      "id": 1773087136362,
+      "home": "wham",
+      "away": "DiliboL",
+      "uid": "42ace643"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_E1even-Starz_b2fc6efe.txt",
+      "id": 1773087301381,
+      "home": "Zan-Ten",
+      "away": "E1even-Starz",
+      "uid": "b2fc6efe"
+    },
+    {
+      "path": "data/games/undefined/CRANK__vs_Ctaum-cpt_40458677.txt",
+      "id": 1773118355234,
+      "home": "CRANK_",
+      "away": "Ctaum-cpt",
+      "uid": "40458677"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_Sailor_2f821018.txt",
+      "id": 1773118436583,
+      "home": "Barca.",
+      "away": "Sailor",
+      "uid": "2f821018"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_Yungboyshlime_4966bd87.txt",
+      "id": 1773118448508,
+      "home": "Nigelmj21",
+      "away": "Yungboyshlime",
+      "uid": "4966bd87"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_KING_KHESWA__591422b6.txt",
+      "id": 1773130005543,
+      "home": "Zan-Ten",
+      "away": "KING_KHESWA.",
+      "uid": "591422b6"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_XWRLD_REAPERS_0003d761.txt",
+      "id": 1773205449765,
+      "home": "Ctaum-cpt",
+      "away": "XWRLD_REAPERS",
+      "uid": "0003d761"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_Lukie_c725ccfb.txt",
+      "id": 1773205470510,
+      "home": "Dontwindraw",
+      "away": "Lukie",
+      "uid": "c725ccfb"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_bhaze_8fd2f46e.txt",
+      "id": 1773205500253,
+      "home": "RoyalAM",
+      "away": "bhaze",
+      "uid": "8fd2f46e"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_Yungboyshlime_d764c540.txt",
+      "id": 1773205568221,
+      "home": "Sailor",
+      "away": "Yungboyshlime",
+      "uid": "d764c540"
+    },
+    {
+      "path": "data/games/undefined/DJRonaldoZA_vs_Nigelmj21_5bbfc7fc.txt",
+      "id": 1773205627837,
+      "home": "DJRonaldoZA",
+      "away": "Nigelmj21",
+      "uid": "5bbfc7fc"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_Barca__b03c3473.txt",
+      "id": 1773205965830,
+      "home": "SMANGALISO",
+      "away": "Barca.",
+      "uid": "b03c3473"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_Ctaum-cpt_633f98b9.txt",
+      "id": 1773248064001,
+      "home": "Zan-Ten",
+      "away": "Ctaum-cpt",
+      "uid": "633f98b9"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_CRANK__a8e7fa63.txt",
+      "id": 1773299799584,
+      "home": "E1even-Starz",
+      "away": "CRANK_",
+      "uid": "a8e7fa63"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_Nigelmj21_1821ee07.txt",
+      "id": 1773299858189,
+      "home": "MGSatarou",
+      "away": "Nigelmj21",
+      "uid": "1821ee07"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_KING_KHESWA__29d27fc7.txt",
+      "id": 1773299903982,
+      "home": "SMANGALISO",
+      "away": "KING_KHESWA.",
+      "uid": "29d27fc7"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_Yungboyshlime_29816522.txt",
+      "id": 1773299923442,
+      "home": "DiliboL",
+      "away": "Yungboyshlime",
+      "uid": "29816522"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_RFT07_1e2170ef.txt",
+      "id": 1773299957912,
+      "home": "bhaze",
+      "away": "RFT07",
+      "uid": "1e2170ef"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_Lukie_2355adaf.txt",
+      "id": 1773300098125,
+      "home": "wham",
+      "away": "Lukie",
+      "uid": "2355adaf"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_ExequielThwala_954be693.txt",
+      "id": 1773300134653,
+      "home": "MGSatarou",
+      "away": "ExequielThwala",
+      "uid": "954be693"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_Barca__0410da67.txt",
+      "id": 1773300206680,
+      "home": "Sailor",
+      "away": "Barca.",
+      "uid": "0410da67"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_CRANK__022c6c0e.txt",
+      "id": 1773300215205,
+      "home": "E1even-Starz",
+      "away": "CRANK_",
+      "uid": "022c6c0e"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_DiliboL_65b1aaf9.txt",
+      "id": 1773377007545,
+      "home": "ExequielThwala",
+      "away": "DiliboL",
+      "uid": "65b1aaf9"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_ExequielThwala_71e6dd70.txt",
+      "id": 1773377051456,
+      "home": "RoyalAM",
+      "away": "ExequielThwala",
+      "uid": "71e6dd70"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_SMANGALISO_0169db72.txt",
+      "id": 1773377173840,
+      "home": "RFT07",
+      "away": "SMANGALISO",
+      "uid": "0169db72"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_Dontwindraw_7b492ba4.txt",
+      "id": 1773377206255,
+      "home": "bhaze",
+      "away": "Dontwindraw",
+      "uid": "7b492ba4"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_Barca__21f6a397.txt",
+      "id": 1773377245908,
+      "home": "Ctaum-cpt",
+      "away": "Barca.",
+      "uid": "21f6a397"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_DJRonaldoZA_76bc7058.txt",
+      "id": 1773377265864,
+      "home": "KING_KHESWA.",
+      "away": "DJRonaldoZA",
+      "uid": "76bc7058"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_E1even-Starz_598412bb.txt",
+      "id": 1773377305872,
+      "home": "Zan-Ten",
+      "away": "E1even-Starz",
+      "uid": "598412bb"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_Yungboyshlime_250cdd53.txt",
+      "id": 1773377396814,
+      "home": "Sailor",
+      "away": "Yungboyshlime",
+      "uid": "250cdd53"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_RoyalAM_6dc4e073.txt",
+      "id": 1773377453292,
+      "home": "Lukie",
+      "away": "RoyalAM",
+      "uid": "6dc4e073"
+    },
+    {
+      "path": "data/games/undefined/CRANK__vs_MGSatarou_6a93e006.txt",
+      "id": 1773377521541,
+      "home": "CRANK_",
+      "away": "MGSatarou",
+      "uid": "6a93e006"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_RoyalAM_0346783b.txt",
+      "id": 1773473464820,
+      "home": "Lukie",
+      "away": "RoyalAM",
+      "uid": "0346783b"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_RFT07_8e0226c0.txt",
+      "id": 1773473499623,
+      "home": "Dontwindraw",
+      "away": "RFT07",
+      "uid": "8e0226c0"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_Zan-Ten_dffbdaf0.txt",
+      "id": 1773473535184,
+      "home": "Barca.",
+      "away": "Zan-Ten",
+      "uid": "dffbdaf0"
+    },
+    {
+      "path": "data/games/undefined/DJRonaldoZA_vs_bhaze_70318b3c.txt",
+      "id": 1773473556390,
+      "home": "DJRonaldoZA",
+      "away": "bhaze",
+      "uid": "70318b3c"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_KING_KHESWA__72f8e30e.txt",
+      "id": 1773473609105,
+      "home": "Nigelmj21",
+      "away": "KING_KHESWA.",
+      "uid": "72f8e30e"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_CRANK__a00f8c81.txt",
+      "id": 1773473997246,
+      "home": "Yungboyshlime",
+      "away": "CRANK_",
+      "uid": "a00f8c81"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_Ctaum-cpt_22c27392.txt",
+      "id": 1773474175864,
+      "home": "SMANGALISO",
+      "away": "Ctaum-cpt",
+      "uid": "22c27392"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_MGSatarou_602e6898.txt",
+      "id": 1773474179759,
+      "home": "Sailor",
+      "away": "MGSatarou",
+      "uid": "602e6898"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_wham_fb27ca93.txt",
+      "id": 1773474181889,
+      "home": "E1even-Starz",
+      "away": "wham",
+      "uid": "fb27ca93"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_Lukie_f7134d3e.txt",
+      "id": 1773514763300,
+      "home": "bhaze",
+      "away": "Lukie",
+      "uid": "f7134d3e"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_RoyalAM_ce2280d9.txt",
+      "id": 1773514782376,
+      "home": "RFT07",
+      "away": "RoyalAM",
+      "uid": "ce2280d9"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_DiliboL_dfcad3a0.txt",
+      "id": 1773520759095,
+      "home": "E1even-Starz",
+      "away": "DiliboL",
+      "uid": "dfcad3a0"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_KING_KHESWA__bddd4884.txt",
+      "id": 1773520790862,
+      "home": "Yungboyshlime",
+      "away": "KING_KHESWA.",
+      "uid": "bddd4884"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_Nigelmj21_c9d23e75.txt",
+      "id": 1773601139586,
+      "home": "wham",
+      "away": "Nigelmj21",
+      "uid": "c9d23e75"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_SMANGALISO_e705d0d0.txt",
+      "id": 1773601141994,
+      "home": "Zan-Ten",
+      "away": "SMANGALISO",
+      "uid": "e705d0d0"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_SMANGALISO_c68cc098.txt",
+      "id": 1773732882083,
+      "home": "bhaze",
+      "away": "SMANGALISO",
+      "uid": "c68cc098"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_RFT07_7b45e78c.txt",
+      "id": 1773732909134,
+      "home": "Dontwindraw",
+      "away": "RFT07",
+      "uid": "7b45e78c"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_Yungboyshlime_261ff00e.txt",
+      "id": 1773732955604,
+      "home": "Ctaum-cpt",
+      "away": "Yungboyshlime",
+      "uid": "261ff00e"
+    },
+    {
+      "path": "data/games/undefined/DJRonaldoZA_vs_Ctaum-cpt_7e8fad58.txt",
+      "id": 1773732975178,
+      "home": "DJRonaldoZA",
+      "away": "Ctaum-cpt",
+      "uid": "7e8fad58"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_E1even-Starz_cdd3da93.txt",
+      "id": 1773733016635,
+      "home": "MGSatarou",
+      "away": "E1even-Starz",
+      "uid": "cdd3da93"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_Nigelmj21_8b446de2.txt",
+      "id": 1773733053948,
+      "home": "Zan-Ten",
+      "away": "Nigelmj21",
+      "uid": "8b446de2"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_Lukie_2eddd905.txt",
+      "id": 1773733096882,
+      "home": "KING_KHESWA.",
+      "away": "Lukie",
+      "uid": "2eddd905"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_CRANK__0e1105f1.txt",
+      "id": 1773733117783,
+      "home": "Dontwindraw",
+      "away": "CRANK_",
+      "uid": "0e1105f1"
+    },
+    {
+      "path": "data/games/undefined/DJRonaldoZA_vs_DiliboL_9574801e.txt",
+      "id": 1773733136287,
+      "home": "DJRonaldoZA",
+      "away": "DiliboL",
+      "uid": "9574801e"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_Barca__d98bf68c.txt",
+      "id": 1773733239317,
+      "home": "Sailor",
+      "away": "Barca.",
+      "uid": "d98bf68c"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_RoyalAM_5378cf6e.txt",
+      "id": 1773733242157,
+      "home": "Sailor",
+      "away": "RoyalAM",
+      "uid": "5378cf6e"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_wham_0a1e9d62.txt",
+      "id": 1773733288559,
+      "home": "Barca.",
+      "away": "wham",
+      "uid": "0a1e9d62"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_MGSatarou_ec7ec79e.txt",
+      "id": 1773817411826,
+      "home": "leomessi",
+      "away": "MGSatarou",
+      "uid": "ec7ec79e"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_SMANGALISO_fc633532.txt",
+      "id": 1773817439304,
+      "home": "Sailor",
+      "away": "SMANGALISO",
+      "uid": "fc633532"
+    },
+    {
+      "path": "data/games/undefined/DJRonaldoZA_vs_bhaze_2aef8326.txt",
+      "id": 1773817472778,
+      "home": "DJRonaldoZA",
+      "away": "bhaze",
+      "uid": "2aef8326"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_Ctaum-cpt_89282962.txt",
+      "id": 1773817497406,
+      "home": "Dontwindraw",
+      "away": "Ctaum-cpt",
+      "uid": "89282962"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_KING_KHESWA__eb3c47ef.txt",
+      "id": 1773817522379,
+      "home": "Lukie",
+      "away": "KING_KHESWA.",
+      "uid": "eb3c47ef"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_Barca__0b9a0f82.txt",
+      "id": 1773817539813,
+      "home": "Nigelmj21",
+      "away": "Barca.",
+      "uid": "0b9a0f82"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_CRANK__c7234f79.txt",
+      "id": 1773818178830,
+      "home": "RFT07",
+      "away": "CRANK_",
+      "uid": "c7234f79"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_E1even-Starz_7ec35507.txt",
+      "id": 1773818450451,
+      "home": "MGSatarou",
+      "away": "E1even-Starz",
+      "uid": "7ec35507"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_Ctaum-cpt_16d27ce8.txt",
+      "id": 1773901682365,
+      "home": "Lukie",
+      "away": "Ctaum-cpt",
+      "uid": "16d27ce8"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_Zan-Ten_a7bca171.txt",
+      "id": 1773901703486,
+      "home": "RoyalAM",
+      "away": "Zan-Ten",
+      "uid": "a7bca171"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_DiliboL_8721ef31.txt",
+      "id": 1773901756098,
+      "home": "leomessi",
+      "away": "DiliboL",
+      "uid": "8721ef31"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_Nigelmj21_ad78b198.txt",
+      "id": 1773901777006,
+      "home": "RFT07",
+      "away": "Nigelmj21",
+      "uid": "ad78b198"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_Sailor_8cab8fcb.txt",
+      "id": 1773901823118,
+      "home": "MGSatarou",
+      "away": "Sailor",
+      "uid": "8cab8fcb"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_bhaze_59aad1e1.txt",
+      "id": 1773901849532,
+      "home": "Dontwindraw",
+      "away": "bhaze",
+      "uid": "59aad1e1"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_wham_10e734ef.txt",
+      "id": 1773901891472,
+      "home": "leomessi",
+      "away": "wham",
+      "uid": "10e734ef"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_wham_9cbbddcb.txt",
+      "id": 1773901901340,
+      "home": "leomessi",
+      "away": "wham",
+      "uid": "9cbbddcb"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_leomessi_c3bb0dce.txt",
+      "id": 1773901931857,
+      "home": "wham",
+      "away": "leomessi",
+      "uid": "c3bb0dce"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_wham_3bae9511.txt",
+      "id": 1773901950473,
+      "home": "leomessi",
+      "away": "wham",
+      "uid": "3bae9511"
+    },
+    {
+      "path": "data/games/undefined/DJRonaldoZA_vs_leomessi_2d40162d.txt",
+      "id": 1773902036530,
+      "home": "DJRonaldoZA",
+      "away": "leomessi",
+      "uid": "2d40162d"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_DJRonaldoZA_4814f1a8.txt",
+      "id": 1773902050285,
+      "home": "Zan-Ten",
+      "away": "DJRonaldoZA",
+      "uid": "4814f1a8"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_SMANGALISO_17bffb3b.txt",
+      "id": 1773902079441,
+      "home": "DiliboL",
+      "away": "SMANGALISO",
+      "uid": "17bffb3b"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_KING_KHESWA__dded48c0.txt",
+      "id": 1773902505883,
+      "home": "RoyalAM",
+      "away": "KING_KHESWA.",
+      "uid": "dded48c0"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_DiliboL_97dc39fb.txt",
+      "id": 1773902543384,
+      "home": "Yungboyshlime",
+      "away": "DiliboL",
+      "uid": "97dc39fb"
+    },
+    {
+      "path": "data/games/undefined/CRANK__vs_E1even-Starz_6a2255c6.txt",
+      "id": 1773902544167,
+      "home": "CRANK_",
+      "away": "E1even-Starz",
+      "uid": "6a2255c6"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_Barca__e5074dc3.txt",
+      "id": 1773902544902,
+      "home": "Yungboyshlime",
+      "away": "Barca.",
+      "uid": "e5074dc3"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_KING_KHESWA__d98322a1.txt",
+      "id": 1773991189425,
+      "home": "leomessi",
+      "away": "KING_KHESWA.",
+      "uid": "d98322a1"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_XWRLD_REAPERS_2a71a056.txt",
+      "id": 1773991206220,
+      "home": "Zan-Ten",
+      "away": "XWRLD_REAPERS",
+      "uid": "2a71a056"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_DJRonaldoZA_c3fccb1c.txt",
+      "id": 1773991230874,
+      "home": "RFT07",
+      "away": "DJRonaldoZA",
+      "uid": "c3fccb1c"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_MGSatarou_4010095d.txt",
+      "id": 1773991378095,
+      "home": "Dontwindraw",
+      "away": "MGSatarou",
+      "uid": "4010095d"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_wham_aba2b341.txt",
+      "id": 1773991438267,
+      "home": "Nigelmj21",
+      "away": "wham",
+      "uid": "aba2b341"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_Ctaum-cpt_a136db7d.txt",
+      "id": 1773991447196,
+      "home": "Yungboyshlime",
+      "away": "Ctaum-cpt",
+      "uid": "a136db7d"
+    },
+    {
+      "path": "data/games/undefined/CRANK__vs_RoyalAM_8d62c5e4.txt",
+      "id": 1773991454577,
+      "home": "CRANK_",
+      "away": "RoyalAM",
+      "uid": "8d62c5e4"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_Sailor_57637ad9.txt",
+      "id": 1773991565853,
+      "home": "bhaze",
+      "away": "Sailor",
+      "uid": "57637ad9"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_Lukie_d8cb4d09.txt",
+      "id": 1773991575608,
+      "home": "SMANGALISO",
+      "away": "Lukie",
+      "uid": "d8cb4d09"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_CRANK__53f13c6d.txt",
+      "id": 1773991583521,
+      "home": "leomessi",
+      "away": "CRANK_",
+      "uid": "53f13c6d"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_E1even-Starz_f6a2d2ee.txt",
+      "id": 1773991654948,
+      "home": "Barca.",
+      "away": "E1even-Starz",
+      "uid": "f6a2d2ee"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_RoyalAM_17cc402f.txt",
+      "id": 1774043619673,
+      "home": "Zan-Ten",
+      "away": "RoyalAM",
+      "uid": "17cc402f"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_RFT07_8d6b6536.txt",
+      "id": 1774043646217,
+      "home": "leomessi",
+      "away": "RFT07",
+      "uid": "8d6b6536"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_DiliboL_32615fc8.txt",
+      "id": 1774043676798,
+      "home": "SMANGALISO",
+      "away": "DiliboL",
+      "uid": "32615fc8"
+    },
+    {
+      "path": "data/games/undefined/DJRonaldoZA_vs_KING_KHESWA__dc5ef0b5.txt",
+      "id": 1774043693953,
+      "home": "DJRonaldoZA",
+      "away": "KING_KHESWA.",
+      "uid": "dc5ef0b5"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_Sailor_78b02a70.txt",
+      "id": 1774043712463,
+      "home": "Ctaum-cpt",
+      "away": "Sailor",
+      "uid": "78b02a70"
+    },
+    {
+      "path": "data/games/undefined/CRANK__vs_Yungboyshlime_86309ca4.txt",
+      "id": 1774043754117,
+      "home": "CRANK_",
+      "away": "Yungboyshlime",
+      "uid": "86309ca4"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_Dontwindraw_776b91cf.txt",
+      "id": 1774043867456,
+      "home": "Nigelmj21",
+      "away": "Dontwindraw",
+      "uid": "776b91cf"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_bhaze_adb39f40.txt",
+      "id": 1774043929176,
+      "home": "E1even-Starz",
+      "away": "bhaze",
+      "uid": "adb39f40"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_Barca__f4d7e592.txt",
+      "id": 1774043929777,
+      "home": "MGSatarou",
+      "away": "Barca.",
+      "uid": "f4d7e592"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_wham_d98299e2.txt",
+      "id": 1774043930226,
+      "home": "Lukie",
+      "away": "wham",
+      "uid": "d98299e2"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_RFT07_dad05640.txt",
+      "id": 1774126489326,
+      "home": "bhaze",
+      "away": "RFT07",
+      "uid": "dad05640"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_SMANGALISO_ec5040d3.txt",
+      "id": 1774126507909,
+      "home": "Ctaum-cpt",
+      "away": "SMANGALISO",
+      "uid": "ec5040d3"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_CRANK__0a62e6f6.txt",
+      "id": 1774126542104,
+      "home": "Yungboyshlime",
+      "away": "CRANK_",
+      "uid": "0a62e6f6"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_leomessi_e0a3a8b7.txt",
+      "id": 1774126606175,
+      "home": "Zan-Ten",
+      "away": "leomessi",
+      "uid": "e0a3a8b7"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_Dontwindraw_aec126f5.txt",
+      "id": 1774126615050,
+      "home": "DiliboL",
+      "away": "Dontwindraw",
+      "uid": "aec126f5"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_KING_KHESWA__81f40a69.txt",
+      "id": 1774126654121,
+      "home": "wham",
+      "away": "KING_KHESWA.",
+      "uid": "81f40a69"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_E1even-Starz_53c0c019.txt",
+      "id": 1774126702604,
+      "home": "RoyalAM",
+      "away": "E1even-Starz",
+      "uid": "53c0c019"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_DJRonaldoZA_7a0cfa24.txt",
+      "id": 1774126888532,
+      "home": "Sailor",
+      "away": "DJRonaldoZA",
+      "uid": "7a0cfa24"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_Nigelmj21_3e67b876.txt",
+      "id": 1774126889975,
+      "home": "MGSatarou",
+      "away": "Nigelmj21",
+      "uid": "3e67b876"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_Lukie_6136a9d6.txt",
+      "id": 1774126891156,
+      "home": "Barca.",
+      "away": "Lukie",
+      "uid": "6136a9d6"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_Zan-Ten_a0c0873b.txt",
+      "id": 1774356377606,
+      "home": "Nigelmj21",
+      "away": "Zan-Ten",
+      "uid": "a0c0873b"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_SMANGALISO_949ee930.txt",
+      "id": 1774369668458,
+      "home": "leomessi",
+      "away": "SMANGALISO",
+      "uid": "949ee930"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_E1even-Starz_1802eaf9.txt",
+      "id": 1774380935847,
+      "home": "RFT07",
+      "away": "E1even-Starz",
+      "uid": "1802eaf9"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_CRANK__2d49d0d6.txt",
+      "id": 1774417917978,
+      "home": "Lukie",
+      "away": "CRANK_",
+      "uid": "2d49d0d6"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_Ctaum-cpt_239411d1.txt",
+      "id": 1774417942353,
+      "home": "Barca.",
+      "away": "Ctaum-cpt",
+      "uid": "239411d1"
+    },
+    {
+      "path": "data/games/undefined/DARK-_-CEO_vs_Sailor_6d8e49d1.txt",
+      "id": 1774417994130,
+      "home": "DARK-_-CEO",
+      "away": "Sailor",
+      "uid": "6d8e49d1"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_KING_KHESWA__bd668edc.txt",
+      "id": 1774418046482,
+      "home": "MGSatarou",
+      "away": "KING_KHESWA.",
+      "uid": "bd668edc"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_DiliboL_483e5514.txt",
+      "id": 1774418099785,
+      "home": "Yungboyshlime",
+      "away": "DiliboL",
+      "uid": "483e5514"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_DJRonaldoZA_8464d9ce.txt",
+      "id": 1774418123350,
+      "home": "bhaze",
+      "away": "DJRonaldoZA",
+      "uid": "8464d9ce"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_Zan-Ten_af558258.txt",
+      "id": 1774435824671,
+      "home": "KING_KHESWA.",
+      "away": "Zan-Ten",
+      "uid": "af558258"
+    },
+    {
+      "path": "data/games/undefined/DJRonaldoZA_vs_MGSatarou_5820bea3.txt",
+      "id": 1774435849908,
+      "home": "DJRonaldoZA",
+      "away": "MGSatarou",
+      "uid": "5820bea3"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_Dontwindraw_b0419e0c.txt",
+      "id": 1774471768432,
+      "home": "Sailor",
+      "away": "Dontwindraw",
+      "uid": "b0419e0c"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_wham_a0a9ac53.txt",
+      "id": 1774471791933,
+      "home": "RoyalAM",
+      "away": "wham",
+      "uid": "a0a9ac53"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_SMANGALISO_7d9ab313.txt",
+      "id": 1774471811847,
+      "home": "Ctaum-cpt",
+      "away": "SMANGALISO",
+      "uid": "7d9ab313"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_CRANK__8d13b9b5.txt",
+      "id": 1774471831913,
+      "home": "bhaze",
+      "away": "CRANK_",
+      "uid": "8d13b9b5"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_leomessi_0eabd641.txt",
+      "id": 1774471863894,
+      "home": "RFT07",
+      "away": "leomessi",
+      "uid": "0eabd641"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_Nigelmj21_d35395cb.txt",
+      "id": 1774471904834,
+      "home": "E1even-Starz",
+      "away": "Nigelmj21",
+      "uid": "d35395cb"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_XWRLD_REAPERS_6e1629b6.txt",
+      "id": 1774471911719,
+      "home": "Lukie",
+      "away": "XWRLD_REAPERS",
+      "uid": "6e1629b6"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_Barca__f4c22615.txt",
+      "id": 1774471964044,
+      "home": "wham",
+      "away": "Barca.",
+      "uid": "f4c22615"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_DARK-_-CEO_dff6062f.txt",
+      "id": 1774471972376,
+      "home": "Yungboyshlime",
+      "away": "DARK-_-CEO",
+      "uid": "dff6062f"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_CRANK__f9b28e49.txt",
+      "id": 1774563841570,
+      "home": "DiliboL",
+      "away": "CRANK_",
+      "uid": "f9b28e49"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_KING_KHESWA__29fad3b7.txt",
+      "id": 1774563858117,
+      "home": "leomessi",
+      "away": "KING_KHESWA.",
+      "uid": "29fad3b7"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_RoyalAM_91553bd8.txt",
+      "id": 1774563930123,
+      "home": "Ctaum-cpt",
+      "away": "RoyalAM",
+      "uid": "91553bd8"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_RFT07_989f7bfc.txt",
+      "id": 1774563946662,
+      "home": "Yungboyshlime",
+      "away": "RFT07",
+      "uid": "989f7bfc"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_Zan-Ten_78f6e6e1.txt",
+      "id": 1774563976108,
+      "home": "wham",
+      "away": "Zan-Ten",
+      "uid": "78f6e6e1"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_Sailor_4a7fd289.txt",
+      "id": 1774563996345,
+      "home": "Dontwindraw",
+      "away": "Sailor",
+      "uid": "4a7fd289"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_MGSatarou_90d2338e.txt",
+      "id": 1774564165733,
+      "home": "Nigelmj21",
+      "away": "MGSatarou",
+      "uid": "90d2338e"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_Lukie_2dd1f857.txt",
+      "id": 1774564166358,
+      "home": "bhaze",
+      "away": "Lukie",
+      "uid": "2dd1f857"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_DARK-_-CEO_d12cf233.txt",
+      "id": 1774564166856,
+      "home": "Barca.",
+      "away": "DARK-_-CEO",
+      "uid": "d12cf233"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_SMANGALISO_4b3853c5.txt",
+      "id": 1774564167301,
+      "home": "E1even-Starz",
+      "away": "SMANGALISO",
+      "uid": "4b3853c5"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_DARK-_-CEO_0292989e.txt",
+      "id": 1774647147428,
+      "home": "RFT07",
+      "away": "DARK-_-CEO",
+      "uid": "0292989e"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_DiliboL_29223a61.txt",
+      "id": 1774647255991,
+      "home": "Yungboyshlime",
+      "away": "DiliboL",
+      "uid": "29223a61"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_MGSatarou_b02efc89.txt",
+      "id": 1774647309771,
+      "home": "leomessi",
+      "away": "MGSatarou",
+      "uid": "b02efc89"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_bhaze_355c7207.txt",
+      "id": 1774679480970,
+      "home": "Lukie",
+      "away": "bhaze",
+      "uid": "355c7207"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_SMANGALISO_65c4c433.txt",
+      "id": 1774679481844,
+      "home": "wham",
+      "away": "SMANGALISO",
+      "uid": "65c4c433"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_RoyalAM_fade6c72.txt",
+      "id": 1774679483898,
+      "home": "Zan-Ten",
+      "away": "RoyalAM",
+      "uid": "fade6c72"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_E1even-Starz_bcfbad1b.txt",
+      "id": 1774679484607,
+      "home": "Barca.",
+      "away": "E1even-Starz",
+      "uid": "bcfbad1b"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_Dontwindraw_6be41a59.txt",
+      "id": 1774679485486,
+      "home": "Sailor",
+      "away": "Dontwindraw",
+      "uid": "6be41a59"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_bhaze_cc3822a8.txt",
+      "id": 1774739079306,
+      "home": "DiliboL",
+      "away": "bhaze",
+      "uid": "cc3822a8"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_RFT07_360f14fa.txt",
+      "id": 1774739084774,
+      "home": "Barca.",
+      "away": "RFT07",
+      "uid": "360f14fa"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_CRANK__343862b2.txt",
+      "id": 1774739188857,
+      "home": "Ctaum-cpt",
+      "away": "CRANK_",
+      "uid": "343862b2"
+    },
+    {
+      "path": "data/games/undefined/CRANK__vs_E1even-Starz_2ba5f505.txt",
+      "id": 1774739209580,
+      "home": "CRANK_",
+      "away": "E1even-Starz",
+      "uid": "2ba5f505"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_Nigelmj21_c0efae4e.txt",
+      "id": 1774739282009,
+      "home": "KING_KHESWA.",
+      "away": "Nigelmj21",
+      "uid": "c0efae4e"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_MGSatarou_3bf1ee02.txt",
+      "id": 1774739390648,
+      "home": "Dontwindraw",
+      "away": "MGSatarou",
+      "uid": "3bf1ee02"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_wham_440fa73e.txt",
+      "id": 1774739415601,
+      "home": "Nigelmj21",
+      "away": "wham",
+      "uid": "440fa73e"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_SMANGALISO_d2c06aeb.txt",
+      "id": 1774739428706,
+      "home": "Yungboyshlime",
+      "away": "SMANGALISO",
+      "uid": "d2c06aeb"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_DARK-_-CEO_2bee556f.txt",
+      "id": 1774739434784,
+      "home": "Lukie",
+      "away": "DARK-_-CEO",
+      "uid": "2bee556f"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_Zan-Ten_b315cdcc.txt",
+      "id": 1774739435761,
+      "home": "leomessi",
+      "away": "Zan-Ten",
+      "uid": "b315cdcc"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_CRANK__c308bba5.txt",
+      "id": 1774910818276,
+      "home": "Dontwindraw",
+      "away": "CRANK_",
+      "uid": "c308bba5"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_DARK-_-CEO_aae6f838.txt",
+      "id": 1774910836220,
+      "home": "Ctaum-cpt",
+      "away": "DARK-_-CEO",
+      "uid": "aae6f838"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_Yungboyshlime_79203449.txt",
+      "id": 1774910857103,
+      "home": "DiliboL",
+      "away": "Yungboyshlime",
+      "uid": "79203449"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_RFT07_3e1b030e.txt",
+      "id": 1774910871620,
+      "home": "Sailor",
+      "away": "RFT07",
+      "uid": "3e1b030e"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_SMANGALISO_8cbf2feb.txt",
+      "id": 1774911576757,
+      "home": "Lukie",
+      "away": "SMANGALISO",
+      "uid": "8cbf2feb"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_bhaze_dc0f69cf.txt",
+      "id": 1774911990085,
+      "home": "MGSatarou",
+      "away": "bhaze",
+      "uid": "dc0f69cf"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_Nigelmj21_4d2204fc.txt",
+      "id": 1774911991203,
+      "home": "Barca.",
+      "away": "Nigelmj21",
+      "uid": "4d2204fc"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_E1even-Starz_9dabe968.txt",
+      "id": 1774911999599,
+      "home": "wham",
+      "away": "E1even-Starz",
+      "uid": "9dabe968"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_Zan-Ten_50f09d4e.txt",
+      "id": 1774912116881,
+      "home": "KING_KHESWA.",
+      "away": "Zan-Ten",
+      "uid": "50f09d4e"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_KING_KHESWA__11e0281b.txt",
+      "id": 1774989691825,
+      "home": "Dontwindraw",
+      "away": "KING_KHESWA.",
+      "uid": "11e0281b"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_Ctaum-cpt_c91f9df8.txt",
+      "id": 1774989712383,
+      "home": "KING_KHESWA.",
+      "away": "Ctaum-cpt",
+      "uid": "c91f9df8"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_wham_2604389c.txt",
+      "id": 1774989750766,
+      "home": "DiliboL",
+      "away": "wham",
+      "uid": "2604389c"
+    },
+    {
+      "path": "data/games/undefined/DARK-_-CEO_vs_RoyalAM_45ddb571.txt",
+      "id": 1774989774878,
+      "home": "DARK-_-CEO",
+      "away": "RoyalAM",
+      "uid": "45ddb571"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_Zan-Ten_74c82c36.txt",
+      "id": 1774989822567,
+      "home": "Barca.",
+      "away": "Zan-Ten",
+      "uid": "74c82c36"
+    },
+    {
+      "path": "data/games/undefined/CRANK__vs_SMANGALISO_ee9c7f8e.txt",
+      "id": 1774989869463,
+      "home": "CRANK_",
+      "away": "SMANGALISO",
+      "uid": "ee9c7f8e"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_leomessi_de7c4da6.txt",
+      "id": 1774990271783,
+      "home": "bhaze",
+      "away": "leomessi",
+      "uid": "de7c4da6"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_RoyalAM_81f7f289.txt",
+      "id": 1774990455551,
+      "home": "Sailor",
+      "away": "RoyalAM",
+      "uid": "81f7f289"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_MGSatarou_f3d597bc.txt",
+      "id": 1774990541215,
+      "home": "E1even-Starz",
+      "away": "MGSatarou",
+      "uid": "f3d597bc"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_Yungboyshlime_d5378907.txt",
+      "id": 1774990559544,
+      "home": "Nigelmj21",
+      "away": "Yungboyshlime",
+      "uid": "d5378907"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_RoyalAM_7b2d4244.txt",
+      "id": 1774990619780,
+      "home": "leomessi",
+      "away": "RoyalAM",
+      "uid": "7b2d4244"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_Lukie_c4c2e4b8.txt",
+      "id": 1775150588386,
+      "home": "Ctaum-cpt",
+      "away": "Lukie",
+      "uid": "c4c2e4b8"
+    },
+    {
+      "path": "data/games/undefined/CRANK__vs_wham_4e9664a1.txt",
+      "id": 1775150618631,
+      "home": "CRANK_",
+      "away": "wham",
+      "uid": "4e9664a1"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_KING_KHESWA__1d7341d7.txt",
+      "id": 1775150640407,
+      "home": "ExequielThwala",
+      "away": "KING_KHESWA.",
+      "uid": "1d7341d7"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_DARK-_-CEO_dfc6e9f6.txt",
+      "id": 1775159031294,
+      "home": "Zan-Ten",
+      "away": "DARK-_-CEO",
+      "uid": "dfc6e9f6"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_Ctaum-cpt_e5b1f5e8.txt",
+      "id": 1775163649850,
+      "home": "RFT07",
+      "away": "Ctaum-cpt",
+      "uid": "e5b1f5e8"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_bhaze_58878ea3.txt",
+      "id": 1775163652250,
+      "home": "RFT07",
+      "away": "bhaze",
+      "uid": "58878ea3"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_Nigelmj21_475218a0.txt",
+      "id": 1775170186179,
+      "home": "Barca.",
+      "away": "Nigelmj21",
+      "uid": "475218a0"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_SMANGALISO_87f0c3bd.txt",
+      "id": 1775170316360,
+      "home": "MGSatarou",
+      "away": "SMANGALISO",
+      "uid": "87f0c3bd"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_E1even-Starz_2fd83934.txt",
+      "id": 1775170324035,
+      "home": "Yungboyshlime",
+      "away": "E1even-Starz",
+      "uid": "2fd83934"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_Sailor_70f3c819.txt",
+      "id": 1775170389212,
+      "home": "Dontwindraw",
+      "away": "Sailor",
+      "uid": "70f3c819"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_RoyalAM_a8771234.txt",
+      "id": 1775170397091,
+      "home": "leomessi",
+      "away": "RoyalAM",
+      "uid": "a8771234"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_Lukie_0ec85d74.txt",
+      "id": 1775170762938,
+      "home": "Sailor",
+      "away": "Lukie",
+      "uid": "0ec85d74"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_bhaze_6f994a55.txt",
+      "id": 1775199119731.57,
+      "home": "DiliboL",
+      "away": "bhaze",
+      "uid": "6f994a55"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_RFT07_9369306b.txt",
+      "id": 1775287245522.8281,
+      "home": "Yungboyshlime",
+      "away": "RFT07",
+      "uid": "9369306b"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_Ctaum-cpt_da050178.txt",
+      "id": 1775321333673,
+      "home": "RoyalAM",
+      "away": "Ctaum-cpt",
+      "uid": "da050178"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_wham_d2afc558.txt",
+      "id": 1775324485049,
+      "home": "leomessi",
+      "away": "wham",
+      "uid": "d2afc558"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_DARK-_-CEO_2f582ed2.txt",
+      "id": 1775334970575.2568,
+      "home": "Zan-Ten",
+      "away": "DARK-_-CEO",
+      "uid": "2f582ed2"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_MGSatarou_499977e7.txt",
+      "id": 1775337543789,
+      "home": "Dontwindraw",
+      "away": "MGSatarou",
+      "uid": "499977e7"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_Barca__e95d993b.txt",
+      "id": 1775342660674,
+      "home": "SMANGALISO",
+      "away": "Barca.",
+      "uid": "e95d993b"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_E1even-Starz_29ada504.txt",
+      "id": 1775342662675,
+      "home": "ExequielThwala",
+      "away": "E1even-Starz",
+      "uid": "29ada504"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_Sailor_4d57988a.txt",
+      "id": 1775342663749,
+      "home": "Nigelmj21",
+      "away": "Sailor",
+      "uid": "4d57988a"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_Lukie_c577bfd5.txt",
+      "id": 1775342668474,
+      "home": "KING_KHESWA.",
+      "away": "Lukie",
+      "uid": "c577bfd5"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_CRANK__e6f4b4ea.txt",
+      "id": 1775769218619,
+      "home": "wham",
+      "away": "CRANK_",
+      "uid": "e6f4b4ea"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_Ctaum-cpt_e8449bd8.txt",
+      "id": 1775769239308,
+      "home": "Nigelmj21",
+      "away": "Ctaum-cpt",
+      "uid": "e8449bd8"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_Dontwindraw_61aa9cbc.txt",
+      "id": 1775769296926,
+      "home": "bhaze",
+      "away": "Dontwindraw",
+      "uid": "61aa9cbc"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_Zan-Ten_d0488e49.txt",
+      "id": 1775769384074,
+      "home": "Barca.",
+      "away": "Zan-Ten",
+      "uid": "d0488e49"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_RFT07_c9bcd9c4.txt",
+      "id": 1775769409149,
+      "home": "SMANGALISO",
+      "away": "RFT07",
+      "uid": "c9bcd9c4"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_KING_KHESWA__e92d8536.txt",
+      "id": 1775769425562,
+      "home": "DiliboL",
+      "away": "KING_KHESWA.",
+      "uid": "e92d8536"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_DARK-_-CEO_f9ee0cc6.txt",
+      "id": 1775769783214,
+      "home": "Sailor",
+      "away": "DARK-_-CEO",
+      "uid": "f9ee0cc6"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_ExequielThwala_a9543607.txt",
+      "id": 1775769814035,
+      "home": "E1even-Starz",
+      "away": "ExequielThwala",
+      "uid": "a9543607"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_leomessi_41561f5c.txt",
+      "id": 1775769820308,
+      "home": "MGSatarou",
+      "away": "leomessi",
+      "uid": "41561f5c"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_Lukie_db41cb14.txt",
+      "id": 1775769868867,
+      "home": "Yungboyshlime",
+      "away": "Lukie",
+      "uid": "db41cb14"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_RFT07_cadf77fb.txt",
+      "id": 1775860445705.159,
+      "home": "DiliboL",
+      "away": "RFT07",
+      "uid": "cadf77fb"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_Zan-Ten_9ac530c1.txt",
+      "id": 1775860514062,
+      "home": "Yungboyshlime",
+      "away": "Zan-Ten",
+      "uid": "9ac530c1"
+    },
+    {
+      "path": "data/games/undefined/CRANK__vs_wham_0c74ade9.txt",
+      "id": 1775860546716,
+      "home": "CRANK_",
+      "away": "wham",
+      "uid": "0c74ade9"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_RoyalAM_8b7c315d.txt",
+      "id": 1775860629466,
+      "home": "Sailor",
+      "away": "RoyalAM",
+      "uid": "8b7c315d"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_bhaze_a2970f72.txt",
+      "id": 1775860700443,
+      "home": "KING_KHESWA.",
+      "away": "bhaze",
+      "uid": "a2970f72"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_Barca__6102ef79.txt",
+      "id": 1775860722040,
+      "home": "ExequielThwala",
+      "away": "Barca.",
+      "uid": "6102ef79"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_Nigelmj21_47d82e7e.txt",
+      "id": 1775860766540,
+      "home": "Dontwindraw",
+      "away": "Nigelmj21",
+      "uid": "47d82e7e"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_DARK-_-CEO_b30a376e.txt",
+      "id": 1775860806441,
+      "home": "E1even-Starz",
+      "away": "DARK-_-CEO",
+      "uid": "b30a376e"
+    },
+    {
+      "path": "data/games/undefined/MGSatarou_vs_Lukie_868beebc.txt",
+      "id": 1775860878088,
+      "home": "MGSatarou",
+      "away": "Lukie",
+      "uid": "868beebc"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_RFT07_dd48bd68.txt",
+      "id": 1775944374402,
+      "home": "Sailor",
+      "away": "RFT07",
+      "uid": "dd48bd68"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_leomessi_e55ad975.txt",
+      "id": 1775944493881,
+      "home": "Dontwindraw",
+      "away": "leomessi",
+      "uid": "e55ad975"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_Lukie_a553b2fb.txt",
+      "id": 1775944691920,
+      "home": "Nigelmj21",
+      "away": "Lukie",
+      "uid": "a553b2fb"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_Ctaum-cpt_0d2ab487.txt",
+      "id": 1775944794644,
+      "home": "Barca.",
+      "away": "Ctaum-cpt",
+      "uid": "0d2ab487"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_E1even-Starz_bf2da3e2.txt",
+      "id": 1775944842907,
+      "home": "SMANGALISO",
+      "away": "E1even-Starz",
+      "uid": "bf2da3e2"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_DARK-_-CEO_320cabb4.txt",
+      "id": 1775944847959,
+      "home": "Zan-Ten",
+      "away": "DARK-_-CEO",
+      "uid": "320cabb4"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_wham_dd27c317.txt",
+      "id": 1775944867337,
+      "home": "ExequielThwala",
+      "away": "wham",
+      "uid": "dd27c317"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_Sailor_a5914c41.txt",
+      "id": 1776100517682,
+      "home": "DiliboL",
+      "away": "Sailor",
+      "uid": "a5914c41"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_DiliboL_521ff580.txt",
+      "id": 1776141308969,
+      "home": "bhaze",
+      "away": "DiliboL",
+      "uid": "521ff580"
+    },
+    {
+      "path": "data/games/undefined/Zan-Ten_vs_Lukie_f03b2f78.txt",
+      "id": 1776141352161,
+      "home": "Zan-Ten",
+      "away": "Lukie",
+      "uid": "f03b2f78"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_SMANGALISO_afe11162.txt",
+      "id": 1776141372206,
+      "home": "Ctaum-cpt",
+      "away": "SMANGALISO",
+      "uid": "afe11162"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_Yungboyshlime_30d68306.txt",
+      "id": 1776141456641,
+      "home": "RoyalAM",
+      "away": "Yungboyshlime",
+      "uid": "30d68306"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_KING_KHESWA__814a0f0c.txt",
+      "id": 1776141549477,
+      "home": "leomessi",
+      "away": "KING_KHESWA.",
+      "uid": "814a0f0c"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_MGSatarou_ce06592c.txt",
+      "id": 1776141579081,
+      "home": "bhaze",
+      "away": "MGSatarou",
+      "uid": "ce06592c"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_SMANGALISO_78bc4344.txt",
+      "id": 1776141589042,
+      "home": "wham",
+      "away": "SMANGALISO",
+      "uid": "78bc4344"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_CRANK__eeacb6e8.txt",
+      "id": 1776141609107,
+      "home": "Nigelmj21",
+      "away": "CRANK_",
+      "uid": "eeacb6e8"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_E1even-Starz_d970a27b.txt",
+      "id": 1776141621440,
+      "home": "Barca.",
+      "away": "E1even-Starz",
+      "uid": "d970a27b"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_MGSatarou_fcedb3a4.txt",
+      "id": 1776141634077,
+      "home": "RoyalAM",
+      "away": "MGSatarou",
+      "uid": "fcedb3a4"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_CRANK__285cca5f.txt",
+      "id": 1776141670029,
+      "home": "KING_KHESWA.",
+      "away": "CRANK_",
+      "uid": "285cca5f"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_RFT07_f77dd278.txt",
+      "id": 1776228422330.061,
+      "home": "Dontwindraw",
+      "away": "RFT07",
+      "uid": "f77dd278"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_ExequielThwala_4407a555.txt",
+      "id": 1776228469452,
+      "home": "RoyalAM",
+      "away": "ExequielThwala",
+      "uid": "4407a555"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_Zan-Ten_c8ae5111.txt",
+      "id": 1776228518853,
+      "home": "Nigelmj21",
+      "away": "Zan-Ten",
+      "uid": "c8ae5111"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_KING_KHESWA__cde284a4.txt",
+      "id": 1776228568236,
+      "home": "RFT07",
+      "away": "KING_KHESWA.",
+      "uid": "cde284a4"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_Lukie_f987ec33.txt",
+      "id": 1776228925222,
+      "home": "bhaze",
+      "away": "Lukie",
+      "uid": "f987ec33"
+    },
+    {
+      "path": "data/games/undefined/Sailor_vs_leomessi_273386ed.txt",
+      "id": 1776228952494,
+      "home": "Sailor",
+      "away": "leomessi",
+      "uid": "273386ed"
+    },
+    {
+      "path": "data/games/undefined/DARK-_-CEO_vs_Ctaum-cpt_ddfad30f.txt",
+      "id": 1776228986510,
+      "home": "DARK-_-CEO",
+      "away": "Ctaum-cpt",
+      "uid": "ddfad30f"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_Ctaum-cpt_0e525964.txt",
+      "id": 1776229003689,
+      "home": "Dontwindraw",
+      "away": "Ctaum-cpt",
+      "uid": "0e525964"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_CRANK__44ae2675.txt",
+      "id": 1776229004691,
+      "home": "wham",
+      "away": "CRANK_",
+      "uid": "44ae2675"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_MGSatarou_8198d86b.txt",
+      "id": 1776229005244,
+      "home": "DiliboL",
+      "away": "MGSatarou",
+      "uid": "8198d86b"
+    },
+    {
+      "path": "data/games/undefined/DARK-_-CEO_vs_Barca__3ff9e664.txt",
+      "id": 1776229005873,
+      "home": "DARK-_-CEO",
+      "away": "Barca.",
+      "uid": "3ff9e664"
+    },
+    {
+      "path": "data/games/undefined/SMANGALISO_vs_Yungboyshlime_76e00849.txt",
+      "id": 1776229006619,
+      "home": "SMANGALISO",
+      "away": "Yungboyshlime",
+      "uid": "76e00849"
+    },
+    {
+      "path": "data/games/undefined/CRANK__vs_Zan-Ten_3f994df5.txt",
+      "id": 1776370719297,
+      "home": "CRANK_",
+      "away": "Zan-Ten",
+      "uid": "3f994df5"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_Sailor_fa84af38.txt",
+      "id": 1776370986808,
+      "home": "Ctaum-cpt",
+      "away": "Sailor",
+      "uid": "fa84af38"
+    },
+    {
+      "path": "data/games/undefined/RoyalAM_vs_SMANGALISO_f0eebff8.txt",
+      "id": 1776371035693,
+      "home": "RoyalAM",
+      "away": "SMANGALISO",
+      "uid": "f0eebff8"
+    },
+    {
+      "path": "data/games/undefined/RFT07_vs_Nigelmj21_1c00a803.txt",
+      "id": 1776371097292,
+      "home": "RFT07",
+      "away": "Nigelmj21",
+      "uid": "1c00a803"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_KING_KHESWA__d1060518.txt",
+      "id": 1776371382264,
+      "home": "Lukie",
+      "away": "KING_KHESWA.",
+      "uid": "d1060518"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_E1even-Starz_3b056acb.txt",
+      "id": 1776371663538,
+      "home": "DiliboL",
+      "away": "E1even-Starz",
+      "uid": "3b056acb"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_MGSatarou_4da1e69b.txt",
+      "id": 1776404046679,
+      "home": "bhaze",
+      "away": "MGSatarou",
+      "uid": "4da1e69b"
+    },
+    {
+      "path": "data/games/undefined/DARK-_-CEO_vs_wham_c566d1ae.txt",
+      "id": 1776404047168,
+      "home": "DARK-_-CEO",
+      "away": "wham",
+      "uid": "c566d1ae"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_Dontwindraw_75fe5533.txt",
+      "id": 1776404048803,
+      "home": "ExequielThwala",
+      "away": "Dontwindraw",
+      "uid": "75fe5533"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_leomessi_4915ae59.txt",
+      "id": 1776404050773,
+      "home": "Barca.",
+      "away": "leomessi",
+      "uid": "4915ae59"
+    },
+    {
+      "path": "data/games/undefined/Dontwindraw_vs_RoyalAM_e40bf617.txt",
+      "id": 1776501269811,
+      "home": "Dontwindraw",
+      "away": "RoyalAM",
+      "uid": "e40bf617"
+    },
+    {
+      "path": "data/games/undefined/Ctaum-cpt_vs_E1even-Starz_d22b61ed.txt",
+      "id": 1776501302124,
+      "home": "Ctaum-cpt",
+      "away": "E1even-Starz",
+      "uid": "d22b61ed"
+    },
+    {
+      "path": "data/games/undefined/KING_KHESWA__vs_RFT07_933851c5.txt",
+      "id": 1776501315785,
+      "home": "KING_KHESWA.",
+      "away": "RFT07",
+      "uid": "933851c5"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_DARK-_-CEO_862c8789.txt",
+      "id": 1776501318849,
+      "home": "Lukie",
+      "away": "DARK-_-CEO",
+      "uid": "862c8789"
+    },
+    {
+      "path": "data/games/undefined/CRANK__vs_Sailor_ea7e048e.txt",
+      "id": 1776501343026,
+      "home": "CRANK_",
+      "away": "Sailor",
+      "uid": "ea7e048e"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_Zan-Ten_9eece9f7.txt",
+      "id": 1776501386701,
+      "home": "wham",
+      "away": "Zan-Ten",
+      "uid": "9eece9f7"
+    },
+    {
+      "path": "data/games/undefined/ExequielThwala_vs_DiliboL_d5d8f4e3.txt",
+      "id": 1776501400503,
+      "home": "ExequielThwala",
+      "away": "DiliboL",
+      "uid": "d5d8f4e3"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_SMANGALISO_1c522b33.txt",
+      "id": 1776501439279,
+      "home": "Barca.",
+      "away": "SMANGALISO",
+      "uid": "1c522b33"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_leomessi_659294a4.txt",
+      "id": 1776501441736,
+      "home": "Yungboyshlime",
+      "away": "leomessi",
+      "uid": "659294a4"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_bhaze_5e833cd6.txt",
+      "id": 1776501442265,
+      "home": "Nigelmj21",
+      "away": "bhaze",
+      "uid": "5e833cd6"
+    },
+    {
+      "path": "data/games/undefined/Yungboyshlime_vs_RFT07_a3db918a.txt",
+      "id": 1776549054126,
+      "home": "Yungboyshlime",
+      "away": "RFT07",
+      "uid": "a3db918a"
+    },
+    {
+      "path": "data/games/undefined/bhaze_vs_Ctaum-cpt_9e7af3bf.txt",
+      "id": 1776549102279,
+      "home": "bhaze",
+      "away": "Ctaum-cpt",
+      "uid": "9e7af3bf"
+    },
+    {
+      "path": "data/games/undefined/E1even-Starz_vs_Zan-Ten_1297344a.txt",
+      "id": 1776549164702,
+      "home": "E1even-Starz",
+      "away": "Zan-Ten",
+      "uid": "1297344a"
+    },
+    {
+      "path": "data/games/undefined/DARK-_-CEO_vs_KING_KHESWA__64c0b5b2.txt",
+      "id": 1776549197058,
+      "home": "DARK-_-CEO",
+      "away": "KING_KHESWA.",
+      "uid": "64c0b5b2"
+    },
+    {
+      "path": "data/games/undefined/leomessi_vs_CRANK__8a75be5d.txt",
+      "id": 1776549228754,
+      "home": "leomessi",
+      "away": "CRANK_",
+      "uid": "8a75be5d"
+    },
+    {
+      "path": "data/games/undefined/wham_vs_RoyalAM_75f9a5e1.txt",
+      "id": 1776549260486,
+      "home": "wham",
+      "away": "RoyalAM",
+      "uid": "75f9a5e1"
+    },
+    {
+      "path": "data/games/undefined/DiliboL_vs_Sailor_0488ad5f.txt",
+      "id": 1776549261999,
+      "home": "DiliboL",
+      "away": "Sailor",
+      "uid": "0488ad5f"
+    },
+    {
+      "path": "data/games/undefined/Lukie_vs_MGSatarou_940739de.txt",
+      "id": 1776549262823,
+      "home": "Lukie",
+      "away": "MGSatarou",
+      "uid": "940739de"
+    },
+    {
+      "path": "data/games/undefined/Nigelmj21_vs_SMANGALISO_d48890f6.txt",
+      "id": 1776549264199,
+      "home": "Nigelmj21",
+      "away": "SMANGALISO",
+      "uid": "d48890f6"
+    },
+    {
+      "path": "data/games/undefined/Barca__vs_Dontwindraw_e9f5a2ad.txt",
+      "id": 1776549583724,
+      "home": "Barca.",
+      "away": "Dontwindraw",
+      "uid": "e9f5a2ad"
+    }
+  ],
+  "playerCount": 21
 }
