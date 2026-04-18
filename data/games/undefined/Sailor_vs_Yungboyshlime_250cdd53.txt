@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:53:18.941Z
+
+id=1773377396814
+uid=250cdd53
+date=undefined
+home=Sailor
+away=Yungboyshlime
+homeGoals=3
+awayGoals=0
+result=home
+winner=Sailor
+loggedAt=2026-04-18T22:53:18.941Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Sailor_vs_Yungboyshlime_1773377395817.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
