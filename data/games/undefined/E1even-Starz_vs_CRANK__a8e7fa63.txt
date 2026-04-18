@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:52:53.248Z
+
+id=1773299799584
+uid=a8e7fa63
+date=undefined
+home=E1even-Starz
+away=CRANK_
+homeGoals=0
+awayGoals=3
+result=away
+winner=CRANK_
+loggedAt=2026-04-18T22:52:53.248Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/E1even-Starz_vs_CRANK__1773299797960.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
