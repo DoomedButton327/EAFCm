@@ -1,0 +1,17 @@
+# Mettlestate × EA FC Mobile — Player File
+# Auto-generated: 2026-04-18T22:48:25.668Z
+
+name=Thandobhaze0023
+username=bhaze
+phone=0679687240
+played=41
+wins=9
+draws=15
+losses=17
+points=42
+gf=30
+ga=39
+form=L,W,L,L,L,L,D,D,D,D
+postponements=20
+suspended=false
+addedAt=2026-04-18T22:48:25.668Z
