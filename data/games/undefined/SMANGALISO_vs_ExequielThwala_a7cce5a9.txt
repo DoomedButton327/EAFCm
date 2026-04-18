@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:49:53.260Z
+
+id=1772127162228
+uid=a7cce5a9
+date=undefined
+home=SMANGALISO
+away=ExequielThwala
+homeGoals=2
+awayGoals=1
+result=home
+winner=SMANGALISO
+loggedAt=2026-04-18T22:49:53.260Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/SMANGALISO_vs_ExequielThwala_1772127157373.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
