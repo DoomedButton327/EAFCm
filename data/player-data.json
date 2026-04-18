@@ -30,24 +30,24 @@
       "name": "Sailor",
       "username": "Sailor",
       "phone": "0677514331",
-      "played": 41,
+      "played": 42,
       "wins": 7,
-      "draws": 13,
+      "draws": 14,
       "losses": 21,
-      "points": 34,
-      "gf": 21,
-      "ga": 45,
+      "points": 35,
+      "gf": 22,
+      "ga": 46,
       "form": [
         "D",
         "D",
-        "D",
         "L",
         "L",
         "L",
         "L",
         "L",
         "L",
-        "L"
+        "L",
+        "D"
       ],
       "postponements": 19,
       "suspended": false
@@ -56,15 +56,14 @@
       "name": "Sibonelo_Kheswa",
       "username": "KING_KHESWA.",
       "phone": "0607557805",
-      "played": 41,
+      "played": 42,
       "wins": 27,
-      "draws": 8,
+      "draws": 9,
       "losses": 6,
-      "points": 89,
-      "gf": 68,
-      "ga": 19,
+      "points": 90,
+      "gf": 69,
+      "ga": 20,
       "form": [
-        "W",
         "D",
         "L",
         "W",
@@ -73,7 +72,8 @@
         "D",
         "W",
         "W",
-        "W"
+        "W",
+        "D"
       ],
       "postponements": 20,
       "suspended": false
@@ -547,5 +547,5 @@
       "suspended": false
     }
   ],
-  "lastUpdated": "2026-04-18T23:28:36.785Z"
+  "lastUpdated": "2026-04-18T23:29:39.407Z"
 }
