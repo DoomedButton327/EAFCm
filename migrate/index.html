@@ -6,85 +6,129 @@
   <title>Migration Tool · Mettlestate</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --acid: #C8F135; --acid-soft: rgba(200,241,53,.12); --acid-border: rgba(200,241,53,.25);
+      --violet: #8b5cf6; --violet-soft: rgba(139,92,246,.12); --violet-border: rgba(139,92,246,.3);
       --bg: #050a0e; --bg-1: #0a1218; --bg-2: #101c24; --bg-3: #162230;
       --border: rgba(200,241,53,.12); --text: #f0f4f8; --text-soft: #b0bec5; --muted: #607d8b;
       --green: #34C759; --red: #FF2D55; --orange: #FF9500;
     }
     html, body { min-height: 100vh; background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--text); }
-    .page { max-width: 720px; margin: 0 auto; padding: 24px 16px 60px; }
-    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: .08em; color: var(--acid); margin-bottom: 4px; }
-    .sub { color: var(--muted); font-size: .9rem; margin-bottom: 24px; }
-    .card { background: rgba(16,28,36,.8); border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin-bottom: 16px; backdrop-filter: blur(12px); }
-    .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: .06em; color: var(--acid); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .page { max-width: 720px; margin: 0 auto; padding: 24px 16px 80px; }
+
+    /* header */
+    .page-header { margin-bottom: 28px; }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: .08em; color: var(--acid); margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+    .sub { color: var(--muted); font-size: .88rem; }
+
+    /* cards */
+    .card { background: rgba(16,28,36,.85); border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin-bottom: 16px; backdrop-filter: blur(12px); }
+    .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: .06em; color: var(--acid); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+
+    /* form elements */
     .form-label { display: block; font-family: 'JetBrains Mono', monospace; font-size: .68rem; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; margin-bottom: 6px; }
-    .form-input { width: 100%; padding: 10px 14px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: .9rem; font-family: 'DM Sans', sans-serif; }
-    .form-input:focus { outline: none; border-color: var(--acid-border); }
-    .file-zone { border: 2px dashed var(--border); border-radius: 10px; padding: 28px; text-align: center; cursor: pointer; transition: border-color .15s, background .15s; margin-bottom: 14px; }
+    .form-input { width: 100%; padding: 10px 14px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: .9rem; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color .15s; }
+    .form-input:focus { border-color: var(--acid-border); }
+
+    /* file drop zone */
+    .file-zone { border: 2px dashed var(--border); border-radius: 10px; padding: 32px 20px; text-align: center; cursor: pointer; transition: border-color .15s, background .15s; margin-bottom: 14px; }
     .file-zone:hover, .file-zone.drag-over { border-color: var(--acid-border); background: var(--acid-soft); }
-    .file-zone i { font-size: 2rem; color: var(--muted); margin-bottom: 8px; display: block; }
+    .file-zone i { font-size: 2.2rem; color: var(--muted); margin-bottom: 10px; display: block; }
     .file-zone p { font-size: .88rem; color: var(--text-soft); }
-    .file-zone .fname { font-family: 'JetBrains Mono', monospace; font-size: .78rem; color: var(--acid); margin-top: 6px; }
+    .file-zone .fname { font-family: 'JetBrains Mono', monospace; font-size: .78rem; color: var(--acid); margin-top: 8px; }
     input[type=file] { display: none; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px; font-size: .9rem; cursor: pointer; border: none; transition: opacity .15s; }
-    .btn-acid { background: var(--acid); color: #000; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: .06em; }
+
+    /* buttons */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 8px; font-size: .9rem; cursor: pointer; border: none; transition: opacity .15s, transform .1s; font-family: 'DM Sans', sans-serif; }
+    .btn:active { transform: scale(.97); }
+    .btn-acid { background: var(--acid); color: #000; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: .06em; font-weight: 700; }
     .btn-secondary { background: var(--bg-2); color: var(--text); border: 1px solid var(--border); }
     .btn:disabled { opacity: .4; cursor: not-allowed; }
-    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
-    .info-box { background: var(--acid-soft); border: 1px solid var(--acid-border); border-radius: 8px; padding: 12px; font-size: .84rem; color: var(--text-soft); line-height: 1.6; margin-bottom: 12px; }
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+
+    /* info/warn boxes */
+    .info-box { background: var(--acid-soft); border: 1px solid var(--acid-border); border-radius: 8px; padding: 12px 14px; font-size: .84rem; color: var(--text-soft); line-height: 1.65; margin-bottom: 12px; }
     .info-box strong { color: var(--acid); }
-    .warn-box { background: rgba(255,149,0,.08); border: 1px solid rgba(255,149,0,.25); border-radius: 8px; padding: 12px; font-size: .82rem; color: var(--orange); margin-bottom: 12px; }
-    .result-tree { font-family: 'JetBrains Mono', monospace; font-size: .78rem; background: var(--bg-1); border-radius: 8px; padding: 14px; overflow-x: auto; white-space: pre; color: var(--text-soft); line-height: 1.8; margin: 12px 0; }
-    .result-tree .acid { color: var(--acid); }
-    .result-tree .green { color: var(--green); }
-    .result-tree .muted { color: var(--muted); }
+    .warn-box { background: rgba(255,149,0,.08); border: 1px solid rgba(255,149,0,.25); border-radius: 8px; padding: 12px 14px; font-size: .82rem; color: var(--orange); margin-bottom: 12px; line-height: 1.6; }
+    .violet-box { background: var(--violet-soft); border: 1px solid var(--violet-border); border-radius: 8px; padding: 12px 14px; font-size: .83rem; color: #c4b5fd; line-height: 1.65; margin-bottom: 12px; }
+    .violet-box strong { color: var(--violet); }
+
+    /* file tree */
+    .result-tree { font-family: 'JetBrains Mono', monospace; font-size: .76rem; background: var(--bg-1); border-radius: 10px; padding: 16px; overflow-x: auto; white-space: pre; color: var(--text-soft); line-height: 1.9; margin: 12px 0; border: 1px solid rgba(255,255,255,.05); }
+    .result-tree .acid   { color: var(--acid); }
+    .result-tree .green  { color: var(--green); }
+    .result-tree .violet { color: #a78bfa; }
+    .result-tree .muted  { color: var(--muted); }
+
+    /* steps */
     .step { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
     .step:last-child { border-bottom: none; }
     .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--acid-soft); border: 1px solid var(--acid-border); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: .8rem; color: var(--acid); flex-shrink: 0; }
-    .step-content p { font-size: .86rem; color: var(--text-soft); line-height: 1.5; margin-top: 2px; }
-    .step-title { font-weight: 600; color: var(--text); }
-    .tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: .68rem; padding: 2px 8px; border-radius: 4px; background: var(--acid-soft); color: var(--acid); border: 1px solid var(--acid-border); margin: 2px; }
-    .progress-bar-wrap { background: var(--bg-2); border-radius: 99px; height: 6px; margin: 10px 0; }
+    .step-title { font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .step-content p { font-size: .85rem; color: var(--text-soft); line-height: 1.55; }
+    code { font-family: 'JetBrains Mono', monospace; font-size: .8em; background: rgba(200,241,53,.08); color: var(--acid); padding: 1px 5px; border-radius: 4px; }
+
+    /* progress */
+    .progress-bar-wrap { background: var(--bg-2); border-radius: 99px; height: 6px; margin: 14px 0; }
     .progress-bar { height: 6px; background: var(--acid); border-radius: 99px; width: 0; transition: width .3s; }
-    .log-area { background: var(--bg-1); border-radius: 8px; padding: 12px; font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--text-soft); max-height: 200px; overflow-y: auto; line-height: 1.8; }
-    .log-ok  { color: var(--green); }
-    .log-err { color: var(--red); }
+
+    /* log */
+    .log-area { background: var(--bg-1); border-radius: 8px; padding: 12px 14px; font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--text-soft); max-height: 220px; overflow-y: auto; line-height: 1.9; border: 1px solid rgba(255,255,255,.05); }
+    .log-ok   { color: var(--green); }
+    .log-err  { color: var(--red); }
     .log-info { color: var(--acid); }
-    a.back { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: .84rem; text-decoration: none; margin-bottom: 16px; }
+    .log-violet { color: #a78bfa; }
+
+    /* stats row */
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+    .stat-box { background: var(--bg-1); border: 1px solid rgba(255,255,255,.06); border-radius: 10px; padding: 12px; text-align: center; }
+    .stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--acid); line-height: 1; }
+    .stat-lbl { font-family: 'JetBrains Mono', monospace; font-size: .62rem; color: var(--muted); text-transform: uppercase; margin-top: 4px; letter-spacing: .06em; }
+
+    /* back link */
+    a.back { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: .84rem; text-decoration: none; margin-bottom: 18px; transition: color .15s; }
     a.back:hover { color: var(--acid); }
+
+    /* badge */
+    .badge-new { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: .6rem; padding: 2px 7px; border-radius: 4px; background: var(--violet-soft); color: #a78bfa; border: 1px solid var(--violet-border); margin-left: 6px; vertical-align: middle; letter-spacing: .06em; }
   </style>
 </head>
 <body>
 <div class="page">
-  <a href="../" class="back"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
-  <h1><i class="fas fa-exchange-alt" style="font-size:1.4rem"></i> Migration Tool</h1>
-  <p class="sub">Convert your old <code>league-data.json</code> to the new date-partitioned folder structure.</p>
 
-  <!-- What changes -->
+  <a href="../" class="back"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+
+  <div class="page-header">
+    <h1><i class="fas fa-exchange-alt" style="font-size:1.5rem"></i> Migration Tool <span class="badge-new">v2</span></h1>
+    <p class="sub">Convert your old <code>league-data.json</code> into the new conflict-safe file structure — one file per game, one file per player.</p>
+  </div>
+
+  <!-- ── What this does ── -->
   <div class="card">
     <div class="card-title"><i class="fas fa-info-circle"></i> What This Tool Does</div>
-    <div class="info-box">
-      Converts the old single-file format into the new split structure:<br>
-      <strong>data/player-data.json</strong> — all player records<br>
-      <strong>data/index.json</strong> — index of all match days<br>
-      <strong>data/YYYY-MM/YYYY-MM-DD/match-day.json</strong> — fixtures + results per day
+    <div class="violet-box">
+      <strong>New structure is conflict-safe for bulk GitHub pushes.</strong> Each game gets its own unique file (with an 8-char random ID), so multiple pushes at the same time can never collide or overwrite each other.
     </div>
     <div class="result-tree"><span class="acid">NEW STRUCTURE</span>
 <span class="green">data/</span>
-├── <span class="acid">player-data.json</span>     <span class="muted">← all players</span>
-├── <span class="acid">index.json</span>           <span class="muted">← match day index</span>
-└── <span class="green">2026-04/</span>
-    ├── <span class="green">2026-04-15/</span>
-    │   ├── <span class="acid">match-day.json</span>  <span class="muted">← fixtures + results</span>
-    │   └── <span class="green">match-images/</span>
-    └── <span class="green">2026-04-20/</span>
-        └── <span class="acid">match-day.json</span></div>
+├── <span class="acid">player-data.json</span>       <span class="muted">← primary player stats (JSON)</span>
+├── <span class="acid">index.json</span>             <span class="muted">← list of all game file paths</span>
+├── <span class="green">players/</span>               <span class="muted">← one .txt file per player</span>
+│   ├── <span class="violet">tyronb.txt</span>
+│   └── <span class="violet">player2.txt</span>
+└── <span class="green">games/</span>                 <span class="muted">← one .txt file per game</span>
+    └── <span class="green">2026-04-19/</span>
+        ├── <span class="violet">tyronb_vs_player2_a3f9c1d2.txt</span>
+        └── <span class="violet">player3_vs_player4_bb12ef44.txt</span></div>
+    <div class="info-box">
+      The tool reads your old <strong>league-data.json</strong> and outputs a single <strong>mettlestate-migration.zip</strong> with the correct folder structure ready to push to GitHub.
+    </div>
   </div>
 
-  <!-- Step 1: Upload -->
+  <!-- ── Step 1: Upload ── -->
   <div class="card">
     <div class="card-title"><i class="fas fa-upload"></i> Step 1 — Upload Old Data</div>
     <label for="old-file">
@@ -98,19 +142,24 @@
     <div id="parse-result" style="display:none" class="info-box"></div>
   </div>
 
-  <!-- Step 2: Options -->
-  <div class="card" id="options-card" style="display:none">
-    <div class="card-title"><i class="fas fa-sliders-h"></i> Step 2 — Options</div>
-    <div class="warn-box"><i class="fas fa-exclamation-triangle"></i> Fixtures without a <code>scheduledDate</code> will be assigned today's date.</div>
-    <label class="form-label" style="margin-bottom:6px">Default date for undated fixtures</label>
+  <!-- ── Step 2: Preview ── -->
+  <div class="card" id="preview-card" style="display:none">
+    <div class="card-title"><i class="fas fa-eye"></i> Step 2 — Preview</div>
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-val" id="prev-players">0</div><div class="stat-lbl">Players</div></div>
+      <div class="stat-box"><div class="stat-val" id="prev-results">0</div><div class="stat-lbl">Results</div></div>
+      <div class="stat-box"><div class="stat-val" id="prev-fixtures">0</div><div class="stat-lbl">Fixtures</div></div>
+    </div>
+    <div class="warn-box"><i class="fas fa-exclamation-triangle"></i> Fixtures and results without a date will be assigned the fallback date below.</div>
+    <label class="form-label" style="margin-bottom:6px">Fallback date for undated entries</label>
     <input type="date" class="form-input" id="default-date" style="max-width:220px">
   </div>
 
-  <!-- Step 3: Convert -->
+  <!-- ── Step 3: Convert ── -->
   <div class="card" id="convert-card" style="display:none">
     <div class="card-title"><i class="fas fa-cogs"></i> Step 3 — Convert & Download</div>
     <p style="font-size:.86rem;color:var(--text-soft);margin-bottom:14px">
-      The tool will generate all required JSON files as a ZIP download. Extract it into your GitHub repo root.
+      Generates a single <code>mettlestate-migration.zip</code> with the complete folder structure. Extract it into your GitHub repo root and push.
     </p>
     <div class="progress-bar-wrap" id="prog-wrap" style="display:none">
       <div class="progress-bar" id="prog-bar"></div>
@@ -123,49 +172,108 @@
     </div>
   </div>
 
-  <!-- Step 4: Manual instructions -->
+  <!-- ── Step 4: Deploy ── -->
   <div class="card" id="manual-card" style="display:none">
-    <div class="card-title"><i class="fas fa-terminal"></i> Step 4 — Deploy to GitHub</div>
+    <div class="card-title"><i class="fas fa-rocket"></i> Step 4 — Deploy to GitHub</div>
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <div class="step-title">Extract the downloaded ZIP</div>
-        <p>Extract <code>mettlestate-migration.zip</code> — you'll see a <code>data/</code> folder.</p>
+        <div class="step-title">Extract the ZIP</div>
+        <p>Extract <code>mettlestate-migration.zip</code> — you'll see a <code>data/</code> folder with the full structure.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <div class="step-title">Commit to your GitHub repo root</div>
-        <p>Drag the <code>data/</code> folder into your repo via the GitHub web UI, or push via git.</p>
+        <div class="step-title">Push to your GitHub repo</div>
+        <p>Drag the <code>data/</code> folder into your repo via the GitHub web UI, or use <code>git add data/ && git commit && git push</code>. All files are independent so there's no push conflict.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <div class="step-title">Open the dashboard and click "Load from GitHub"</div>
-        <p>In Admin → GitHub Sync, click <strong>Load</strong>. Your data will populate from the new structure.</p>
+        <div class="step-title">Load from GitHub in the dashboard</div>
+        <p>Go to Admin → GitHub Sync → click <strong>Load from GitHub</strong>. Your players, results, and fixtures will all load from the new structure.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
-        <div class="step-title">Delete the old <code>league-data.json</code></div>
-        <p>Once confirmed working, remove the old file from your repo.</p>
+        <div class="step-title">Remove the old <code>league-data.json</code></div>
+        <p>Once everything looks correct, delete the old file from your repo. It's no longer used.</p>
       </div>
     </div>
   </div>
-</div>
+
+</div><!-- /page -->
 
 <script>
-// ── JSZip inline (tiny implementation for JSON files only) ─────
-// We build files manually and download as individual files since
-// we can't import JSZip without a bundler. Instead we download
-// each file individually and show copy-paste content.
+// ── Helpers (mirrors config.js) ────────────────────────────────
+const POSTPONEMENTS_PER_SEASON = 20;
 
+function sanitizeName(s) {
+  return String(s || '').replace(/[^a-zA-Z0-9_\-]/g, '_');
+}
+function playerFilePath(username) {
+  return `data/players/${sanitizeName(username)}.txt`;
+}
+function gameFilePath(dateStr, home, away, uid) {
+  return `data/games/${dateStr}/${sanitizeName(home)}_vs_${sanitizeName(away)}_${uid}.txt`;
+}
+function shortUID() {
+  const arr = new Uint8Array(4);
+  crypto.getRandomValues(arr);
+  return Array.from(arr).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+function serializePlayerTxt(p) {
+  return [
+    `# Mettlestate × EA FC Mobile — Player File`,
+    `# Auto-generated: ${new Date().toISOString()}`,
+    ``,
+    `name=${p.name || ''}`,
+    `username=${p.username || ''}`,
+    `phone=${p.phone || ''}`,
+    `played=${p.played || 0}`,
+    `wins=${p.wins || 0}`,
+    `draws=${p.draws || 0}`,
+    `losses=${p.losses || 0}`,
+    `points=${p.points || 0}`,
+    `gf=${p.gf || 0}`,
+    `ga=${p.ga || 0}`,
+    `form=${(p.form || []).join(',')}`,
+    `postponements=${p.postponements != null ? p.postponements : POSTPONEMENTS_PER_SEASON}`,
+    `suspended=${p.suspended ? 'true' : 'false'}`,
+    `addedAt=${p.addedAt || new Date().toISOString()}`,
+  ].join('\n');
+}
+function serializeGameTxt(r) {
+  const winner = r.result === 'home' ? r.home : r.result === 'away' ? r.away : 'DRAW';
+  return [
+    `# Mettlestate × EA FC Mobile — Game Record`,
+    `# Auto-generated: ${r.loggedAt || new Date().toISOString()}`,
+    ``,
+    `id=${r.id || ''}`,
+    `uid=${r.uid || ''}`,
+    `date=${r.date || ''}`,
+    `home=${r.home || ''}`,
+    `away=${r.away || ''}`,
+    `homeGoals=${r.homeGoals != null ? r.homeGoals : 0}`,
+    `awayGoals=${r.awayGoals != null ? r.awayGoals : 0}`,
+    `result=${r.result || 'draw'}`,
+    `winner=${winner}`,
+    `loggedAt=${r.loggedAt || new Date().toISOString()}`,
+    `editedAt=${r.editedAt || ''}`,
+    `imageUrl=${r.imageUrl || ''}`,
+    `forfeit=${r.forfeit ? 'true' : 'false'}`,
+    `autoWin=${r.autoWin ? 'true' : 'false'}`,
+    `autoForfeit=${r.autoForfeit ? 'true' : 'false'}`,
+  ].join('\n');
+}
+
+// ── State ──────────────────────────────────────────────────────
 let _oldData = null;
 
-// Drag & drop
+// ── Drag & drop ────────────────────────────────────────────────
 const dropZone = document.getElementById('drop-zone');
 dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
 dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
@@ -198,140 +306,165 @@ function showParseResult() {
   const players  = (d.players  || []).length;
   const fixtures = (d.fixtures || []).length;
   const results  = (d.results  || []).length;
+
   const pr = document.getElementById('parse-result');
+  pr.style.cssText = '';
   pr.style.display = 'block';
   pr.innerHTML = `<i class="fas fa-check-circle" style="color:var(--green)"></i>
-    Loaded successfully — <strong>${players} players</strong>,
-    <strong>${fixtures} fixtures</strong>,
-    <strong>${results} results</strong>.`;
+    Loaded <strong>${players} players</strong>, <strong>${fixtures} fixtures</strong>, <strong>${results} results</strong> — ready to convert.`;
 
-  // Set default date
-  const today = new Date().toISOString().slice(0,10);
+  document.getElementById('prev-players').textContent  = players;
+  document.getElementById('prev-results').textContent  = results;
+  document.getElementById('prev-fixtures').textContent = fixtures;
+
+  const today = new Date().toISOString().slice(0, 10);
   document.getElementById('default-date').value = today;
 
-  document.getElementById('options-card').style.display = 'block';
-  document.getElementById('convert-card').style.display = 'block';
+  document.getElementById('preview-card').style.display  = 'block';
+  document.getElementById('convert-card').style.display  = 'block';
+  document.getElementById('manual-card').style.display   = 'none';
 }
 
 function showError(msg) {
   const pr = document.getElementById('parse-result');
   pr.style.display = 'block';
-  pr.innerHTML = `<i class="fas fa-times-circle" style="color:var(--red)"></i> ${msg}`;
   pr.style.background = 'rgba(255,45,85,.08)';
   pr.style.borderColor = 'rgba(255,45,85,.25)';
   pr.style.color = 'var(--red)';
+  pr.innerHTML = `<i class="fas fa-times-circle"></i> ${msg}`;
 }
 
 // ── Run conversion ─────────────────────────────────────────────
-function runConversion() {
+async function runConversion() {
   if (!_oldData) return;
+  if (typeof JSZip === 'undefined') {
+    alert('JSZip library not loaded. Check your internet connection and try again.');
+    return;
+  }
+
   const btn = document.getElementById('btn-convert');
   btn.disabled = true;
   btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Converting…';
 
-  const defaultDate = document.getElementById('default-date').value || new Date().toISOString().slice(0,10);
-  const log = document.getElementById('log-area');
-  const prog = document.getElementById('prog-bar');
-  log.style.display = 'block';
+  const defaultDate = document.getElementById('default-date').value || new Date().toISOString().slice(0, 10);
+  const logEl = document.getElementById('log-area');
+  const prog  = document.getElementById('prog-bar');
+  logEl.style.display = 'block';
   document.getElementById('prog-wrap').style.display = 'block';
-  log.innerHTML = '';
+  logEl.innerHTML = '';
 
-  function addLog(msg, cls='') { log.innerHTML += `<div class="${cls}">${msg}</div>`; log.scrollTop = log.scrollHeight; }
-  function setProgress(pct) { prog.style.width = pct + '%'; }
+  const log = (msg, cls = '') => {
+    logEl.innerHTML += `<div class="${cls}">${msg}</div>`;
+    logEl.scrollTop = logEl.scrollHeight;
+  };
+  const setP = pct => { prog.style.width = pct + '%'; };
 
   try {
-    addLog('<span class="log-info">Starting migration…</span>');
-    setProgress(10);
-
+    const zip = new JSZip();
+    const now  = new Date().toISOString();
     const players  = _oldData.players  || [];
     const fixtures = _oldData.fixtures || [];
     const results  = _oldData.results  || [];
 
-    // ── Build player-data.json ──────────────────────────────
-    const playerData = { players, lastUpdated: new Date().toISOString() };
-    addLog(`<span class="log-ok">✓</span> player-data.json (${players.length} players)`);
-    setProgress(30);
+    log('<span class="log-info">Starting migration to new structure…</span>');
+    setP(5);
 
-    // ── Group fixtures + results by date ────────────────────
-    const dayMap = {};
-    const ensure = d => { if (!dayMap[d]) dayMap[d] = { date: d, fixtures: [], results: [] }; };
+    // ── 1. player-data.json ─────────────────────────────────
+    const playerJson = JSON.stringify({ players, lastUpdated: now }, null, 2);
+    zip.file('data/player-data.json', playerJson);
+    log(`<span class="log-ok">✓</span> data/player-data.json — ${players.length} players`);
+    setP(15);
 
-    fixtures.forEach(f => {
-      const d = f.scheduledDate || defaultDate;
-      ensure(d);
-      dayMap[d].fixtures.push(f);
-    });
-    results.forEach(r => {
-      const d = r.date || defaultDate;
-      ensure(d);
-      dayMap[d].results.push(r);
-    });
-
-    const matchDays = Object.keys(dayMap).sort();
-    addLog(`<span class="log-info">→</span> Found ${matchDays.length} match day(s)`);
-    setProgress(50);
-
-    // ── Build index.json ────────────────────────────────────
-    const indexData = {
-      matchDays: matchDays.map(d => ({
-        date: d,
-        path: `data/${d.slice(0,7)}/${d}/match-day.json`,
-      })),
-      lastUpdated: new Date().toISOString(),
-    };
-    addLog(`<span class="log-ok">✓</span> index.json (${matchDays.length} entries)`);
-    setProgress(65);
-
-    // ── Generate and download all files ────────────────────
-    const filesToDownload = [
-      { path: 'data/player-data.json', content: JSON.stringify(playerData, null, 2) },
-      { path: 'data/index.json',       content: JSON.stringify(indexData, null, 2) },
-    ];
-
-    matchDays.forEach(d => {
-      const day = dayMap[d];
-      day.lastUpdated = new Date().toISOString();
-      const ym = d.slice(0, 7);
-      filesToDownload.push({
-        path: `data/${ym}/${d}/match-day.json`,
-        content: JSON.stringify(day, null, 2),
-      });
-      addLog(`<span class="log-ok">✓</span> data/${ym}/${d}/match-day.json (${day.fixtures.length}F ${day.results.length}R)`);
-    });
-
-    setProgress(85);
-
-    // Download each file
-    let i = 0;
-    function downloadNext() {
-      if (i >= filesToDownload.length) {
-        setProgress(100);
-        addLog(`<span class="log-info">✅ All ${filesToDownload.length} files downloaded!</span>`);
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-check"></i> Done!';
-        document.getElementById('manual-card').style.display = 'block';
-        return;
-      }
-      const f = filesToDownload[i++];
-      const blob = new Blob([f.content], { type: 'application/json' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      // Use filename only (browser can't create folders via download)
-      const fname = f.path.replace(/\//g, '__') + '.txt';
-      a.download = fname;
-      a.click();
-      URL.revokeObjectURL(a.href);
-      setTimeout(downloadNext, 400);
+    // ── 2. Per-player .txt files ────────────────────────────
+    let playerFileCount = 0;
+    for (const p of players) {
+      if (!p.username) continue;
+      const path = playerFilePath(p.username);
+      zip.file(path, serializePlayerTxt(p));
+      playerFileCount++;
     }
+    log(`<span class="log-ok">✓</span> data/players/ — ${playerFileCount} player .txt files`);
+    setP(35);
 
-    addLog(`<span class="log-info">→</span> Downloading ${filesToDownload.length} files…`);
-    addLog(`<span class="log-info">Note: files named with __ separators showing path — rename when placing in repo.</span>`);
-    setTimeout(downloadNext, 300);
+    // ── 3. Per-game .txt files ──────────────────────────────
+    const gameIndex = [];
+    let gameCount = 0;
+    for (const r of results) {
+      // Backfill uid if missing
+      if (!r.uid) r.uid = shortUID();
+      const date = r.date || defaultDate;
+      const path = gameFilePath(date, r.home, r.away, r.uid);
+      zip.file(path, serializeGameTxt({ ...r, date }));
+      gameIndex.push({ path, id: r.id, date, home: r.home, away: r.away, uid: r.uid });
+      gameCount++;
+    }
+    log(`<span class="log-ok">✓</span> data/games/ — ${gameCount} game .txt files`);
+    setP(65);
+
+    // ── 4. Fixtures — stored in player-data.json ────────────
+    // Fixtures don't need individual files — they live in localStorage.
+    // We include them in a separate fixtures.json for reference only.
+    if (fixtures.length) {
+      zip.file('data/fixtures-backup.json', JSON.stringify({ fixtures, exportedAt: now }, null, 2));
+      log(`<span class="log-violet">→</span> data/fixtures-backup.json — ${fixtures.length} fixtures (reference only — re-import in dashboard)`);
+    }
+    setP(75);
+
+    // ── 5. index.json ───────────────────────────────────────
+    const index = {
+      version: 2,
+      lastUpdated: now,
+      games: gameIndex,
+      playerCount: players.length,
+    };
+    zip.file('data/index.json', JSON.stringify(index, null, 2));
+    log(`<span class="log-ok">✓</span> data/index.json — ${gameIndex.length} game entries`);
+    setP(85);
+
+    // ── 6. README ───────────────────────────────────────────
+    const readme = [
+      '# Mettlestate × EA FC Mobile — Migrated Data',
+      '',
+      `Generated: ${now}`,
+      '',
+      '## Structure',
+      '- `data/player-data.json` — primary player stats (loaded by dashboard)',
+      '- `data/index.json` — index of all game file paths',
+      '- `data/players/<username>.txt` — human-readable per-player file',
+      '- `data/games/<date>/<home>_vs_<away>_<uid>.txt` — one file per game (conflict-safe)',
+      '',
+      '## Notes',
+      '- Each game file has a unique 8-char hex ID so bulk GitHub pushes never collide.',
+      '- Fixtures are in `fixtures-backup.json` for reference. Re-add them in the dashboard.',
+      '- After pushing, open Admin → GitHub Sync → Load from GitHub.',
+    ].join('\n');
+    zip.file('data/README.md', readme);
+
+    setP(92);
+
+    // ── 7. Generate & download ZIP ──────────────────────────
+    log('<span class="log-info">Building ZIP…</span>');
+    const blob = await zip.generateAsync({ type: 'blob', compression: 'DEFLATE', compressionOptions: { level: 6 } });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'mettlestate-migration.zip';
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+
+    setP(100);
+    const total = 2 + playerFileCount + gameCount + (fixtures.length ? 1 : 0) + 2;
+    log(`<span class="log-info">✅ Done! ${total} files packed into mettlestate-migration.zip</span>`);
+
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fas fa-check"></i> Done — Download Again';
+    document.getElementById('manual-card').style.display = 'block';
 
   } catch(err) {
-    addLog(`<span class="log-err">ERROR: ${err.message}</span>`);
+    log(`<span class="log-err">ERROR: ${err.message}</span>`);
+    console.error(err);
     btn.disabled = false;
-    btn.innerHTML = '<i class="fas fa-magic"></i> Convert & Download';
+    btn.innerHTML = '<i class="fas fa-magic"></i> Convert & Download ZIP';
   }
 }
 </script>
