@@ -238,13 +238,41 @@ const GH = (() => {
 
     async uploadMatchImage(base64Data, filename, dateStr) {
       if (!GH.isConnected()) return null;
+
+      // Use dedicated image repo if configured; reuses the main PAT token
+      const imgCfg    = Storage.loadImgRepo();
+      const useImgRepo = imgCfg?.owner && imgCfg?.repo;
+      const imgOwner  = useImgRepo ? imgCfg.owner              : _config.owner;
+      const imgRepo   = useImgRepo ? imgCfg.repo               : _config.repo;
+      const imgBranch = useImgRepo ? (imgCfg.branch || 'main') : _config.branch;
+
       showBar('Uploading screenshot\u2026');
       try {
-        const path = matchImagesPath(dateStr || todayYMD()) + filename;
-        const ok = await enqueue(() => doCommit(path, base64Data, `Screenshot: ${filename}`, true));
-        if (ok) {
+        const path    = matchImagesPath(dateStr || todayYMD()) + filename;
+        const imgBase = `https://api.github.com/repos/${imgOwner}/${imgRepo}`;
+        const imgHdrs = {
+          'Authorization': `token ${_config.token}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json',
+        };
+
+        // Fetch SHA so we can update an existing file without a 409
+        let sha = null;
+        try {
+          const r = await fetch(`${imgBase}/contents/${path}?ref=${imgBranch}`, { headers: imgHdrs });
+          if (r.ok) { const d = await r.json(); sha = d.sha || null; }
+        } catch {}
+
+        const body = { message: `Screenshot: ${filename}`, branch: imgBranch, content: base64Data };
+        if (sha) body.sha = sha;
+
+        const res = await fetch(`${imgBase}/contents/${path}`, {
+          method: 'PUT', headers: imgHdrs, body: JSON.stringify(body),
+        });
+
+        if (res.ok) {
           hideBar(true, 'Screenshot saved');
-          return `https://raw.githubusercontent.com/${_config.owner}/${_config.repo}/${_config.branch}/${path}`;
+          return `https://raw.githubusercontent.com/${imgOwner}/${imgRepo}/${imgBranch}/${path}`;
         }
         hideBar(false, 'Image upload failed');
         return null;
