@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:54:06.343Z
+
+id=1773817411826
+uid=ec7ec79e
+date=undefined
+home=leomessi
+away=MGSatarou
+homeGoals=3
+awayGoals=0
+result=home
+winner=leomessi
+loggedAt=2026-04-18T22:54:06.343Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/leomessi_vs_MGSatarou_1773817410904.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
