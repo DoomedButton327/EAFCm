@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:55:06.642Z
+
+id=1774043693953
+uid=dc5ef0b5
+date=undefined
+home=DJRonaldoZA
+away=KING_KHESWA.
+homeGoals=0
+awayGoals=3
+result=away
+winner=KING_KHESWA.
+loggedAt=2026-04-18T22:55:06.642Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/DJRonaldoZA_vs_KING_KHESWA._1774043693044.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
