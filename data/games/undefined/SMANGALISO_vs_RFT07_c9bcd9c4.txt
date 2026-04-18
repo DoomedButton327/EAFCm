@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:58:16.807Z
+
+id=1775769409149
+uid=c9bcd9c4
+date=undefined
+home=SMANGALISO
+away=RFT07
+homeGoals=0
+awayGoals=3
+result=away
+winner=RFT07
+loggedAt=2026-04-18T22:58:16.807Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/SMANGALISO_vs_RFT07_1775769408378.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
