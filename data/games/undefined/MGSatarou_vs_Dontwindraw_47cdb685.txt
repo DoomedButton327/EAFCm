@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:50:15.268Z
+
+id=1772231451028
+uid=47cdb685
+date=undefined
+home=MGSatarou
+away=Dontwindraw
+homeGoals=3
+awayGoals=2
+result=home
+winner=MGSatarou
+loggedAt=2026-04-18T22:50:15.268Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/MGSatarou_vs_Dontwindraw_1772231450017.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
