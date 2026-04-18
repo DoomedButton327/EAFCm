@@ -1,5 +1,5 @@
 # Mettlestate × EA FC Mobile — Player File
-# Auto-generated: 2026-04-18T22:48:33.083Z
+# Auto-generated: 2026-04-18T23:24:19.511Z
 
 name=Dilibo
 username=DiliboL
@@ -14,4 +14,4 @@ ga=24
 form=W,L,W,D,W,W,D,W,L,W
 postponements=19
 suspended=false
-addedAt=2026-04-18T22:48:33.083Z
+addedAt=2026-04-18T23:24:19.511Z
