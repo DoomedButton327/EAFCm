@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:51:08.663Z
+
+id=1772568282466
+uid=803dcfea
+date=undefined
+home=Dontwindraw
+away=E1even-Starz
+homeGoals=3
+awayGoals=0
+result=home
+winner=Dontwindraw
+loggedAt=2026-04-18T22:51:08.663Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Dontwindraw_vs_E1even-Starz_1772568281371.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
