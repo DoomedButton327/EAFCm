@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:55:25.656Z
+
+id=1774126654121
+uid=81f40a69
+date=undefined
+home=wham
+away=KING_KHESWA.
+homeGoals=0
+awayGoals=3
+result=away
+winner=KING_KHESWA.
+loggedAt=2026-04-18T22:55:25.656Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/wham_vs_KING_KHESWA._1774126652531.jpeg
+forfeit=false
+autoWin=false
+autoForfeit=false
