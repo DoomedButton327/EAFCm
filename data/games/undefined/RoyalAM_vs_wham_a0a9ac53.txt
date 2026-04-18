@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:55:51.240Z
+
+id=1774471791933
+uid=a0a9ac53
+date=undefined
+home=RoyalAM
+away=wham
+homeGoals=3
+awayGoals=0
+result=home
+winner=RoyalAM
+loggedAt=2026-04-18T22:55:51.240Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/RoyalAM_vs_wham_1774471791124.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
