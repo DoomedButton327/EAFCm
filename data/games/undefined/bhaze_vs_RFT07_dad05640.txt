@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:55:18.196Z
+
+id=1774126489326
+uid=dad05640
+date=undefined
+home=bhaze
+away=RFT07
+homeGoals=1
+awayGoals=4
+result=away
+winner=RFT07
+loggedAt=2026-04-18T22:55:18.196Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/bhaze_vs_RFT07_1774126488350.jpeg
+forfeit=false
+autoWin=false
+autoForfeit=false
