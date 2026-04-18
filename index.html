@@ -427,6 +427,32 @@
                 <button class="btn-secondary" id="btn-force-sync" onclick="forceSync()" style="display:none"><i class="fas fa-sync"></i> Force Sync</button>
               </div>
               <button class="btn-secondary" style="color:var(--red);border-color:rgba(255,45,85,.3)" onclick="disconnectGitHub()"><i class="fas fa-unlink"></i> Disconnect</button>
+
+              <!-- Match Images Repo -->
+              <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+                  <i class="fas fa-images" style="color:var(--cyan);font-size:0.9rem;"></i>
+                  <span style="font-weight:700;font-size:0.85rem;letter-spacing:1px;color:var(--text);">MATCH IMAGES REPO</span>
+                  <span style="font-size:0.72rem;color:var(--muted);margin-left:4px;">Uses same PAT token</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Owner</label>
+                  <input class="form-input" id="imgRepoOwner" placeholder="username or org">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Repository</label>
+                  <input class="form-input" id="imgRepoName" placeholder="match-images-repo">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Branch</label>
+                  <input class="form-input" id="imgRepoBranch" placeholder="main" value="main">
+                </div>
+                <div class="action-row">
+                  <button class="btn-primary" onclick="saveImgRepoConfig()"><i class="fas fa-save"></i> Save</button>
+                  <button class="btn-secondary" style="color:var(--red);border-color:rgba(255,45,85,.3)" onclick="clearImgRepoConfig()"><i class="fas fa-times"></i> Clear</button>
+                </div>
+                <div id="img-repo-status" style="font-size:0.78rem;color:var(--muted);margin-top:6px;"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -809,6 +835,43 @@
 <script src="js/ocr.js"></script>
 <script src="js/admin.js"></script>
 <script src="js/app.js"></script>
+
+<!-- ═══ EXPORT POSTERS — hidden off-screen, captured by html2canvas ═══ -->
+<div id="fixture-capture-area" class="export-poster" style="position:absolute;top:0;left:-9999px;z-index:-1;visibility:hidden;">
+  <div class="poster-top-bar"></div>
+  <div class="poster-header">
+    <div class="poster-logo-text">METTLESTATE</div>
+    <div class="poster-title">MATCHDAY FIXTURES</div>
+    <div id="poster-fixture-sub" class="poster-sub">EA FC MOBILE LEAGUE</div>
+  </div>
+  <div id="poster-fixture-list" class="poster-match-list"></div>
+  <div class="poster-footer"><span>#Mettlestate x League</span><span></span></div>
+  <div class="poster-bottom-bar"></div>
+</div>
+
+<div id="lb-capture-area" class="export-poster" style="position:absolute;top:0;left:-9999px;z-index:-1;visibility:hidden;">
+  <div class="poster-top-bar"></div>
+  <div class="poster-header">
+    <div class="poster-logo-text">METTLESTATE</div>
+    <div class="poster-title">LEAGUE STANDINGS</div>
+    <div id="poster-lb-sub" class="poster-sub">EA FC MOBILE LEAGUE</div>
+  </div>
+  <div id="poster-lb-table" class="poster-lb-content"></div>
+  <div class="poster-footer"><span>#MettlestateLeague</span><span>@Astral Reign</span></div>
+  <div class="poster-bottom-bar"></div>
+</div>
+
+<div id="rules-capture-area" class="export-poster" style="position:absolute;top:0;left:-9999px;z-index:-1;visibility:hidden;padding-bottom:20px;">
+  <div class="poster-top-bar"></div>
+  <div class="poster-header">
+    <div class="poster-logo-text">METTLESTATE</div>
+    <div class="poster-title">LEAGUE RULES</div>
+    <div id="poster-rules-sub" class="poster-sub">EA FC MOBILE LEAGUE</div>
+  </div>
+  <div id="poster-rules-content" style="padding:30px 50px;color:#fff;font-size:0.9rem;line-height:1.6;"></div>
+  <div class="poster-footer"><span>#MettlestateLeague</span><span>@Astral Reign</span></div>
+  <div class="poster-bottom-bar"></div>
+</div>
 
 </body>
 </html>
