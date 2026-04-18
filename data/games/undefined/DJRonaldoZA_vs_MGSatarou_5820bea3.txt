@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:55:48.275Z
+
+id=1774435849908
+uid=5820bea3
+date=undefined
+home=DJRonaldoZA
+away=MGSatarou
+homeGoals=0
+awayGoals=3
+result=away
+winner=MGSatarou
+loggedAt=2026-04-18T22:55:48.275Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/DJRonaldoZA_vs_MGSatarou_1774435848983.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
