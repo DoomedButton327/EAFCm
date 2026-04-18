@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:59:55.217Z
+
+id=1776501400503
+uid=d5d8f4e3
+date=undefined
+home=ExequielThwala
+away=DiliboL
+homeGoals=undefined
+awayGoals=undefined
+result=home
+winner=ExequielThwala
+loggedAt=2026-04-18T22:59:55.217Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
