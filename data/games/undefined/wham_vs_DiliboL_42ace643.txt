@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:52:33.231Z
+
+id=1773087136362
+uid=42ace643
+date=undefined
+home=wham
+away=DiliboL
+homeGoals=0
+awayGoals=3
+result=away
+winner=DiliboL
+loggedAt=2026-04-18T22:52:33.231Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/wham_vs_XWRLD_REAPERS_1773087133308.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
