@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:52:43.786Z
+
+id=1773205470510
+uid=c725ccfb
+date=undefined
+home=Dontwindraw
+away=Lukie
+homeGoals=3
+awayGoals=0
+result=home
+winner=Dontwindraw
+loggedAt=2026-04-18T22:52:43.786Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
