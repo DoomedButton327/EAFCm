@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:51:26.722Z
+
+id=1772662178169
+uid=4ae36752
+date=undefined
+home=Barca.
+away=CRANK_
+homeGoals=3
+awayGoals=0
+result=home
+winner=Barca.
+loggedAt=2026-04-18T22:51:26.722Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Barca._vs_CRANK__1772662172538.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
