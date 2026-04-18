@@ -1,5 +1,5 @@
 # Mettlestate × EA FC Mobile — Player File
-# Auto-generated: 2026-04-18T22:48:25.668Z
+# Auto-generated: 2026-04-18T23:24:14.483Z
 
 name=Thandobhaze0023
 username=bhaze
@@ -14,4 +14,4 @@ ga=39
 form=L,W,L,L,L,L,D,D,D,D
 postponements=20
 suspended=false
-addedAt=2026-04-18T22:48:25.668Z
+addedAt=2026-04-18T23:24:14.483Z
