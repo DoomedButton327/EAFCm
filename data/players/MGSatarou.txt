@@ -1,0 +1,17 @@
+# Mettlestate × EA FC Mobile — Player File
+# Auto-generated: 2026-04-18T22:48:51.098Z
+
+name=Mogau
+username=MGSatarou
+phone=0826993315
+played=40
+wins=11
+draws=21
+losses=8
+points=54
+gf=34
+ga=27
+form=D,D,L,D,D,W,L,D,D,D
+postponements=20
+suspended=false
+addedAt=2026-04-18T22:48:51.098Z
