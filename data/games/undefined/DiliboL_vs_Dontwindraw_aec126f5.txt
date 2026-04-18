@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:55:24.189Z
+
+id=1774126615050
+uid=aec126f5
+date=undefined
+home=DiliboL
+away=Dontwindraw
+homeGoals=0
+awayGoals=3
+result=away
+winner=Dontwindraw
+loggedAt=2026-04-18T22:55:24.189Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/XWRLD_REAPERS_vs_Dontwindraw_1774126614249.png
+forfeit=false
+autoWin=false
+autoForfeit=false
