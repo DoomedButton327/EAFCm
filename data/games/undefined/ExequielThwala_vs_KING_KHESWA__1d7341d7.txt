@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:57:38.924Z
+
+id=1775150640407
+uid=1d7341d7
+date=undefined
+home=ExequielThwala
+away=KING_KHESWA.
+homeGoals=0
+awayGoals=3
+result=away
+winner=KING_KHESWA.
+loggedAt=2026-04-18T22:57:38.924Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/ExequielThwala_vs_KING_KHESWA._1775150638348.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
