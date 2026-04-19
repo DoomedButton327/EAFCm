@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:55:18.506Z
+
+id=1772661885665
+uid=d8bd5351
+date=undefined
+home=RFT07
+away=Barca.
+homeGoals=4
+awayGoals=0
+result=home
+winner=RFT07
+loggedAt=2026-04-19T14:55:18.506Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/RFT07_vs_Barca._1772661884617.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
