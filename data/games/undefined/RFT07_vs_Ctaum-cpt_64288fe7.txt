@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:01:25.518Z
+
+id=1775163649850
+uid=64288fe7
+date=undefined
+home=RFT07
+away=Ctaum-cpt
+homeGoals=undefined
+awayGoals=undefined
+result=home
+winner=RFT07
+loggedAt=2026-04-19T15:01:25.518Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
