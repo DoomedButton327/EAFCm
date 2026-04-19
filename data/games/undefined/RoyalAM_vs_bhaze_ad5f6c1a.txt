@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:56:43.738Z
+
+id=1773205500253
+uid=ad5f6c1a
+date=undefined
+home=RoyalAM
+away=bhaze
+homeGoals=2
+awayGoals=0
+result=home
+winner=RoyalAM
+loggedAt=2026-04-19T14:56:43.738Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/RoyalAM_vs_bhaze_1773205491423.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
