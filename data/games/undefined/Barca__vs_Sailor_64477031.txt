@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:54:42.758Z
+
+id=1772487170464
+uid=64477031
+date=undefined
+home=Barca.
+away=Sailor
+homeGoals=2
+awayGoals=0
+result=home
+winner=Barca.
+loggedAt=2026-04-19T14:54:42.758Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Barca._vs_Sailor_1772487169334.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
