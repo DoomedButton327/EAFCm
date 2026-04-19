@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:02:39.514Z
+
+id=1776141372206
+uid=b5a2a1f0
+date=undefined
+home=Ctaum-cpt
+away=SMANGALISO
+homeGoals=3
+awayGoals=0
+result=home
+winner=Ctaum-cpt
+loggedAt=2026-04-19T15:02:39.514Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Ctaum-cpt_vs_SMANGALISO_1776141371129.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
