@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:54:49.043Z
+
+id=1772487306938
+uid=ba82fb65
+date=undefined
+home=Lukie
+away=MGSatarou
+homeGoals=0
+awayGoals=4
+result=away
+winner=MGSatarou
+loggedAt=2026-04-19T14:54:49.043Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Lukie_vs_MGSatarou_1772487305801.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
