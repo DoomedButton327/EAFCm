@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:55:58.204Z
+
+id=1772840745727
+uid=2e02e67b
+date=undefined
+home=DJRonaldoZA
+away=Sailor
+homeGoals=3
+awayGoals=0
+result=home
+winner=DJRonaldoZA
+loggedAt=2026-04-19T14:55:58.204Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/DJRonaldoZA_vs_Sailor_1772840741955.jpeg
+forfeit=false
+autoWin=false
+autoForfeit=false
