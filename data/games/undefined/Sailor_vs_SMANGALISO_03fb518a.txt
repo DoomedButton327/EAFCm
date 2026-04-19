@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:58:05.493Z
+
+id=1773817439304
+uid=03fb518a
+date=undefined
+home=Sailor
+away=SMANGALISO
+homeGoals=0
+awayGoals=2
+result=away
+winner=SMANGALISO
+loggedAt=2026-04-19T14:58:05.493Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Sailor_vs_SMANGALISO_1773817438351.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
