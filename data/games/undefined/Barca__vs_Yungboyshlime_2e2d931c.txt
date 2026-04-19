@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:56:02.986Z
+
+id=1772840995038
+uid=2e2d931c
+date=undefined
+home=Barca.
+away=Yungboyshlime
+homeGoals=undefined
+awayGoals=undefined
+result=draw
+winner=DRAW
+loggedAt=2026-04-19T14:56:02.986Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
