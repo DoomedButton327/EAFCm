@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:00:02.219Z
+
+id=1774563841570
+uid=77f6e5af
+date=undefined
+home=DiliboL
+away=CRANK_
+homeGoals=3
+awayGoals=1
+result=home
+winner=DiliboL
+loggedAt=2026-04-19T15:00:02.219Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/DiliboL_vs_CRANK__1774563839464.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
