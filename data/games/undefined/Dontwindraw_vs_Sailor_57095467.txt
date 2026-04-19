@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:01:33.135Z
+
+id=1775170389212
+uid=57095467
+date=undefined
+home=Dontwindraw
+away=Sailor
+homeGoals=undefined
+awayGoals=undefined
+result=draw
+winner=DRAW
+loggedAt=2026-04-19T15:01:33.135Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
