@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:55:00.999Z
+
+id=1772568169701
+uid=907b5bc6
+date=undefined
+home=SMANGALISO
+away=wham
+homeGoals=2
+awayGoals=0
+result=home
+winner=SMANGALISO
+loggedAt=2026-04-19T14:55:00.999Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/SMANGALISO_vs_wham_1772568168645.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
