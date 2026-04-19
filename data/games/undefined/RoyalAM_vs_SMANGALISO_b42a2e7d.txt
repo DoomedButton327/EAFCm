@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:54:55.721Z
+
+id=1772522461467
+uid=b42a2e7d
+date=undefined
+home=RoyalAM
+away=SMANGALISO
+homeGoals=undefined
+awayGoals=undefined
+result=draw
+winner=DRAW
+loggedAt=2026-04-19T14:54:55.721Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
