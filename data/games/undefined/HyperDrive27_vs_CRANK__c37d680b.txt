@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:54:50.804Z
+
+id=1772487347699
+uid=c37d680b
+date=undefined
+home=HyperDrive27
+away=CRANK_
+homeGoals=0
+awayGoals=3
+result=away
+winner=CRANK_
+loggedAt=2026-04-19T14:54:50.804Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/HyperDrive27_vs_CRANK__1772487339978.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
