@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:54:31.707Z
+
+id=1772432035179
+uid=6891751d
+date=undefined
+home=Lukie
+away=RoyalAM
+homeGoals=undefined
+awayGoals=undefined
+result=draw
+winner=DRAW
+loggedAt=2026-04-19T14:54:31.707Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
