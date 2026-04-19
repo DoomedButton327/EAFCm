@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:02:01.793Z
+
+id=1775769425562
+uid=3acc2b60
+date=undefined
+home=DiliboL
+away=KING_KHESWA.
+homeGoals=3
+awayGoals=1
+result=home
+winner=DiliboL
+loggedAt=2026-04-19T15:02:01.793Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/DiliboL_vs_KING_KHESWA._1775769424748.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
