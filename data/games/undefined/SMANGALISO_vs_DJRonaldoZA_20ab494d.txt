@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:53:50.794Z
+
+id=1772131067126
+uid=20ab494d
+date=undefined
+home=SMANGALISO
+away=DJRonaldoZA
+homeGoals=0
+awayGoals=3
+result=away
+winner=DJRonaldoZA
+loggedAt=2026-04-19T14:53:50.794Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/SMANGALISO_vs_DJRonaldoZA_1772131065903.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
