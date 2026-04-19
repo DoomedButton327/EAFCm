@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:00:10.700Z
+
+id=1774563996345
+uid=3be7986f
+date=undefined
+home=Dontwindraw
+away=Sailor
+homeGoals=3
+awayGoals=0
+result=home
+winner=Dontwindraw
+loggedAt=2026-04-19T15:00:10.700Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Dontwindraw_vs_Sailor_1774563995568.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
