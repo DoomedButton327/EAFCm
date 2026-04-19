@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:03:47.944Z
+
+id=1776549164702
+uid=e0fd2a9d
+date=undefined
+home=E1even-Starz
+away=Zan-Ten
+homeGoals=0
+awayGoals=3
+result=away
+winner=Zan-Ten
+loggedAt=2026-04-19T15:03:47.944Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
