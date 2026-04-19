@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:57:35.695Z
+
+id=1773514763300
+uid=a6234ef4
+date=undefined
+home=bhaze
+away=Lukie
+homeGoals=3
+awayGoals=0
+result=home
+winner=bhaze
+loggedAt=2026-04-19T14:57:35.695Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/bhaze_vs_Lukie_1773514753407.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
