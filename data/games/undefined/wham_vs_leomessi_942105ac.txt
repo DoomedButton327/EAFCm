@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:58:29.313Z
+
+id=1773901931857
+uid=942105ac
+date=undefined
+home=wham
+away=leomessi
+homeGoals=0
+awayGoals=3
+result=away
+winner=leomessi
+loggedAt=2026-04-19T14:58:29.313Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/wham_vs_leomessi_1773901931060.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
