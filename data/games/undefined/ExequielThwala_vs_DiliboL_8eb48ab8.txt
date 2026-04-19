@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:57:05.486Z
+
+id=1773377007545
+uid=8eb48ab8
+date=undefined
+home=ExequielThwala
+away=DiliboL
+homeGoals=0
+awayGoals=3
+result=away
+winner=DiliboL
+loggedAt=2026-04-19T14:57:05.486Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/ExequielThwala_vs_XWRLD_REAPERS_1773377005340.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
