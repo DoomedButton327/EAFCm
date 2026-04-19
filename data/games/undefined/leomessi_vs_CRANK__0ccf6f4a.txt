@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:03:51.014Z
+
+id=1776549228754
+uid=0ccf6f4a
+date=undefined
+home=leomessi
+away=CRANK_
+homeGoals=undefined
+awayGoals=undefined
+result=away
+winner=CRANK_
+loggedAt=2026-04-19T15:03:51.014Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
