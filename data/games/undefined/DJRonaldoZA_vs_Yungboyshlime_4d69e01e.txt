@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:53:06.637Z
+
+id=1771957246349
+uid=4d69e01e
+date=undefined
+home=DJRonaldoZA
+away=Yungboyshlime
+homeGoals=1
+awayGoals=0
+result=home
+winner=DJRonaldoZA
+loggedAt=2026-04-19T14:53:06.638Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/DJRonaldoZA_vs_Yungboyshlime_1771957241654.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
