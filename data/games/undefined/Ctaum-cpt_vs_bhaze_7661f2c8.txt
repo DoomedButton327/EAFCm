@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:54:58.928Z
+
+id=1772568143391
+uid=7661f2c8
+date=undefined
+home=Ctaum-cpt
+away=bhaze
+homeGoals=1
+awayGoals=3
+result=away
+winner=bhaze
+loggedAt=2026-04-19T14:54:58.928Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Ctaum-cpt_vs_bhaze_1772568138888.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
