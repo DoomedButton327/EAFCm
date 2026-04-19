@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:56:14.690Z
+
+id=1773004382124
+uid=d64146c0
+date=undefined
+home=Zan-Ten
+away=Nigelmj21
+homeGoals=0
+awayGoals=3
+result=away
+winner=Nigelmj21
+loggedAt=2026-04-19T14:56:14.690Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Zan-Ten_vs_Nigelmj21_1773004378593.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
