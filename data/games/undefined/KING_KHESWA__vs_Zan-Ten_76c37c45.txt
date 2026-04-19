@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:01:00.430Z
+
+id=1774912116881
+uid=76c37c45
+date=undefined
+home=KING_KHESWA.
+away=Zan-Ten
+homeGoals=undefined
+awayGoals=undefined
+result=home
+winner=KING_KHESWA.
+loggedAt=2026-04-19T15:01:00.430Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
