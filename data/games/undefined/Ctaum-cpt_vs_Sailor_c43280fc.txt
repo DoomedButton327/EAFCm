@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:03:14.178Z
+
+id=1776370986808
+uid=c43280fc
+date=undefined
+home=Ctaum-cpt
+away=Sailor
+homeGoals=4
+awayGoals=1
+result=home
+winner=Ctaum-cpt
+loggedAt=2026-04-19T15:03:14.178Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
