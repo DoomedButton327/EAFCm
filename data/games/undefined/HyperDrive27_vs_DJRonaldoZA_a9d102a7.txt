@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:53:44.331Z
+
+id=1772094896096
+uid=a9d102a7
+date=undefined
+home=HyperDrive27
+away=DJRonaldoZA
+homeGoals=0
+awayGoals=1
+result=away
+winner=DJRonaldoZA
+loggedAt=2026-04-19T14:53:44.331Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/HyperDrive27_vs_DJRonaldoZA_1772094892611.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
