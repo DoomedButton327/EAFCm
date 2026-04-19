@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:57:40.430Z
+
+id=1773520790862
+uid=886f45fd
+date=undefined
+home=Yungboyshlime
+away=KING_KHESWA.
+homeGoals=0
+awayGoals=3
+result=away
+winner=KING_KHESWA.
+loggedAt=2026-04-19T14:57:40.430Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Yungboyshlime_vs_KING_KHESWA._1773520789602.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
