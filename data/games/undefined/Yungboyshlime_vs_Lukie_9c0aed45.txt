@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:02:08.024Z
+
+id=1775769868867
+uid=9c0aed45
+date=undefined
+home=Yungboyshlime
+away=Lukie
+homeGoals=undefined
+awayGoals=undefined
+result=home
+winner=Yungboyshlime
+loggedAt=2026-04-19T15:02:08.024Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
