@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:58:23.166Z
+
+id=1773901823118
+uid=cf7509ae
+date=undefined
+home=MGSatarou
+away=Sailor
+homeGoals=1
+awayGoals=0
+result=home
+winner=MGSatarou
+loggedAt=2026-04-19T14:58:23.167Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/MGSatarou_vs_Sailor_1773901820495.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
