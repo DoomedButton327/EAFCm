@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:53:15.921Z
+
+id=1771992891629
+uid=9c91e472
+date=undefined
+home=leomessi
+away=E1even-Starz
+homeGoals=3
+awayGoals=0
+result=home
+winner=leomessi
+loggedAt=2026-04-19T14:53:15.921Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/leomessi_vs_E1even-Starz_1771992890457.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
