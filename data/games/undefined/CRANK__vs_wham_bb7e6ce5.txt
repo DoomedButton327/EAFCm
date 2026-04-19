@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:01:20.788Z
+
+id=1775150618631
+uid=bb7e6ce5
+date=undefined
+home=CRANK_
+away=wham
+homeGoals=3
+awayGoals=0
+result=home
+winner=CRANK_
+loggedAt=2026-04-19T15:01:20.789Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/CRANK__vs_wham_1775150617848.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
