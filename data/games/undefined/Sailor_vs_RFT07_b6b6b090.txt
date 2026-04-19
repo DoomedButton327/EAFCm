@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:53:47.623Z
+
+id=1772127118734
+uid=b6b6b090
+date=undefined
+home=Sailor
+away=RFT07
+homeGoals=0
+awayGoals=1
+result=away
+winner=RFT07
+loggedAt=2026-04-19T14:53:47.623Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Sailor_vs_RFT07_1772127117677.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
