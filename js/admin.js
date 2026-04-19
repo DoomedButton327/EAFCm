@@ -74,8 +74,9 @@ function saveImgRepoConfig() {
   const owner  = document.getElementById('imgRepoOwner')?.value?.trim();
   const repo   = document.getElementById('imgRepoName')?.value?.trim();
   const branch = document.getElementById('imgRepoBranch')?.value?.trim() || 'main';
-  if (!owner || !repo) { toast('Owner and repo name are required.', 'error'); return; }
-  Storage.saveImgRepo({ owner, repo, branch });
+  const token  = document.getElementById('imgRepoToken')?.value?.trim();
+  if (!owner || !repo || !token) { toast('Owner, repo, and token are required.', 'error'); return; }
+  Storage.saveImgRepo({ owner, repo, branch, token });
   _updateImgRepoStatus();
   toast('Image repo saved!', 'success');
 }
@@ -83,22 +84,33 @@ function saveImgRepoConfig() {
 function clearImgRepoConfig() {
   if (!confirm('Clear image repo config? Screenshots will go to the main repo.')) return;
   Storage.removeImgRepo();
-  ['imgRepoOwner', 'imgRepoName', 'imgRepoBranch'].forEach(id => {
+  ['imgRepoOwner', 'imgRepoName', 'imgRepoToken'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.value = id === 'imgRepoBranch' ? 'main' : '';
+    if (el) el.value = '';
   });
+  const branch = document.getElementById('imgRepoBranch');
+  if (branch) branch.value = 'main';
   _updateImgRepoStatus();
   toast('Image repo cleared.', 'info');
 }
 
+async function testImgRepoConnection() {
+  const btn = document.getElementById('btn-test-img-repo');
+  if (btn) btn.disabled = true;
+  const result = await GH.testImgRepoConnection();
+  toast(result.msg, result.ok ? 'success' : 'error');
+  if (btn) btn.disabled = false;
+}
+
 function _updateImgRepoStatus() {
-  const el  = document.getElementById('img-repo-status');
+  const el = document.getElementById('img-repo-status');
   if (!el) return;
   const cfg = Storage.loadImgRepo();
-  el.textContent = cfg?.owner && cfg?.repo
-    ? `\u2713 Images \u2192 ${cfg.owner}/${cfg.repo} (${cfg.branch || 'main'})`
-    : 'Not set — images will fall back to main repo';
-  el.style.color = cfg?.owner ? 'var(--green)' : 'var(--muted)';
+  const ready = cfg?.owner && cfg?.repo && cfg?.token;
+  el.textContent = ready
+    ? `\u2713 ${cfg.owner}/${cfg.repo} (${cfg.branch || 'main'}) \u2014 token saved`
+    : 'Not configured \u2014 proof images will fall back to main repo';
+  el.style.color = ready ? 'var(--green)' : 'var(--muted)';
 }
 
 // ── Public leaderboard ────────────────────────────────────────

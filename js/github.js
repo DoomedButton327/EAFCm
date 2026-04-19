@@ -220,7 +220,26 @@ const GH = (() => {
     isConnected() {
       return !!(_config?.owner && _config?.repo && _config?.token);
     },
+    isImgRepoConnected() {
+      const cfg = Storage.loadImgRepo();
+      return !!(cfg?.owner && cfg?.repo && cfg?.token);
+    },
     updateStatusUI,
+
+    async testImgRepoConnection() {
+      const cfg = Storage.loadImgRepo();
+      if (!cfg?.owner || !cfg?.repo || !cfg?.token) return { ok: false, msg: 'Image repo not configured' };
+      try {
+        const res = await fetch(
+          `https://api.github.com/repos/${cfg.owner}/${cfg.repo}`,
+          { headers: { 'Authorization': `token ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json' } },
+        );
+        if (res.status === 200) return { ok: true,  msg: `Connected \u2713 (${cfg.owner}/${cfg.repo})` };
+        if (res.status === 401) return { ok: false, msg: 'Invalid token' };
+        if (res.status === 404) return { ok: false, msg: 'Repo not found or no access' };
+        return { ok: false, msg: `GitHub error ${res.status}` };
+      } catch { return { ok: false, msg: 'Network error' }; }
+    },
 
     syncData() {
       if (!GH.isConnected()) return;
@@ -237,33 +256,41 @@ const GH = (() => {
     },
 
     async uploadMatchImage(base64Data, filename, dateStr) {
-      if (!GH.isConnected()) return null;
+      const imgCfg = Storage.loadImgRepo();
+      const hasImgRepo = imgCfg?.owner && imgCfg?.repo && imgCfg?.token;
 
-      // Use dedicated image repo if configured; reuses the main PAT token
-      const imgCfg    = Storage.loadImgRepo();
-      const useImgRepo = imgCfg?.owner && imgCfg?.repo;
-      const imgOwner  = useImgRepo ? imgCfg.owner              : _config.owner;
-      const imgRepo   = useImgRepo ? imgCfg.repo               : _config.repo;
-      const imgBranch = useImgRepo ? (imgCfg.branch || 'main') : _config.branch;
+      // Need at least one configured repo to upload
+      if (!hasImgRepo && !GH.isConnected()) return null;
+
+      // Image repo takes priority; falls back to main repo if not set
+      const imgOwner  = hasImgRepo ? imgCfg.owner              : _config.owner;
+      const imgRepo   = hasImgRepo ? imgCfg.repo               : _config.repo;
+      const imgBranch = hasImgRepo ? (imgCfg.branch || 'main') : _config.branch;
+      const imgToken  = hasImgRepo ? imgCfg.token              : _config.token;
+
+      // Folder structure mirrors main repo: data/games/<date>/images/<filename>
+      const path    = matchImagesPath(dateStr || todayYMD()) + filename;
+      const imgBase = `https://api.github.com/repos/${imgOwner}/${imgRepo}`;
+      const imgHdrs = {
+        'Authorization': `token ${imgToken}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json',
+      };
 
       showBar('Uploading screenshot\u2026');
       try {
-        const path    = matchImagesPath(dateStr || todayYMD()) + filename;
-        const imgBase = `https://api.github.com/repos/${imgOwner}/${imgRepo}`;
-        const imgHdrs = {
-          'Authorization': `token ${_config.token}`,
-          'Accept': 'application/vnd.github.v3+json',
-          'Content-Type': 'application/json',
-        };
-
-        // Fetch SHA so we can update an existing file without a 409
+        // Get SHA for existing file so we can overwrite without 409
         let sha = null;
         try {
           const r = await fetch(`${imgBase}/contents/${path}?ref=${imgBranch}`, { headers: imgHdrs });
           if (r.ok) { const d = await r.json(); sha = d.sha || null; }
         } catch {}
 
-        const body = { message: `Screenshot: ${filename}`, branch: imgBranch, content: base64Data };
+        const body = {
+          message: `Screenshot: ${filename}`,
+          branch: imgBranch,
+          content: base64Data,
+        };
         if (sha) body.sha = sha;
 
         const res = await fetch(`${imgBase}/contents/${path}`, {
@@ -274,9 +301,15 @@ const GH = (() => {
           hideBar(true, 'Screenshot saved');
           return `https://raw.githubusercontent.com/${imgOwner}/${imgRepo}/${imgBranch}/${path}`;
         }
+        const errText = await res.text().catch(() => res.status);
+        console.error('uploadMatchImage failed:', res.status, errText);
+        hideBar(false, `Image upload failed (${res.status})`);
+        return null;
+      } catch(err) {
+        console.error('uploadMatchImage error:', err);
         hideBar(false, 'Image upload failed');
         return null;
-      } catch { hideBar(false, 'Image upload failed'); return null; }
+      }
     },
 
     async loadRemoteData() {

@@ -75,7 +75,7 @@ const Storage = (() => {
     loadPubRepo()     { return load(KEYS.pubRepo, null); },
 
     // ── Match images repo config ──────────────────────────────
-    // Uses the same PAT as ghConfig — only owner/repo/branch are stored here
+    // Stores its own owner/repo/branch/token independently of ghConfig
     saveImgRepo(cfg)  { save(KEYS.imgRepo, cfg); },
     loadImgRepo()     { return load(KEYS.imgRepo, null); },
     removeImgRepo()   { remove(KEYS.imgRepo); },

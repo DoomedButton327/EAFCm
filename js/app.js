@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     set('imgRepoOwner',  imgCfg.owner);
     set('imgRepoName',   imgCfg.repo);
     set('imgRepoBranch', imgCfg.branch || 'main');
+    set('imgRepoToken',  imgCfg.token || '');
   }
   _updateImgRepoStatus();
 

@@ -33,7 +33,7 @@ async function logScore() {
     const { dataUrl, filename } = State.pendingMatchImage;
     const ext = filename.split('.').pop() || 'jpg';
     const fname = `match_${fix.home}_vs_${fix.away}_${Date.now()}.${ext}`;
-    if (GH.isConnected()) {
+    if (GH.isConnected() || GH.isImgRepoConnected()) {
       const base64 = dataUrl.split(',')[1];
       imageUrl = await GH.uploadMatchImage(base64, fname, fix.scheduledDate || todayYMD());
     }

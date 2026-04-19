@@ -95,36 +95,39 @@ function updateStatsTicker() {
 function captureElement(elementId, filename, successMsg) {
   const el = document.getElementById(elementId);
   if (!el || !window.html2canvas) { toast('Export not available.', 'error'); return; }
-  el.style.position   = 'fixed';
-  el.style.top        = '0';
-  el.style.left       = '0';
-  el.style.visibility = 'visible';
-  el.style.zIndex     = '-1';
+
+  // Must be in the rendering tree so html2canvas can measure it.
+  // opacity:0.001 = invisible to the user; z-index:9999 = above stacking context
+  // so the browser actually lays it out fully before we capture.
+  el.style.cssText = 'position:fixed;top:0;left:0;z-index:9999;visibility:visible;opacity:0.001;pointer-events:none;';
+
+  const restore = () => {
+    el.style.cssText = 'position:absolute;top:0;left:-9999px;z-index:-1;visibility:hidden;';
+  };
+
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       html2canvas(el, {
-        scale: 2, useCORS: true, allowTaint: true,
-        backgroundColor: '#0A0A0C', logging: false,
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: '#0A0A0C',
+        logging: false,
         onclone: doc => {
           const c = doc.getElementById(elementId);
-          if (c) { c.style.visibility = 'visible'; c.style.position = 'static'; c.style.left = '0'; c.style.top = '0'; c.style.zIndex = '1'; }
+          if (c) c.style.cssText = 'position:static;opacity:1;visibility:visible;width:800px;';
         },
       }).then(canvas => {
-        el.style.position   = 'absolute';
-        el.style.top        = '0';
-        el.style.left       = '-9999px';
-        el.style.visibility = 'hidden';
-        el.style.zIndex     = '-1';
+        restore();
         const link = document.createElement('a');
         link.download = filename;
         link.href = canvas.toDataURL('image/png');
         link.click();
         toast(successMsg, 'success');
-      }).catch(() => {
-        el.style.position   = 'absolute';
-        el.style.left       = '-9999px';
-        el.style.visibility = 'hidden';
-        toast('Export failed. Try again.', 'error');
+      }).catch(err => {
+        restore();
+        console.error('captureElement error:', err);
+        toast('Export failed — check console for details.', 'error');
       });
     });
   });
