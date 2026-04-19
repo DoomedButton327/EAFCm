@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:55:41.931Z
+
+id=1772775289820
+uid=6233e91b
+date=undefined
+home=leomessi
+away=CRANK_
+homeGoals=3
+awayGoals=0
+result=home
+winner=leomessi
+loggedAt=2026-04-19T14:55:41.931Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/leomessi_vs_CRANK__1772775265208.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
