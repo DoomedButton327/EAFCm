@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:53:55.308Z
+
+id=1772165658110
+uid=0be9e285
+date=undefined
+home=Mashinini
+away=RoyalAM
+homeGoals=undefined
+awayGoals=undefined
+result=away
+winner=RoyalAM
+loggedAt=2026-04-19T14:53:55.308Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
