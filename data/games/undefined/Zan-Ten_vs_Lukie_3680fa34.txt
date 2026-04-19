@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:02:37.865Z
+
+id=1776141352161
+uid=3680fa34
+date=undefined
+home=Zan-Ten
+away=Lukie
+homeGoals=3
+awayGoals=0
+result=home
+winner=Zan-Ten
+loggedAt=2026-04-19T15:02:37.865Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Zan-Ten_vs_Lukie_1776141350699.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
