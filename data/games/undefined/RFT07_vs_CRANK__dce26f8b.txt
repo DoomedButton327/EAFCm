@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:58:13.633Z
+
+id=1773818178830
+uid=dce26f8b
+date=undefined
+home=RFT07
+away=CRANK_
+homeGoals=0
+awayGoals=3
+result=away
+winner=CRANK_
+loggedAt=2026-04-19T14:58:13.633Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/RFT07_vs_CRANK__1773818177954.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
