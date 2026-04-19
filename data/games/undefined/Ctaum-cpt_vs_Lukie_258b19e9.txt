@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T15:01:19.323Z
+
+id=1775150588386
+uid=258b19e9
+date=undefined
+home=Ctaum-cpt
+away=Lukie
+homeGoals=1
+awayGoals=0
+result=home
+winner=Ctaum-cpt
+loggedAt=2026-04-19T15:01:19.323Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Ctaum-cpt_vs_Lukie_1775150587141.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
