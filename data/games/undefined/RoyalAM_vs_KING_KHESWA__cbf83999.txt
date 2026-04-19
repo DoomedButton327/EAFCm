@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:58:37.039Z
+
+id=1773902505883
+uid=cbf83999
+date=undefined
+home=RoyalAM
+away=KING_KHESWA.
+homeGoals=0
+awayGoals=0
+result=draw
+winner=DRAW
+loggedAt=2026-04-19T14:58:37.039Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/RoyalAM_vs_KING_KHESWA._1773902483277.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
