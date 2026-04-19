@@ -1,0 +1,17 @@
+# Mettlestate × EA FC Mobile — Player File
+# Auto-generated: 2026-04-19T14:52:43.203Z
+
+name=👑•
+username=Zan-Ten
+phone=+27 71 005 0307
+played=34
+wins=17
+draws=5
+losses=12
+points=56
+gf=45
+ga=28
+form=W,W,W,W,W,W,W,L,W,W
+postponements=20
+suspended=false
+addedAt=2026-04-19T14:52:43.203Z
