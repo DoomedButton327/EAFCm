@@ -1,0 +1,17 @@
+# Mettlestate × EA FC Mobile — Player File
+# Auto-generated: 2026-04-19T14:52:29.421Z
+
+name=SMANGALISO
+username=SMANGALISO
+phone=0780070989
+played=41
+wins=5
+draws=17
+losses=19
+points=32
+gf=15
+ga=47
+form=D,D,L,D,L,D,D,L,D,D
+postponements=19
+suspended=false
+addedAt=2026-04-19T14:52:29.421Z
