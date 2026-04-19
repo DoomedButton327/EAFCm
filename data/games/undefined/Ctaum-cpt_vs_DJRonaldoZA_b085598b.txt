@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:54:08.018Z
+
+id=1772231427388
+uid=b085598b
+date=undefined
+home=Ctaum-cpt
+away=DJRonaldoZA
+homeGoals=0
+awayGoals=1
+result=away
+winner=DJRonaldoZA
+loggedAt=2026-04-19T14:54:08.018Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Ctaum-cpt_vs_DJRonaldoZA_1772231426339.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
