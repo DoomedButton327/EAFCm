@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:59:20.062Z
+
+id=1774126606175
+uid=40211c23
+date=undefined
+home=Zan-Ten
+away=leomessi
+homeGoals=0
+awayGoals=3
+result=away
+winner=leomessi
+loggedAt=2026-04-19T14:59:20.062Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Zan-Ten_vs_leomessi_1774126603362.png
+forfeit=false
+autoWin=false
+autoForfeit=false
