@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:57:18.125Z
+
+id=1773377453292
+uid=b9a41a2c
+date=undefined
+home=Lukie
+away=RoyalAM
+homeGoals=0
+awayGoals=3
+result=away
+winner=RoyalAM
+loggedAt=2026-04-19T14:57:18.125Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Lukie_vs_RoyalAM_1773377451990.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
