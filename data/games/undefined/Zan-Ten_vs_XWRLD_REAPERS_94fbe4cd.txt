@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-19T14:58:44.842Z
+
+id=1773991206220
+uid=94fbe4cd
+date=undefined
+home=Zan-Ten
+away=XWRLD_REAPERS
+homeGoals=0
+awayGoals=2
+result=away
+winner=XWRLD_REAPERS
+loggedAt=2026-04-19T14:58:44.842Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
