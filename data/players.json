@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Hu",
+    "username": "Dkd",
+    "phone": "+27656599219",
+    "played": 0,
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "points": 0,
+    "gf": 0,
+    "ga": 0,
+    "form": [],
+    "postponements": 20,
+    "suspended": false
+  },
+  {
+    "name": "Jj",
+    "username": "Uhr",
+    "phone": "+27346446",
+    "played": 0,
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "points": 0,
+    "gf": 0,
+    "ga": 0,
+    "form": [],
+    "postponements": 20,
+    "suspended": false
+  }
+]
