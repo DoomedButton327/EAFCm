@@ -78,7 +78,7 @@ function switchTab(tabId) {
     t.classList.toggle('active', t.id === tabId);
   });
   // Tab-specific side effects
-  if (tabId === 'admin-tab')    { renderEvidenceGrid(); loadPublicRepoConfigUI(); renderThemeGrid(); renderPendingRegistrations(); }
+  if (tabId === 'admin-tab')    { renderEvidenceGrid(); loadPublicRepoConfigUI(); renderThemeGrid(); renderPendingRegistrations(); _updateDiscordStatus?.(); }
   if (tabId === 'calendar-tab') { renderCalendar(); renderUpcomingPanel(); }
   if (tabId === 'players-tab')  { renderPlayerManagement(); }
 }
