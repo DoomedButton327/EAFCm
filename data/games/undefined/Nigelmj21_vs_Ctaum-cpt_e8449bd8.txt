@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:58:11.359Z
+
+id=1775769239308
+uid=e8449bd8
+date=undefined
+home=Nigelmj21
+away=Ctaum-cpt
+homeGoals=0
+awayGoals=3
+result=away
+winner=Ctaum-cpt
+loggedAt=2026-04-18T22:58:11.359Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Nigelmj21_vs_Ctaum-cpt_1775769238375.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
