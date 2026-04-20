@@ -5,18 +5,19 @@
 
 const Storage = (() => {
   const KEYS = {
-    players:   'eafc_players',
-    fixtures:  'eafc_fixtures',
-    results:   'eafc_results',
-    theme:     'eafc_theme',
-    scheduler: 'eafc_scheduler_config',
-    gemini:    'eafc_gemini_key',
-    ghConfig:  'eafc_gh_config',
-    pubRepo:   'eafc_pub_repo',
-    imgRepo:   'eafc_img_repo',
-    meEvents:  'eafc_mettlestate_events',
-    meLastFetch: 'eafc_events_last_fetch',
-    pending:   'eafc_pending_registrations',
+    players:        'eafc_players',
+    fixtures:       'eafc_fixtures',
+    results:        'eafc_results',
+    theme:          'eafc_theme',
+    scheduler:      'eafc_scheduler_config',
+    gemini:         'eafc_gemini_key',
+    ghConfig:       'eafc_gh_config',
+    pubRepo:        'eafc_pub_repo',
+    imgRepo:        'eafc_img_repo',
+    meEvents:       'eafc_mettlestate_events',
+    meLastFetch:    'eafc_events_last_fetch',
+    pending:        'eafc_pending_registrations',
+    discordWebhook: 'eafc_discord_webhook',   // ← NEW: secure webhook storage
   };
 
   function save(key, value) {
@@ -75,17 +76,21 @@ const Storage = (() => {
     loadPubRepo()     { return load(KEYS.pubRepo, null); },
 
     // ── Match images repo config ──────────────────────────────
-    // Stores its own owner/repo/branch/token independently of ghConfig
     saveImgRepo(cfg)  { save(KEYS.imgRepo, cfg); },
     loadImgRepo()     { return load(KEYS.imgRepo, null); },
     removeImgRepo()   { remove(KEYS.imgRepo); },
+
+    // ── Discord webhook (saved securely in localStorage) ──────
+    saveDiscordWebhook(url) { save(KEYS.discordWebhook, url || ''); },
+    loadDiscordWebhook()    { return load(KEYS.discordWebhook, ''); },
+    removeDiscordWebhook()  { remove(KEYS.discordWebhook); },
 
     // ── Mettlestate events cache ──────────────────────────────
     saveMEEvents(events, ts) {
       save(KEYS.meEvents, events);
       save(KEYS.meLastFetch, ts || new Date().toISOString());
     },
-    loadMEEvents()    { return { events: load(KEYS.meEvents, []), lastFetch: load(KEYS.meLastFetch, null) }; },
+    loadMEEvents() { return { events: load(KEYS.meEvents, []), lastFetch: load(KEYS.meLastFetch, null) }; },
 
     // ── Pending registrations ─────────────────────────────────
     addPendingRegistration(reg) {
@@ -103,7 +108,7 @@ const Storage = (() => {
         fixtures: State.fixtures,
         results:  State.results,
         exportedAt: new Date().toISOString(),
-        version: 2,
+        version: 3,
       };
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
       const a = document.createElement('a');
