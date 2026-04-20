@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:50:27.674Z
+
+id=1772319368026
+uid=f803b8b9
+date=undefined
+home=ExequielThwala
+away=RoyalAM
+homeGoals=1
+awayGoals=0
+result=home
+winner=ExequielThwala
+loggedAt=2026-04-18T22:50:27.675Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/ExequielThwala_vs_RoyalAM_1772319366884.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
