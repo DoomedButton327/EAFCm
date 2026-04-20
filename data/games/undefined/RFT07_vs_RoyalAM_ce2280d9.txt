@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:53:39.057Z
+
+id=1773514782376
+uid=ce2280d9
+date=undefined
+home=RFT07
+away=RoyalAM
+homeGoals=2
+awayGoals=0
+result=home
+winner=RFT07
+loggedAt=2026-04-18T22:53:39.057Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/RFT07_vs_RoyalAM_1773514781382.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
