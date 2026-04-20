@@ -6,7 +6,6 @@
   <meta name="theme-color" content="#050a0e">
   <meta name="mobile-web-app-capable" content="yes">
   <title>Join the League · Mettlestate × EA FC Mobile</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -15,16 +14,21 @@
       --acid: #C8F135; --acid-soft: rgba(200,241,53,.12); --acid-border: rgba(200,241,53,.25);
       --bg: #050a0e; --bg-1: #0a1218; --bg-2: #101c24; --bg-3: #162230;
       --border: rgba(200,241,53,.12); --text: #f0f4f8; --text-soft: #b0bec5; --muted: #607d8b;
-      --green: #34C759; --red: #FF2D55;
+      --green: #34C759; --red: #FF2D55; --cyan: #00d4ff;
     }
     html, body { min-height: 100%; background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--text); }
 
+    /* Starfield */
+    .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .star { position: absolute; background: #fff; border-radius: 50%; opacity: 0; animation: twinkle var(--d, 3s) var(--delay, 0s) ease-in-out infinite; }
+    @keyframes twinkle { 0%,100%{opacity:0} 50%{opacity:var(--op,.5)} }
+
     /* Orbs */
     .orb-field { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .06; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .07; }
     .orb-1 { width: 350px; height: 350px; background: var(--acid); top: -100px; left: -80px; animation: orbFloat 18s ease-in-out infinite; }
     .orb-2 { width: 220px; height: 220px; background: #00d4ff; bottom: 15%; right: -50px; animation: orbFloat 24s ease-in-out infinite reverse; }
-    @keyframes orbFloat { 0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)} }
+    @keyframes orbFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
 
     /* Page */
     .page { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 16px env(safe-area-inset-bottom); }
@@ -32,7 +36,7 @@
     /* Card */
     .card {
       width: 100%; max-width: 440px;
-      background: rgba(16,28,36,.8);
+      background: rgba(16,28,36,.85);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 28px 24px;
@@ -44,22 +48,14 @@
     /* Header */
     .header { text-align: center; margin-bottom: 28px; }
     .logo-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px; }
-    .logo-icon { font-size: 1.6rem; color: var(--acid); }
+    .logo-icon { color: var(--acid); }
     .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: .1em; color: var(--acid); }
     .header-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: .05em; margin-bottom: 4px; }
     .header-sub { font-size: .85rem; color: var(--text-soft); }
 
     /* Rules image */
-    .rules-img-wrap {
-      margin-bottom: 20px;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid var(--acid-border);
-    }
-    .rules-img-wrap img {
-      width: 100%;
-      display: block;
-    }
+    .rules-img-wrap { margin-bottom: 20px; border-radius: 10px; overflow: hidden; border: 1px solid var(--acid-border); }
+    .rules-img-wrap img { width: 100%; display: block; }
 
     /* Form */
     .form-group { margin-bottom: 16px; }
@@ -74,19 +70,15 @@
     .form-input::placeholder { color: var(--muted); }
     textarea.form-input { resize: vertical; min-height: 70px; }
 
-    /* Phone row with country code */
+    /* Phone row */
     .phone-row { display: flex; gap: 8px; }
     .country-select {
-      flex-shrink: 0;
-      width: 110px;
-      padding: 12px 10px;
+      flex-shrink: 0; width: 110px; padding: 12px 10px;
       background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px;
       color: var(--text); font-size: .88rem; font-family: 'DM Sans', sans-serif;
       cursor: pointer; appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23607d8b' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 10px center;
-      padding-right: 28px;
+      background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px;
       transition: border-color .15s, background .15s;
     }
     .country-select:focus { outline: none; border-color: var(--acid-border); background-color: var(--bg-3); }
@@ -102,24 +94,47 @@
       transition: opacity .15s, transform .1s;
       margin-top: 8px;
     }
+    .btn-submit:hover { opacity: .92; }
     .btn-submit:active { transform: scale(.97); opacity: .85; }
     .btn-submit:disabled { opacity: .5; cursor: not-allowed; }
 
     /* Status */
-    .status-msg {
-      text-align: center; font-size: .85rem; padding: 12px;
-      border-radius: 8px; margin-top: 12px; display: none;
-    }
+    .status-msg { text-align: center; font-size: .85rem; padding: 12px; border-radius: 8px; margin-top: 12px; display: none; }
     .status-success { background: rgba(52,199,89,.12); color: var(--green); border: 1px solid rgba(52,199,89,.25); display: block; }
     .status-error   { background: rgba(255,45,85,.12); color: var(--red); border: 1px solid rgba(255,45,85,.25); display: block; }
+    .status-warn    { background: rgba(255,149,0,.12); color: #ff9500; border: 1px solid rgba(255,149,0,.25); display: block; }
 
     /* Footer */
     .footer { margin-top: 20px; text-align: center; font-size: .75rem; color: var(--muted); }
-    .footer a { color: var(--acid); }
 
     /* Error hints */
     .field-error { font-size: .75rem; color: var(--red); margin-top: 4px; display: none; }
     .field-error.show { display: block; }
+
+    /* Already registered screen */
+    .already-card {
+      display: none;
+      flex-direction: column; align-items: center; text-align: center; gap: 16px;
+      padding: 12px 0;
+    }
+    .already-card.show { display: flex; }
+    .already-icon { color: var(--acid); }
+    .already-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: .05em; }
+    .already-sub { font-size: .85rem; color: var(--text-soft); line-height: 1.6; }
+    .already-info {
+      width: 100%;
+      background: var(--bg-2);
+      border: 1px solid var(--acid-border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      text-align: left;
+    }
+    .already-info p { font-size: .8rem; color: var(--muted); margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; }
+    .already-info strong { color: var(--text); font-size: .9rem; }
+
+    /* Spinner */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spin { animation: spin .7s linear infinite; display: inline-block; }
   </style>
 </head>
 <body>
@@ -128,85 +143,206 @@
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 </div>
+<div class="stars" id="stars-container" aria-hidden="true"></div>
 
 <div class="page">
   <div class="card">
     <div class="header">
       <div class="logo-row">
-        <span class="logo-icon"><i class="fas fa-bolt"></i></span>
+        <span class="logo-icon">
+          <!-- Bolt / lightning SVG -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4.5 13.5H11L10 22L20.5 9.5H14L13 2Z"/></svg>
+        </span>
         <span class="logo-text">METTLESTATE</span>
       </div>
       <h1 class="header-title">Join the League</h1>
       <p class="header-sub">EA FC Mobile · South Africa</p>
     </div>
 
-    <div class="rules-img-wrap">
-      <img src="rules/rules.png" alt="League Rules">
+    <!-- Already-registered screen (hidden until lock fires) -->
+    <div class="already-card" id="already-registered">
+      <span class="already-icon">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12l2 2 4-4"/>
+          <path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/>
+        </svg>
+      </span>
+      <div class="already-title">Already Registered</div>
+      <p class="already-sub">You've already submitted a registration from this device. The admin will review and add you to the league shortly.</p>
+      <div class="already-info" id="already-info-block"></div>
+      <p style="font-size:.75rem;color:var(--muted);margin-top:4px;">If you think this is a mistake, contact <strong>@Tyron</strong> on WhatsApp.</p>
     </div>
 
-    <div class="form-group">
-      <label class="form-label" for="reg-wa-username">WhatsApp Username *</label>
-      <input class="form-input" id="reg-wa-username" type="text" placeholder="e.g. @Tyron" autocomplete="off" spellcheck="false">
-      <div class="field-error" id="err-wa-username">WhatsApp username is required.</div>
-    </div>
-
-    <div class="form-group">
-      <label class="form-label" for="reg-phone">WhatsApp Number *</label>
-      <div class="phone-row">
-        <select class="country-select" id="reg-country-code" aria-label="Country code">
-          <option value="+27">🇿🇦 +27</option>
-          <option value="+263">🇿🇼 +263</option>
-          <option value="+260">🇿🇲 +260</option>
-          <option value="+267">🇧🇼 +267</option>
-          <option value="+264">🇳🇦 +264</option>
-          <option value="+266">🇱🇸 +266</option>
-          <option value="+268">🇸🇿 +268</option>
-          <option value="+258">🇲🇿 +258</option>
-          <option value="+255">🇹🇿 +255</option>
-          <option value="+254">🇰🇪 +254</option>
-          <option value="+234">🇳🇬 +234</option>
-          <option value="+233">🇬🇭 +233</option>
-          <option value="+44"> 🇬🇧 +44</option>
-          <option value="+1">  🇺🇸 +1</option>
-          <option value="+61"> 🇦🇺 +61</option>
-        </select>
-        <input class="form-input" id="reg-phone" type="tel" placeholder="81 234 5678" autocomplete="tel">
+    <!-- Main form (hidden if already registered) -->
+    <div id="reg-form-wrap">
+      <div class="rules-img-wrap">
+        <img src="rules/rules.png" alt="League Rules" loading="lazy">
       </div>
-      <div class="field-error" id="err-phone">Please enter your WhatsApp number.</div>
+
+      <div class="form-group">
+        <label class="form-label" for="reg-wa-username">WhatsApp Username *</label>
+        <input class="form-input" id="reg-wa-username" type="text" placeholder="e.g. @Tyron" autocomplete="off" spellcheck="false">
+        <div class="field-error" id="err-wa-username">WhatsApp username is required.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="reg-phone">WhatsApp Number *</label>
+        <div class="phone-row">
+          <select class="country-select" id="reg-country-code" aria-label="Country code">
+            <option value="+27">🇿🇦 +27</option>
+            <option value="+263">🇿🇼 +263</option>
+            <option value="+260">🇿🇲 +260</option>
+            <option value="+267">🇧🇼 +267</option>
+            <option value="+264">🇳🇦 +264</option>
+            <option value="+266">🇱🇸 +266</option>
+            <option value="+268">🇸🇿 +268</option>
+            <option value="+258">🇲🇿 +258</option>
+            <option value="+255">🇹🇿 +255</option>
+            <option value="+254">🇰🇪 +254</option>
+            <option value="+234">🇳🇬 +234</option>
+            <option value="+233">🇬🇭 +233</option>
+            <option value="+44"> 🇬🇧 +44</option>
+            <option value="+1">  🇺🇸 +1</option>
+            <option value="+61"> 🇦🇺 +61</option>
+          </select>
+          <input class="form-input" id="reg-phone" type="tel" placeholder="81 234 5678" autocomplete="tel">
+        </div>
+        <div class="field-error" id="err-phone">Please enter your WhatsApp number.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="reg-username">EA FC Mobile Username *</label>
+        <input class="form-input" id="reg-username" type="text" placeholder="Your in-game tag" autocomplete="off" spellcheck="false">
+        <div class="field-error" id="err-username">Username must be at least 2 characters.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="reg-note">Questions / Additional Info (optional)</label>
+        <textarea class="form-input" id="reg-note" placeholder="Any questions or info for the admin…"></textarea>
+      </div>
+
+      <button class="btn-submit" id="reg-btn" onclick="submitRegistration()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Register for League
+      </button>
+      <div class="status-msg" id="reg-status"></div>
     </div>
-
-    <div class="form-group">
-      <label class="form-label" for="reg-username">EA FC Mobile Username *</label>
-      <input class="form-input" id="reg-username" type="text" placeholder="Your in-game tag" autocomplete="off" spellcheck="false">
-      <div class="field-error" id="err-username">Username must be at least 2 characters.</div>
-    </div>
-
-    <div class="form-group">
-      <label class="form-label" for="reg-note">Questions / Additional Info (optional)</label>
-      <textarea class="form-input" id="reg-note" placeholder="Any questions or important info for the admin…"></textarea>
-    </div>
-
-    <button class="btn-submit" id="reg-btn" onclick="submitRegistration()">
-      <i class="fas fa-paper-plane"></i> Register for League
-    </button>
-
-    <div class="status-msg" id="reg-status"></div>
   </div>
 
-  <div class="footer">
-  </div>
+  <div class="footer">Mettlestate × EA FC Mobile &mdash; South Africa</div>
 </div>
 
 <script>
-  const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1493198521623384168/LP6NfibHZuqY0wqwIDUo6Ai3OG8ik9rJYAnhHNCUmuQT20oD0NfFOO5ANxf8pVUpmrQL';
+  // ── Webhook (injected by GitHub Actions from DISCORD_NEWPLAYER_WEBHOOK secret) ──
+  const DISCORD_WEBHOOK = '__DISCORD_NEWPLAYER_WEBHOOK__';
 
+  // ── Storage key ───────────────────────────────────────────────────────────────
+  const REG_LOCK_KEY = 'eafc_reg_lock_v1';
+  const PENDING_KEY  = 'eafc_pending_registrations';
+
+  // ── Starfield ─────────────────────────────────────────────────────────────────
+  (function buildStars() {
+    const c = document.getElementById('stars-container');
+    for (let i = 0; i < 60; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const sz = Math.random() * 2 + 0.5;
+      s.style.cssText = `width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*4}s;--delay:${Math.random()*5}s;--op:${0.3+Math.random()*0.5}`;
+      c.appendChild(s);
+    }
+  })();
+
+  // ── Collect device / browser fingerprint info ─────────────────────────────────
+  function collectDeviceInfo() {
+    const nav = window.navigator;
+    const scr = window.screen;
+    return {
+      userAgent:    nav.userAgent,
+      platform:     nav.platform || 'unknown',
+      language:     nav.language || 'unknown',
+      languages:    (nav.languages || []).join(', '),
+      timezone:     Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown',
+      screenRes:    `${scr.width}×${scr.height}`,
+      colorDepth:   `${scr.colorDepth}-bit`,
+      deviceMemory: nav.deviceMemory ? `${nav.deviceMemory} GB` : 'unknown',
+      cores:        nav.hardwareConcurrency || 'unknown',
+      touchPoints:  nav.maxTouchPoints || 0,
+      connection:   navigator.connection ? `${navigator.connection.effectiveType || '?'} / ${navigator.connection.downlink || '?'} Mbps` : 'unknown',
+      cookiesOn:    nav.cookieEnabled,
+      referrer:     document.referrer || 'direct',
+      pageUrl:      location.href,
+      timestamp:    new Date().toLocaleString('en-ZA', { timeZone: 'Africa/Johannesburg' }),
+    };
+  }
+
+  // Simple fingerprint hash for the lock key (not perfect but deters re-registration)
+  function deviceFingerprint() {
+    const d = collectDeviceInfo();
+    const raw = `${d.userAgent}|${d.screenRes}|${d.colorDepth}|${d.language}|${d.timezone}`;
+    let h = 0;
+    for (let i = 0; i < raw.length; i++) { h = ((h << 5) - h) + raw.charCodeAt(i); h |= 0; }
+    return (h >>> 0).toString(16).padStart(8, '0');
+  }
+
+  // ── Page-load visitor log ──────────────────────────────────────────────────────
+  async function logPageVisit() {
+    if (!DISCORD_WEBHOOK || DISCORD_WEBHOOK.includes('__')) return;
+    const d = collectDeviceInfo();
+    let ip = 'unknown';
+    try {
+      const r = await fetch('https://api.ipify.org?format=json');
+      if (r.ok) ip = (await r.json()).ip;
+    } catch {}
+
+    await fetch(DISCORD_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ embeds: [{
+        color: 0x607d8b,
+        title: '👁 Registration Page Loaded',
+        fields: [
+          { name: 'IP',          value: ip,               inline: true  },
+          { name: 'Time (SAST)', value: d.timestamp,      inline: true  },
+          { name: 'Platform',   value: d.platform,        inline: true  },
+          { name: 'Device',     value: `${d.screenRes} · ${d.touchPoints > 0 ? 'Touch' : 'Desktop'} · ${d.colorDepth}`, inline: true },
+          { name: 'Browser',    value: d.userAgent.substring(0, 120), inline: false },
+          { name: 'Language',   value: `${d.language} / ${d.timezone}`, inline: true },
+          { name: 'Connection', value: d.connection,      inline: true  },
+          { name: 'Referrer',   value: d.referrer,        inline: false },
+        ],
+        footer: { text: 'Mettlestate Reg Page · Visitor Log' },
+        timestamp: new Date().toISOString(),
+      }]}),
+    }).catch(() => {});
+  }
+
+  // ── Check if already registered ───────────────────────────────────────────────
+  function checkAlreadyRegistered() {
+    const lock = JSON.parse(localStorage.getItem(REG_LOCK_KEY) || 'null');
+    if (!lock) return false;
+
+    // Show already-registered state
+    document.getElementById('reg-form-wrap').style.display = 'none';
+    const alreadyCard = document.getElementById('already-registered');
+    alreadyCard.classList.add('show');
+
+    const info = document.getElementById('already-info-block');
+    info.innerHTML = `
+      <p>EA FC Username</p><strong>${lock.username || '—'}</strong>
+      <p style="margin-top:10px">WhatsApp</p><strong>${lock.phone || '—'}</strong>
+      <p style="margin-top:10px">Submitted</p><strong>${lock.submittedAt || '—'}</strong>
+    `;
+    return true;
+  }
+
+  // ── Submit registration ────────────────────────────────────────────────────────
   function clearErrors() {
     document.querySelectorAll('.field-error').forEach(e => e.classList.remove('show'));
   }
 
   async function submitRegistration() {
     clearErrors();
-    const waUsername = document.getElementById('reg-wa-username').value.trim();
+    const waUsername  = document.getElementById('reg-wa-username').value.trim();
     const countryCode = document.getElementById('reg-country-code').value;
     const phoneRaw    = document.getElementById('reg-phone').value.trim();
     const phone       = phoneRaw ? `${countryCode} ${phoneRaw}` : '';
@@ -219,61 +355,93 @@
     if (username.length < 2) { document.getElementById('err-username').classList.add('show'); valid = false; }
     if (!valid) return;
 
-    const btn = document.getElementById('reg-btn');
+    const btn    = document.getElementById('reg-btn');
+    const status = document.getElementById('reg-status');
     btn.disabled = true;
-    btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Registering…';
+    btn.innerHTML = '<svg class="spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 11-9-9"/><path d="M21 3v4h-4"/></svg> Registering…';
+
+    // Collect device info + IP for the Discord embed
+    const d = collectDeviceInfo();
+    let ip = 'unknown';
+    try {
+      const r = await fetch('https://api.ipify.org?format=json');
+      if (r.ok) ip = (await r.json()).ip;
+    } catch {}
+
+    const fingerprint = deviceFingerprint();
+    const submittedAt = new Date().toLocaleString('en-ZA', { timeZone: 'Africa/Johannesburg' });
 
     try {
-      // Save to localStorage (pending list for admin)
-      const key = 'eafc_pending_registrations';
-      const existing = JSON.parse(localStorage.getItem(key) || '[]');
+      // 1. Save to pending list for admin panel
+      const existing = JSON.parse(localStorage.getItem(PENDING_KEY) || '[]');
       existing.push({ waUsername, phone, username, note, submittedAt: new Date().toISOString() });
-      localStorage.setItem(key, JSON.stringify(existing));
+      localStorage.setItem(PENDING_KEY, JSON.stringify(existing));
 
-      // Discord notification
-      if (DISCORD_WEBHOOK && !DISCORD_WEBHOOK.includes('YOUR_')) {
+      // 2. Discord notification with device info
+      if (DISCORD_WEBHOOK && !DISCORD_WEBHOOK.includes('__')) {
         await fetch(DISCORD_WEBHOOK, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            embeds: [{
-              color: 0xC8F135,
-              title: '🆕 New Player Registration',
-              fields: [
-                { name: 'WhatsApp Username', value: waUsername,         inline: true },
-                { name: 'WhatsApp Number',   value: phone,              inline: true },
-                { name: 'EA FC Username',    value: username,           inline: true },
-                { name: 'Note',              value: note || '—',        inline: false },
-              ],
-              timestamp: new Date().toISOString(),
-            }],
-          }),
+          body: JSON.stringify({ embeds: [{
+            color: 0xC8F135,
+            title: '🆕 New Player Registration',
+            fields: [
+              { name: '👤 WhatsApp Username', value: waUsername,    inline: true  },
+              { name: '📱 WhatsApp Number',   value: phone,         inline: true  },
+              { name: '🎮 EA FC Username',    value: username,      inline: true  },
+              { name: '📝 Note',              value: note || '—',   inline: false },
+              { name: '🌐 IP Address',        value: ip,            inline: true  },
+              { name: '⏰ Time (SAST)',        value: submittedAt,   inline: true  },
+              { name: '📡 Platform',          value: d.platform,    inline: true  },
+              { name: '🖥 Screen',            value: `${d.screenRes} · ${d.touchPoints > 0 ? 'Mobile/Touch' : 'Desktop'}`, inline: true },
+              { name: '🌍 Timezone',          value: d.timezone,    inline: true  },
+              { name: '🔗 Connection',        value: d.connection,  inline: true  },
+              { name: '🧭 Browser UA',        value: d.userAgent.substring(0, 150), inline: false },
+              { name: '🔑 Device ID',         value: fingerprint,   inline: true  },
+            ],
+            footer: { text: 'Mettlestate × EA FC Mobile · Player Registration' },
+            timestamp: new Date().toISOString(),
+          }]})
         });
       }
 
-      const status = document.getElementById('reg-status');
-      status.className = 'status-msg status-success';
-      status.innerHTML = `<i class="fas fa-check-circle"></i> Registration submitted! The admin will add you to the league shortly.`;
+      // 3. Lock this device
+      localStorage.setItem(REG_LOCK_KEY, JSON.stringify({
+        username,
+        phone,
+        submittedAt,
+        fingerprint,
+      }));
 
-      // Reset form after 4s
+      // 4. Show success then switch to "already registered" view
+      status.className = 'status-msg status-success';
+      status.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:6px"><polyline points="20 6 9 17 4 12"/></svg>
+        Registration submitted! The admin will add you to the league shortly.
+      `;
+
       setTimeout(() => {
-        document.getElementById('reg-wa-username').value = '';
-        document.getElementById('reg-phone').value = '';
-        document.getElementById('reg-username').value = '';
-        document.getElementById('reg-note').value = '';
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-plus"></i> Register Another';
-        status.className = 'status-msg';
-      }, 4000);
+        checkAlreadyRegistered();
+      }, 3000);
 
     } catch(err) {
-      const status = document.getElementById('reg-status');
       status.className = 'status-msg status-error';
-      status.innerHTML = `<i class="fas fa-exclamation-circle"></i> Something went wrong. Please try again or contact @Tyron.`;
+      status.innerHTML = `
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:6px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Something went wrong. Try again or contact @Tyron.
+      `;
       btn.disabled = false;
-      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Register for League';
+      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Register for League';
     }
   }
+
+  // ── On load ───────────────────────────────────────────────────────────────────
+  (function init() {
+    if (!checkAlreadyRegistered()) {
+      // Only log page visit if not already registered (reduces spam)
+      logPageVisit();
+    }
+  })();
 </script>
 </body>
 </html>
