@@ -264,3 +264,51 @@ function dismissPendingReg(index) {
   Storage.save(Storage.KEYS.pending, list);
   renderPendingRegistrations();
 }
+
+// ── Discord Webhook admin ─────────────────────────────────────
+function saveDiscordWebhookAdmin() {
+  const val = document.getElementById('discordWebhookInput')?.value?.trim();
+  if (!val || !val.startsWith('https://discord.com/api/webhooks/')) {
+    toast('Invalid webhook URL. Must start with https://discord.com/api/webhooks/', 'error');
+    return;
+  }
+  Storage.saveDiscordWebhook(val);
+  _updateDiscordStatus();
+  toast('Discord webhook saved!', 'success');
+}
+
+async function testDiscordWebhook() {
+  const url = getDiscordWebhookUrl();
+  if (!url) { toast('No webhook configured.', 'error'); return; }
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ embeds: [{ color: 0x9333ea, title: '🔔 Webhook Test', description: 'Mettlestate webhook is working!', timestamp: new Date().toISOString() }] }),
+    });
+    toast(res.ok ? 'Test message sent! Check Discord.' : `Webhook error ${res.status}`, res.ok ? 'success' : 'error');
+  } catch { toast('Network error sending test.', 'error'); }
+}
+
+function clearDiscordWebhook() {
+  if (!confirm('Remove saved webhook URL?')) return;
+  Storage.removeDiscordWebhook();
+  const input = document.getElementById('discordWebhookInput');
+  if (input) input.value = '';
+  _updateDiscordStatus();
+  toast('Webhook cleared.', 'info');
+}
+
+function _updateDiscordStatus() {
+  const el = document.getElementById('discord-webhook-status');
+  if (!el) return;
+  const url = getDiscordWebhookUrl();
+  if (url) {
+    const masked = url.replace(/\/[^\/]+$/, '/••••••');
+    el.innerHTML = `<span style="color:var(--acid)">✓ Active: ${masked}</span>`;
+    const input = document.getElementById('discordWebhookInput');
+    if (input && !input.value) input.value = url;
+  } else {
+    el.innerHTML = `<span style="color:var(--muted)">Not configured</span>`;
+  }
+}
