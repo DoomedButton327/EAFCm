@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:50:46.445Z
+
+id=1772487148797
+uid=2aa0d4c1
+date=undefined
+home=RFT07
+away=DiliboL
+homeGoals=4
+awayGoals=1
+result=home
+winner=RFT07
+loggedAt=2026-04-18T22:50:46.445Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/RFT07_vs_XWRLD_REAPERS_1772487146859.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
