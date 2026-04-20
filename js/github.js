@@ -1,10 +1,10 @@
 /* ================================================================
-   METTLESTATE × EA FC MOBILE — github.js v6
-   New data structure (conflict-safe):
-     data/player-data.json          ← primary player stats (JSON)
-     data/players/<username>.txt    ← human-readable per-player file
-     data/games/<date>/<home>_vs_<away>_<uid8>.txt  ← one file per game
-     data/index.json                ← list of all game file paths
+   METTLESTATE × EA FC MOBILE — github.js v7
+   Data structure v3:
+     data/players.json              ← all player stats (JSON array)
+     data/games/<date>/matches.json ← all matches for that day
+     data/index.json                ← list of dates with games
+     data/games/<date>/images/      ← match screenshots
 ================================================================ */
 
 const GH = (() => {
@@ -80,14 +80,14 @@ const GH = (() => {
     return false;
   }
 
-  // ── Sync bar UI
+  // ── Sync bar UI ───────────────────────────────────────────
   function showBar(msg) {
     const bar = document.getElementById('sync-bar');
     const msgEl = document.getElementById('sync-msg');
     const icon = document.getElementById('sync-icon');
     if (!bar) return;
-    msgEl.textContent = msg || 'Syncing\u2026';
-    icon.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i>';
+    msgEl.textContent = msg || 'Syncing…';
+    icon.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 11-9-9"/><path d="M21 3v4h-4"/></svg>';
     bar.className = 'sync-bar sync-active';
     bar.classList.remove('hidden');
   }
@@ -96,14 +96,16 @@ const GH = (() => {
     const msgEl = document.getElementById('sync-msg');
     const icon = document.getElementById('sync-icon');
     if (!bar) return;
-    icon.innerHTML = ok ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-circle"></i>';
-    msgEl.textContent = msg || (ok ? 'Saved to GitHub' : 'Sync failed \u2014 data saved locally');
+    icon.innerHTML = ok
+      ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>'
+      : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+    msgEl.textContent = msg || (ok ? 'Saved to GitHub' : 'Sync failed — data saved locally');
     bar.className = `sync-bar ${ok ? 'sync-ok' : 'sync-error'}`;
     clearTimeout(_hideTimer);
     _hideTimer = setTimeout(() => bar.classList.add('hidden'), 4500);
   }
 
-  // ── Status dot
+  // ── Status dot ───────────────────────────────────────────
   function updateStatusUI() {
     const dot   = document.getElementById('gh-status-dot');
     const label = document.getElementById('gh-status-label');
@@ -125,74 +127,78 @@ const GH = (() => {
     }
   }
 
-  // ── Build index.json listing all game file paths
+  // ── Build index.json with list of dates ──────────────────
   function buildIndex() {
-    const games = State.results.map(r => ({
-      path: r.uid ? gameFilePath(r.date, r.home, r.away, r.uid) : null,
-      id:   r.id,
-      date: r.date,
-      home: r.home,
-      away: r.away,
-      uid:  r.uid || null,
-    })).filter(g => g.path);
+    // Group results by date
+    const dateMap = {};
+    for (const r of State.results) {
+      const d = r.date || 'undefined';
+      if (!dateMap[d]) dateMap[d] = 0;
+      dateMap[d]++;
+    }
+    const dates = Object.entries(dateMap)
+      .sort(([a],[b]) => a.localeCompare(b))
+      .map(([date, count]) => ({ date, count }));
 
     return {
-      version: 2,
+      version: 3,
       lastUpdated: new Date().toISOString(),
-      games,
+      dates,
       playerCount: State.players.length,
     };
   }
 
-  // ── Full sync
+  // ── Full sync ─────────────────────────────────────────────
   async function flush() {
     _debounceTimer = null;
     _pendingSync = false;
     if (!GH.isConnected()) return;
 
-    showBar('Syncing to GitHub\u2026');
+    showBar('Syncing to GitHub…');
     const ts = new Date().toLocaleString('en-ZA');
 
     try {
-      // 1. Player data JSON (primary load source)
-      const playerPayload = JSON.stringify({
-        players: State.players,
-        lastUpdated: new Date().toISOString(),
-      }, null, 2);
-      await enqueue(() => doCommit(playerDataPath(), playerPayload, `Players updated \u2014 ${ts}`));
+      // 1. players.json — single file with all player objects
+      const playersPayload = JSON.stringify(State.players, null, 2);
+      await enqueue(() => doCommit(
+        playersJsonPath(),
+        playersPayload,
+        `Players updated — ${ts}`,
+      ));
 
-      // 2. Per-player .txt files (human-readable, one per player)
-      for (const p of State.players) {
-        await enqueue(() => doCommit(
-          playerFilePath(p.username),
-          serializePlayerTxt(p),
-          `Player: ${p.username} \u2014 ${ts}`,
-        ));
-      }
-
-      // 3. Per-game .txt files — each has a unique uid so bulk pushes never collide
+      // 2. Group results by date → one matches.json per day
+      const byDate = {};
       for (const r of State.results) {
-        if (!r.uid) r.uid = shortUID(); // backfill uid for old results
-        const path = gameFilePath(r.date, r.home, r.away, r.uid);
+        const d = r.date || 'undefined';
+        if (!byDate[d]) byDate[d] = [];
+        byDate[d].push(r);
+      }
+      for (const [date, matches] of Object.entries(byDate)) {
+        const path = dayMatchesPath(date);
+        const payload = JSON.stringify(matches, null, 2);
         await enqueue(() => doCommit(
           path,
-          serializeGameTxt(r),
-          `${r.editedAt ? 'EDITED' : 'Result'}: ${r.home} vs ${r.away} ${r.homeGoals}-${r.awayGoals} \u2014 ${ts}`,
+          payload,
+          `Matches ${date} — ${ts}`,
         ));
       }
 
-      // 4. Index
+      // 3. index.json
       const indexPayload = JSON.stringify(buildIndex(), null, 2);
-      const indexOk = await enqueue(() => doCommit(leagueIndexPath(), indexPayload, `Index updated \u2014 ${ts}`));
+      const indexOk = await enqueue(() => doCommit(
+        leagueIndexPath(),
+        indexPayload,
+        `Index updated — ${ts}`,
+      ));
 
-      hideBar(indexOk, indexOk ? 'Saved to GitHub' : 'Partial sync \u2014 check connection');
+      hideBar(indexOk, indexOk ? 'Saved to GitHub' : 'Partial sync — check connection');
     } catch(err) {
       console.error('GH flush error:', err);
       hideBar(false);
     }
   }
 
-  // ── Public API
+  // ── Public API ────────────────────────────────────────────
   return {
     load() {
       _config = Storage.loadGHConfig();
@@ -234,7 +240,7 @@ const GH = (() => {
           `https://api.github.com/repos/${cfg.owner}/${cfg.repo}`,
           { headers: { 'Authorization': `token ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json' } },
         );
-        if (res.status === 200) return { ok: true,  msg: `Connected \u2713 (${cfg.owner}/${cfg.repo})` };
+        if (res.status === 200) return { ok: true,  msg: `Connected ✓ (${cfg.owner}/${cfg.repo})` };
         if (res.status === 401) return { ok: false, msg: 'Invalid token' };
         if (res.status === 404) return { ok: false, msg: 'Repo not found or no access' };
         return { ok: false, msg: `GitHub error ${res.status}` };
@@ -251,24 +257,20 @@ const GH = (() => {
       clearTimeout(_debounceTimer);
       _debounceTimer = null;
       _pendingSync = false;
-      showBar('Force syncing\u2026');
+      showBar('Force syncing…');
       await flush();
     },
 
     async uploadMatchImage(base64Data, filename, dateStr) {
       const imgCfg = Storage.loadImgRepo();
       const hasImgRepo = imgCfg?.owner && imgCfg?.repo && imgCfg?.token;
-
-      // Need at least one configured repo to upload
       if (!hasImgRepo && !GH.isConnected()) return null;
 
-      // Image repo takes priority; falls back to main repo if not set
       const imgOwner  = hasImgRepo ? imgCfg.owner              : _config.owner;
       const imgRepo   = hasImgRepo ? imgCfg.repo               : _config.repo;
       const imgBranch = hasImgRepo ? (imgCfg.branch || 'main') : _config.branch;
       const imgToken  = hasImgRepo ? imgCfg.token              : _config.token;
 
-      // Folder structure mirrors main repo: data/games/<date>/images/<filename>
       const path    = matchImagesPath(dateStr || todayYMD()) + filename;
       const imgBase = `https://api.github.com/repos/${imgOwner}/${imgRepo}`;
       const imgHdrs = {
@@ -277,20 +279,15 @@ const GH = (() => {
         'Content-Type': 'application/json',
       };
 
-      showBar('Uploading screenshot\u2026');
+      showBar('Uploading screenshot…');
       try {
-        // Get SHA for existing file so we can overwrite without 409
         let sha = null;
         try {
           const r = await fetch(`${imgBase}/contents/${path}?ref=${imgBranch}`, { headers: imgHdrs });
           if (r.ok) { const d = await r.json(); sha = d.sha || null; }
         } catch {}
 
-        const body = {
-          message: `Screenshot: ${filename}`,
-          branch: imgBranch,
-          content: base64Data,
-        };
+        const body = { message: `Screenshot: ${filename}`, branch: imgBranch, content: base64Data };
         if (sha) body.sha = sha;
 
         const res = await fetch(`${imgBase}/contents/${path}`, {
@@ -301,8 +298,6 @@ const GH = (() => {
           hideBar(true, 'Screenshot saved');
           return `https://raw.githubusercontent.com/${imgOwner}/${imgRepo}/${imgBranch}/${path}`;
         }
-        const errText = await res.text().catch(() => res.status);
-        console.error('uploadMatchImage failed:', res.status, errText);
         hideBar(false, `Image upload failed (${res.status})`);
         return null;
       } catch(err) {
@@ -314,19 +309,20 @@ const GH = (() => {
 
     async loadRemoteData() {
       if (!GH.isConnected()) return null;
-      showBar('Loading from GitHub\u2026');
+      showBar('Loading from GitHub…');
       try {
-        // Load players JSON
-        const pr = await fetch(`${apiBase()}/contents/${playerDataPath()}?ref=${_config.branch}`, { headers: headers() });
+        // 1. Load players.json (flat array)
+        const pr = await fetch(`${apiBase()}/contents/${playersJsonPath()}?ref=${_config.branch}`, { headers: headers() });
         let players = [];
         if (pr.ok) {
           const pf = await pr.json();
-          const pd = JSON.parse(decodeURIComponent(escape(atob(pf.content.replace(/\n/g, '')))));
-          players = pd.players || [];
-          _shaCache[playerDataPath()] = pf.sha;
+          const decoded = JSON.parse(decodeURIComponent(escape(atob(pf.content.replace(/\n/g, '')))));
+          // Support both v3 flat array and legacy {players:[...]} wrapper
+          players = Array.isArray(decoded) ? decoded : (decoded.players || []);
+          _shaCache[playersJsonPath()] = pf.sha;
         }
 
-        // Load index
+        // 2. Load index.json
         const ir = await fetch(`${apiBase()}/contents/${leagueIndexPath()}?ref=${_config.branch}`, { headers: headers() });
         if (!ir.ok) {
           hideBar(true, players.length ? 'Players loaded (no match data yet)' : 'No remote data yet');
@@ -336,21 +332,21 @@ const GH = (() => {
         const index = JSON.parse(decodeURIComponent(escape(atob(ifile.content.replace(/\n/g, '')))));
         _shaCache[leagueIndexPath()] = ifile.sha;
 
-        // Load each unique game file listed in the index
-        const gamePaths = (index.games || []).map(g => g.path).filter(Boolean);
-        const gameResults = await Promise.all(gamePaths.map(async p => {
+        // 3. Load each day's matches.json
+        const dates = (index.dates || []).map(d => typeof d === 'string' ? d : d.date).filter(Boolean);
+        const allMatches = await Promise.all(dates.map(async date => {
           try {
-            const r = await fetch(`${apiBase()}/contents/${p}?ref=${_config.branch}`, { headers: headers() });
-            if (!r.ok) return null;
+            const path = dayMatchesPath(date);
+            const r = await fetch(`${apiBase()}/contents/${path}?ref=${_config.branch}`, { headers: headers() });
+            if (!r.ok) return [];
             const f = await r.json();
             const raw = decodeURIComponent(escape(atob(f.content.replace(/\n/g, ''))));
-            _shaCache[p] = f.sha;
-            return parseTxtGame(raw);
-          } catch { return null; }
+            _shaCache[path] = f.sha;
+            return JSON.parse(raw);
+          } catch { return []; }
         }));
 
-        const results = gameResults.filter(Boolean);
-
+        const results = allMatches.flat().filter(m => m && m.home && m.away);
         hideBar(true, 'Loaded from GitHub');
         return { players, fixtures: [], results };
       } catch(err) {
@@ -378,7 +374,7 @@ const GH = (() => {
       if (!GH.isConnected()) return { ok: false, msg: 'Not configured' };
       try {
         const res = await fetch(apiBase(), { headers: headers() });
-        if (res.status === 200) return { ok: true, msg: 'Connected \u2713' };
+        if (res.status === 200) return { ok: true, msg: 'Connected ✓' };
         if (res.status === 401) return { ok: false, msg: 'Invalid token' };
         if (res.status === 404) return { ok: false, msg: 'Repo not found' };
         return { ok: false, msg: `GitHub error ${res.status}` };
@@ -386,33 +382,3 @@ const GH = (() => {
     },
   };
 })();
-
-// ── Parse a game txt file back into a result object
-function parseTxtGame(raw) {
-  const lines = raw.split('\n').filter(l => l && !l.startsWith('#'));
-  const obj = {};
-  lines.forEach(l => {
-    const eq = l.indexOf('=');
-    if (eq === -1) return;
-    const key = l.slice(0, eq).trim();
-    const val = l.slice(eq + 1).trim();
-    obj[key] = val;
-  });
-  if (!obj.home || !obj.away) return null;
-  return {
-    id:          parseInt(obj.id) || Date.now(),
-    uid:         obj.uid || shortUID(),
-    date:        obj.date || todayYMD(),
-    home:        obj.home,
-    away:        obj.away,
-    homeGoals:   parseInt(obj.homeGoals) || 0,
-    awayGoals:   parseInt(obj.awayGoals) || 0,
-    result:      obj.result || 'draw',
-    loggedAt:    obj.loggedAt || null,
-    editedAt:    obj.editedAt || null,
-    imageUrl:    obj.imageUrl || undefined,
-    forfeit:     obj.forfeit === 'true',
-    autoWin:     obj.autoWin === 'true',
-    autoForfeit: obj.autoForfeit === 'true',
-  };
-}
