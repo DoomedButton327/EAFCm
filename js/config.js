@@ -3,7 +3,25 @@
    Constants · SAST utilities · SA Public Holidays
 ================================================================ */
 
-const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1490038911446024373/hF9PEIg5K4Aafed80pXjXg7GbHqYAB05kn2q-l96_9DpYsJ7KrU5hL50PrZUWo-6l1sy';
+// ── Discord webhook is stored securely in localStorage ────────
+// Set it in Admin → Discord Webhook. Never hardcode it here.
+// If you use the GitHub Actions deployment, it gets injected via
+// the DISCORD_WEBHOOK_URL secret at build time (see README).
+const DISCORD_WEBHOOK_PLACEHOLDER = '__DISCORD_WEBHOOK_URL__';
+
+function getDiscordWebhookUrl() {
+  // 1. Use localStorage value if saved from Admin panel
+  try {
+    const stored = Storage?.loadDiscordWebhook?.() || '';
+    if (stored && !stored.includes('__')) return stored;
+  } catch(e) {}
+  // 2. Fall back to build-time injected value (GitHub Actions)
+  if (DISCORD_WEBHOOK_PLACEHOLDER && !DISCORD_WEBHOOK_PLACEHOLDER.includes('__')) {
+    return DISCORD_WEBHOOK_PLACEHOLDER;
+  }
+  return '';
+}
+
 const GEMINI_MODEL = 'gemini-2.5-flash';
 const POSTPONEMENTS_PER_SEASON = 20;
 const FORFEIT_SCORE = { winner: 3, loser: 0 };
@@ -20,84 +38,25 @@ function toYMD(d) {
   const s = getSASTDate(d);
   return s.toISOString().slice(0, 10);
 }
-function toYM(d) {
-  return toYMD(d).slice(0, 7); // YYYY-MM
-}
+function toYM(d) { return toYMD(d).slice(0, 7); }
 function todayYMD() { return toYMD(); }
 function todayYM()  { return toYM(); }
 
-// ── DATA PATHS ────────────────────────────────────────────────
-function playerDataPath()   { return 'data/player-data.json'; }
+// ── DATA PATHS (New structure v3) ─────────────────────────────
+// All players in one JSON array
+function playersJsonPath()  { return 'data/players.json'; }
+// index.json lists all dates that have game data
 function leagueIndexPath()  { return 'data/index.json'; }
-
-// New unique-per-game file structure
-function playerFilePath(username) {
-  // Sanitize username for filenames
-  const safe = String(username).replace(/[^a-zA-Z0-9_\-]/g, '_');
-  return `data/players/${safe}.txt`;
-}
-function gameFilePath(dateStr, home, away, uid) {
-  const safeHome = String(home).replace(/[^a-zA-Z0-9_\-]/g, '_');
-  const safeAway = String(away).replace(/[^a-zA-Z0-9_\-]/g, '_');
-  return `data/games/${dateStr}/${safeHome}_vs_${safeAway}_${uid}.txt`;
-}
-function matchImagesPath(dateStr) {
-  return `data/games/${dateStr}/images/`;
-}
+// All matches for a date in one JSON array
+function dayMatchesPath(dateStr) { return `data/games/${dateStr}/matches.json`; }
+// Images folder stays the same
+function matchImagesPath(dateStr) { return `data/games/${dateStr}/images/`; }
 
 // ── UNIQUE ID ─────────────────────────────────────────────────
-// 8-char hex ensures game filenames never collide even on bulk pushes
 function shortUID() {
   const arr = new Uint8Array(4);
   crypto.getRandomValues(arr);
   return Array.from(arr).map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
-// ── TXT SERIALIZERS ───────────────────────────────────────────
-function serializePlayerTxt(p) {
-  return [
-    `# Mettlestate × EA FC Mobile — Player File`,
-    `# Auto-generated: ${new Date().toISOString()}`,
-    ``,
-    `name=${p.name || ''}`,
-    `username=${p.username || ''}`,
-    `phone=${p.phone || ''}`,
-    `played=${p.played || 0}`,
-    `wins=${p.wins || 0}`,
-    `draws=${p.draws || 0}`,
-    `losses=${p.losses || 0}`,
-    `points=${p.points || 0}`,
-    `gf=${p.gf || 0}`,
-    `ga=${p.ga || 0}`,
-    `form=${(p.form || []).join(',')}`,
-    `postponements=${p.postponements ?? POSTPONEMENTS_PER_SEASON}`,
-    `suspended=${p.suspended ? 'true' : 'false'}`,
-    `addedAt=${p.addedAt || new Date().toISOString()}`,
-  ].join('\n');
-}
-
-function serializeGameTxt(r) {
-  const winner = r.result === 'home' ? r.home : r.result === 'away' ? r.away : 'DRAW';
-  return [
-    `# Mettlestate × EA FC Mobile — Game Record`,
-    `# Auto-generated: ${r.loggedAt || new Date().toISOString()}`,
-    ``,
-    `id=${r.id}`,
-    `uid=${r.uid || ''}`,
-    `date=${r.date}`,
-    `home=${r.home}`,
-    `away=${r.away}`,
-    `homeGoals=${r.homeGoals}`,
-    `awayGoals=${r.awayGoals}`,
-    `result=${r.result}`,
-    `winner=${winner}`,
-    `loggedAt=${r.loggedAt || new Date().toISOString()}`,
-    `editedAt=${r.editedAt || ''}`,
-    `imageUrl=${r.imageUrl || ''}`,
-    `forfeit=${r.forfeit ? 'true' : 'false'}`,
-    `autoWin=${r.autoWin ? 'true' : 'false'}`,
-    `autoForfeit=${r.autoForfeit ? 'true' : 'false'}`,
-  ].join('\n');
 }
 
 // ── SA PUBLIC HOLIDAYS 2025–2026 ─────────────────────────────
@@ -109,7 +68,7 @@ const SA_HOLIDAYS = {
   '2025-04-27': 'Freedom Day',
   '2025-05-01': 'Workers Day',
   '2025-06-16': 'Youth Day',
-  '2025-08-09': 'National Women\'s Day',
+  '2025-08-09': "National Women's Day",
   '2025-09-24': 'Heritage Day',
   '2025-12-16': 'Day of Reconciliation',
   '2025-12-25': 'Christmas Day',
@@ -135,11 +94,8 @@ function holidayName(dateStr) { return SA_HOLIDAYS[dateStr] || null; }
 function esc(str) {
   if (!str) return '';
   return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
 }
 
 function toast(msg, type = 'info', duration = 3000) {
@@ -150,15 +106,10 @@ function toast(msg, type = 'info', duration = 3000) {
   t.textContent = msg;
   area.appendChild(t);
   setTimeout(() => t.classList.add('toast-show'), 10);
-  setTimeout(() => {
-    t.classList.remove('toast-show');
-    setTimeout(() => t.remove(), 400);
-  }, duration);
+  setTimeout(() => { t.classList.remove('toast-show'); setTimeout(() => t.remove(), 400); }, duration);
 }
 
-function uniqueId() {
-  return Date.now() + Math.floor(Math.random() * 10000);
-}
+function uniqueId() { return Date.now() + Math.floor(Math.random() * 10000); }
 
 function buildFormBadges(form = []) {
   return form.slice(-5).map(r => {
