@@ -1,14 +1,17 @@
 /* ================================================================
    METTLESTATE × EA FC MOBILE — discord.js
    Discord webhook embeds for every league event
+   Webhook URL is stored in localStorage via Admin panel.
+   Never hardcode it in source — use GitHub Secrets instead.
 ================================================================ */
 
 async function sendDiscordWebhook(payload) {
-  if (!DISCORD_WEBHOOK_URL || DISCORD_WEBHOOK_URL.includes('YOUR_')) return;
+  const url = getDiscordWebhookUrl();
+  if (!url) return;
   try {
     const embed = buildEmbed(payload);
     if (!embed) return;
-    await fetch(DISCORD_WEBHOOK_URL, {
+    await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ embeds: [embed] }),
