@@ -8,7 +8,6 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Mettlestate × EA FC Mobile League</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
@@ -29,7 +28,7 @@
 
 <!-- Lightbox -->
 <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
-  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close"><i class="fas fa-times"></i></button>
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   <img id="lightbox-img" src="" alt="Match evidence">
   <div id="lightbox-caption" class="lightbox-caption"></div>
 </div>
@@ -37,11 +36,11 @@
 <!-- ════ EDIT RESULT MODAL ════ -->
 <div id="edit-result-modal" class="player-modal" role="dialog" aria-modal="true">
   <div class="player-modal-inner" style="max-width:420px">
-    <button class="modal-close-btn" onclick="closeEditResultModal()" aria-label="Close"><i class="fas fa-times"></i></button>
+    <button class="modal-close-btn" onclick="closeEditResultModal()" aria-label="Close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     <div style="padding:1.5rem">
       <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem">
         <div style="width:36px;height:36px;border-radius:8px;background:var(--theme-accent-glow,rgba(139,92,246,.2));display:flex;align-items:center;justify-content:center;color:var(--theme-accent,#8b5cf6)">
-          <i class="fas fa-pen"></i>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 013 3L12 15l-4 1 1-4z"/></svg>
         </div>
         <div>
           <div style="font-weight:700;font-size:1rem;color:var(--theme-text-primary,#e2e8f0)">Edit Result</div>
@@ -66,12 +65,12 @@
       </div>
 
       <p style="font-size:.75rem;color:var(--theme-text-muted,#94a3b8);margin-bottom:1rem;text-align:center">
-        <i class="fas fa-info-circle"></i> All player points and stats will be fully recalculated.
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> All player points and stats will be fully recalculated.
       </p>
 
       <div style="display:flex;gap:.75rem">
         <button class="btn-primary" style="flex:1" onclick="saveEditedResult()">
-          <i class="fas fa-check"></i> Save Changes
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Save Changes
         </button>
         <button class="btn-secondary" onclick="closeEditResultModal()">
           Cancel
@@ -85,7 +84,7 @@
 <!-- Player Modal -->
 <div id="player-modal" class="player-modal" role="dialog" aria-modal="true">
   <div class="player-modal-inner">
-    <button class="modal-close-btn" onclick="closePlayerModal()" aria-label="Close"><i class="fas fa-times"></i></button>
+    <button class="modal-close-btn" onclick="closePlayerModal()" aria-label="Close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     <div id="player-modal-content"></div>
   </div>
 </div>
@@ -96,31 +95,64 @@
   <!-- Bottom / Sidebar Nav -->
   <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
     <button class="nav-btn" data-tab="standings-tab" aria-label="Standings">
-      <i class="fas fa-trophy"></i>
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9H4a2 2 0 00-2 2v1a2 2 0 002 2h2"/>
+        <path d="M18 9h2a2 2 0 012 2v1a2 2 0 01-2 2h-2"/>
+        <path d="M6 3h12v13a3 3 0 01-3 3H9a3 3 0 01-3-3V3z"/>
+        <path d="M9 21v-3M15 21v-3M9 21h6"/>
+      </svg>
       <span class="nav-label">Standings</span>
     </button>
     <button class="nav-btn" data-tab="fixtures-tab" aria-label="Fixtures">
-      <i class="fas fa-calendar-alt"></i>
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2"/>
+        <path d="M3 9h18"/>
+        <path d="M8 2v4M16 2v4"/>
+        <circle cx="12" cy="15" r="2.5"/>
+        <path d="M9.5 13l-2-2M14.5 13l2-2M9.5 17l-2 2M14.5 17l2 2"/>
+      </svg>
       <span class="nav-label">Fixtures</span>
     </button>
     <button class="nav-btn" data-tab="results-tab" aria-label="Results">
-      <i class="fas fa-futbol"></i>
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="5" width="20" height="14" rx="2"/>
+        <path d="M2 10h20"/>
+        <path d="M7 15h2M11 15h2M15 15h2"/>
+        <path d="M7 13h2M11 13h2M15 13h2"/>
+      </svg>
       <span class="nav-label">Results</span>
     </button>
     <button class="nav-btn" data-tab="players-tab" aria-label="Players">
-      <i class="fas fa-users"></i>
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="8" cy="7" r="3"/>
+        <path d="M2 21v-2a5 5 0 015-5h2"/>
+        <circle cx="17" cy="9" r="3"/>
+        <path d="M13 21v-2a4 4 0 014-4h.5a4 4 0 014 4v2"/>
+      </svg>
       <span class="nav-label">Players</span>
     </button>
     <button class="nav-btn" data-tab="calendar-tab" aria-label="Calendar">
-      <i class="fas fa-calendar"></i>
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2"/>
+        <path d="M3 9h18M8 2v4M16 2v4"/>
+        <path d="M8 13h1v1H8zM11.5 13h1v1h-1zM15 13h1v1h-1z" fill="currentColor" stroke="none"/>
+        <path d="M8 16.5h1v1H8zM11.5 16.5h1v1h-1z" fill="currentColor" stroke="none"/>
+      </svg>
       <span class="nav-label">Calendar</span>
     </button>
     <button class="nav-btn" data-tab="rules-tab" aria-label="Rules">
-      <i class="fas fa-book"></i>
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+        <path d="M9 7h6M9 11h6M9 15h4"/>
+      </svg>
       <span class="nav-label">Rules</span>
     </button>
     <button class="nav-btn" data-tab="admin-tab" aria-label="Admin">
-      <i class="fas fa-cog"></i>
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+      </svg>
       <span class="nav-label">Admin</span>
     </button>
   </nav>
@@ -131,7 +163,7 @@
     <!-- Top bar -->
     <header class="topbar">
       <div class="topbar-logo">
-        <i class="fas fa-bolt"></i>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M13 2L4.5 13.5H11L10 22L20.5 9.5H14L13 2Z"/></svg>
         <span>METTLESTATE</span>
       </div>
       <div class="topbar-right">
@@ -158,7 +190,7 @@
          STANDINGS TAB
     ════════════════════════════════════════════ -->
     <section id="standings-tab" class="tab-content">
-      <div class="section-title"><i class="fas fa-trophy"></i> League Standings</div>
+      <div class="section-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4a2 2 0 00-2 2v1a2 2 0 002 2h2"/><path d="M18 9h2a2 2 0 012 2v1a2 2 0 01-2 2h-2"/><path d="M6 3h12v13a3 3 0 01-3 3H9a3 3 0 01-3-3V3z"/><path d="M9 21v-3M15 21v-3M9 21h6"/></svg> League Standings</div>
       <div id="standings-subtitle" class="standings-subtitle"></div>
 
       <!-- Stats ticker -->
@@ -200,7 +232,7 @@
       <!-- Export -->
       <div class="export-btn-row">
         <button class="btn-secondary" onclick="exportStandingsImage()">
-          <i class="fas fa-image"></i> Export Image
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Export Image
         </button>
       </div>
     </section>
@@ -209,14 +241,14 @@
          FIXTURES TAB
     ════════════════════════════════════════════ -->
     <section id="fixtures-tab" class="tab-content">
-      <div class="section-title"><i class="fas fa-calendar-alt"></i> Fixtures</div>
+      <div class="section-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg> Fixtures</div>
       <div class="fixture-search-row">
         <input class="form-input" id="fixture-filter-input" placeholder="Search fixtures…" autocomplete="off">
       </div>
       <div id="fixturesContainer"></div>
       <div class="export-btn-row">
         <button class="btn-secondary" onclick="exportFixturesImage()">
-          <i class="fas fa-image"></i> Export Image
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Export Image
         </button>
       </div>
     </section>
@@ -225,7 +257,7 @@
          RESULTS TAB
     ════════════════════════════════════════════ -->
     <section id="results-tab" class="tab-content">
-      <div class="section-title"><i class="fas fa-futbol"></i> Results</div>
+      <div class="section-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="12 6.5 14.5 9 13.5 12 10.5 12 9.5 9"/><path d="M9.5 9L7 10.5M14.5 9L17 10.5M10.5 12L9 15M13.5 12L15 15M9 15h6"/></svg> Results</div>
       <div class="results-search-row">
         <input class="form-input" id="results-search-input" placeholder="Search results…" autocomplete="off">
       </div>
@@ -237,7 +269,7 @@
     ════════════════════════════════════════════ -->
     <section id="players-tab" class="tab-content">
       <div class="section-title">
-        <i class="fas fa-users"></i> Players
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg> Players
         <span id="player-count-label" class="badge badge-acid" style="margin-left:auto"></span>
       </div>
       <div class="players-search-row">
@@ -260,7 +292,7 @@
          CALENDAR TAB
     ════════════════════════════════════════════ -->
     <section id="calendar-tab" class="tab-content">
-      <div class="section-title"><i class="fas fa-calendar"></i> Calendar</div>
+      <div class="section-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg> Calendar</div>
 
       <!-- SAST clock -->
       <div class="sast-clock-widget glass">
@@ -272,9 +304,9 @@
 
       <!-- Calendar grid -->
       <div class="calendar-header">
-        <button class="cal-nav-btn" onclick="calPrev()" aria-label="Previous month"><i class="fas fa-chevron-left"></i></button>
+        <button class="cal-nav-btn" onclick="calPrev()" aria-label="Previous month"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
         <span id="cal-month-label" class="cal-month-label"></span>
-        <button class="cal-nav-btn" onclick="calNext()" aria-label="Next month"><i class="fas fa-chevron-right"></i></button>
+        <button class="cal-nav-btn" onclick="calNext()" aria-label="Next month"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
       </div>
       <div id="cal-grid" class="cal-grid"></div>
 
@@ -293,7 +325,7 @@
 
       <!-- Upcoming panel -->
       <div class="upcoming-panel">
-        <div class="section-title" style="font-size:.95rem"><i class="fas fa-clock"></i> Upcoming 30 Days</div>
+        <div class="section-title" style="font-size:.95rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Upcoming 30 Days</div>
         <div id="upcoming-list"></div>
       </div>
     </section>
@@ -302,17 +334,17 @@
          RULES TAB
     ════════════════════════════════════════════ -->
     <section id="rules-tab" class="tab-content">
-      <div class="section-title"><i class="fas fa-book"></i> League Rules</div>
+      <div class="section-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg> League Rules</div>
 
       <div class="rules-hero">
-        <span class="rules-pts-badge pts-win"><i class="fas fa-check"></i> Win = 3 pts</span>
-        <span class="rules-pts-badge pts-draw"><i class="fas fa-minus"></i> Draw = 1 pt</span>
-        <span class="rules-pts-badge pts-loss"><i class="fas fa-times"></i> Loss = 0 pts</span>
+        <span class="rules-pts-badge pts-win"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Win = 3 pts</span>
+        <span class="rules-pts-badge pts-draw"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg> Draw = 1 pt</span>
+        <span class="rules-pts-badge pts-loss"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Loss = 0 pts</span>
         <span style="font-family:var(--font-mono);font-size:.72rem;color:var(--muted);margin-left:auto">Tiebreak: GD → GF</span>
       </div>
 
       <div class="rules-section">
-        <div class="rules-section-title"><i class="fas fa-calendar-check"></i> Fixtures & Scheduling</div>
+        <div class="rules-section-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/><polyline points="9 14 11 16 15 12"/></svg> Fixtures & Scheduling</div>
         <ul class="rules-list">
           <li>Fixtures are generated by the admin and posted in the Discord server.</li>
           <li>All matches must be played within the fixture week unless postponed.</li>
@@ -322,7 +354,7 @@
       </div>
 
       <div class="rules-section">
-        <div class="rules-section-title"><i class="fas fa-futbol"></i> Result Submission</div>
+        <div class="rules-section-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="12 6.5 14.5 9 13.5 12 10.5 12 9.5 9"/><path d="M9.5 9L7 10.5M14.5 9L17 10.5M10.5 12L9 15M13.5 12L15 15M9 15h6"/></svg> Result Submission</div>
         <ul class="rules-list">
           <li>Results must be submitted with a screenshot of the final scoreline.</li>
           <li>Tag @Tyron or @Astral in the Discord with your result screenshot.</li>
@@ -332,7 +364,7 @@
       </div>
 
       <div class="rules-section">
-        <div class="rules-section-title"><i class="fas fa-user-slash"></i> No-Shows</div>
+        <div class="rules-section-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-3-3.87M1 1l22 22M13.477 13.49A4 4 0 006 7c0 .353.05.695.14 1.02M5.477 5.477A4 4 0 0013 9c0 1.36-.68 2.56-1.72 3.28"/><path d="M9 21v-2a4 4 0 011.29-2.93"/></svg> No-Shows</div>
         <ul class="rules-list">
           <li>If your opponent does not show within 15 minutes of the agreed time, tag @Tyron or @Astral.</li>
           <li>Confirmed no-shows result in a 3–0 win for the present player.</li>
@@ -341,7 +373,7 @@
       </div>
 
       <div class="rules-section">
-        <div class="rules-section-title"><i class="fas fa-clock"></i> Postponements</div>
+        <div class="rules-section-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Postponements</div>
         <ul class="rules-list">
           <li>Each player has <strong>20 postponement tokens</strong> for the season.</li>
           <li>Postponing a match costs 1 token. Tokens cannot be transferred.</li>
@@ -351,7 +383,7 @@
       </div>
 
       <div class="rules-section">
-        <div class="rules-section-title"><i class="fas fa-wifi"></i> Disconnections</div>
+        <div class="rules-section-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M10.54 17a5 5 0 012.92 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg> Disconnections</div>
         <ul class="rules-list">
           <li>If a disconnection occurs before kick-off, the match must be replayed.</li>
           <li>If a disconnection occurs during a match with a clear scoreline, that score stands.</li>
@@ -360,7 +392,7 @@
       </div>
 
       <div class="rules-section">
-        <div class="rules-section-title"><i class="fas fa-ban"></i> Prohibited Conduct</div>
+        <div class="rules-section-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg> Prohibited Conduct</div>
         <ul class="rules-list">
           <li>Unsportsmanlike behaviour, harassment, or trash talk will not be tolerated.</li>
           <li>Using exploits, glitches, or modded accounts is grounds for immediate removal.</li>
@@ -369,7 +401,7 @@
       </div>
 
       <div class="rules-section">
-        <div class="rules-section-title"><i class="fas fa-gavel"></i> Disputes</div>
+        <div class="rules-section-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 13l5 5-2 2-5-5"/><path d="M3 21l9-9"/><path d="M10 3l4 4-8 8-4-4z"/></svg> Disputes</div>
         <ul class="rules-list">
           <li>Raise disputes in the Discord #disputes channel within 24 hours of the match.</li>
           <li>Admin decisions are final and non-negotiable.</li>
@@ -378,7 +410,7 @@
 
       <div class="export-btn-row">
         <button class="btn-secondary" onclick="exportRulesImage()">
-          <i class="fas fa-image"></i> Export Rules Image
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Export Rules Image
         </button>
       </div>
     </section>
@@ -387,7 +419,7 @@
          ADMIN TAB
     ════════════════════════════════════════════ -->
     <section id="admin-tab" class="tab-content">
-      <div class="section-title"><i class="fas fa-cog"></i> Admin Panel</div>
+      <div class="section-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg> Admin Panel</div>
 
       <div class="acc-grid">
 
@@ -395,10 +427,10 @@
         <div class="acc-item acc-open">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fab fa-github"></i></div>
+              <div class="acc-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.94 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.62-2.81 5.63-5.48 5.93.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.83.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
               <span class="acc-title">GitHub Sync</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
@@ -421,17 +453,17 @@
                 <input class="form-input" id="ghToken" type="password" placeholder="ghp_…">
               </div>
               <div class="action-row">
-                <button class="btn-primary" onclick="saveGitHubConfig()"><i class="fas fa-save"></i> Save</button>
-                <button class="btn-secondary" id="btn-test-gh" onclick="testGitHubConnection()"><i class="fas fa-plug"></i> Test</button>
-                <button class="btn-secondary" onclick="loadFromGitHub()"><i class="fas fa-cloud-download-alt"></i> Load</button>
-                <button class="btn-secondary" id="btn-force-sync" onclick="forceSync()" style="display:none"><i class="fas fa-sync"></i> Force Sync</button>
+                <button class="btn-primary" onclick="saveGitHubConfig()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Save</button>
+                <button class="btn-secondary" id="btn-test-gh" onclick="testGitHubConnection()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 7V2M15 7V2"/><rect x="6" y="7" width="12" height="6" rx="2"/><path d="M6 13c0 3.31 2.69 4 6 4s6-.69 6-4"/></svg> Test</button>
+                <button class="btn-secondary" onclick="loadFromGitHub()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"/></svg> Load</button>
+                <button class="btn-secondary" id="btn-force-sync" onclick="forceSync()" style="display:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-9-9"/><path d="M21 3v4h-4"/></svg> Force Sync</button>
               </div>
-              <button class="btn-secondary" style="color:var(--red);border-color:rgba(255,45,85,.3)" onclick="disconnectGitHub()"><i class="fas fa-unlink"></i> Disconnect</button>
+              <button class="btn-secondary" style="color:var(--red);border-color:rgba(255,45,85,.3)" onclick="disconnectGitHub()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.84 12.25l1.72-1.71a4.5 4.5 0 00-6.37-6.37l-1.71 1.72"/><path d="M5.17 11.75l-1.72 1.71a4.5 4.5 0 006.37 6.37l1.71-1.72"/><line x1="8" y1="2" x2="8" y2="5"/><line x1="2" y1="8" x2="5" y2="8"/><line x1="16" y1="19" x2="16" y2="22"/><line x1="19" y1="16" x2="22" y2="16"/></svg> Disconnect</button>
 
               <!-- Match Images Repo -->
               <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-                  <i class="fas fa-images" style="color:var(--cyan);font-size:0.9rem;"></i>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--cyan);flex-shrink:0"><rect x="3" y="3" width="15" height="15" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 3 21"/><path d="M21 3v4M21 10v.01M23 7h-4"/></svg>
                   <span style="font-weight:700;font-size:0.85rem;letter-spacing:1px;color:var(--text);">MATCH IMAGES REPO</span>
                 </div>
                 <div class="form-group">
@@ -451,12 +483,49 @@
                   <input class="form-input" id="imgRepoToken" type="password" placeholder="ghp_…">
                 </div>
                 <div class="action-row">
-                  <button class="btn-primary" onclick="saveImgRepoConfig()"><i class="fas fa-save"></i> Save</button>
-                  <button class="btn-secondary" id="btn-test-img-repo" onclick="testImgRepoConnection()"><i class="fas fa-plug"></i> Test</button>
-                  <button class="btn-secondary" style="color:var(--red);border-color:rgba(255,45,85,.3)" onclick="clearImgRepoConfig()"><i class="fas fa-times"></i> Clear</button>
+                  <button class="btn-primary" onclick="saveImgRepoConfig()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Save</button>
+                  <button class="btn-secondary" id="btn-test-img-repo" onclick="testImgRepoConnection()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 7V2M15 7V2"/><rect x="6" y="7" width="12" height="6" rx="2"/><path d="M6 13c0 3.31 2.69 4 6 4s6-.69 6-4"/></svg> Test</button>
+                  <button class="btn-secondary" style="color:var(--red);border-color:rgba(255,45,85,.3)" onclick="clearImgRepoConfig()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Clear</button>
                 </div>
                 <div id="img-repo-status" style="font-size:0.78rem;color:var(--muted);margin-top:6px;"></div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Discord Webhook -->
+        <div class="acc-item">
+          <div class="acc-header">
+            <div class="acc-header-left">
+              <div class="acc-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg>
+              </div>
+              <span class="acc-title">Discord Webhook</span>
+            </div>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="acc-body">
+            <div class="acc-inner">
+              <p style="font-size:0.78rem;color:var(--muted);margin-bottom:12px;line-height:1.5;">Paste your Discord webhook URL here. It is saved only in your browser (localStorage) and never pushed to GitHub.</p>
+              <div class="form-group">
+                <label class="form-label">Webhook URL</label>
+                <input class="form-input" id="discordWebhookInput" type="password" placeholder="https://discord.com/api/webhooks/…">
+              </div>
+              <div class="action-row">
+                <button class="btn-primary" onclick="saveDiscordWebhookAdmin()">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                  Save Webhook
+                </button>
+                <button class="btn-secondary" onclick="testDiscordWebhook()">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 2 11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  Test
+                </button>
+                <button class="btn-secondary" style="color:var(--red);border-color:rgba(255,45,85,.3)" onclick="clearDiscordWebhook()">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+                  Clear
+                </button>
+              </div>
+              <div id="discord-webhook-status" style="font-size:0.78rem;color:var(--muted);margin-top:6px;"></div>
             </div>
           </div>
         </div>
@@ -465,10 +534,10 @@
         <div class="acc-item">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fas fa-pen"></i></div>
+              <div class="acc-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
               <span class="acc-title">Log Score</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
@@ -490,13 +559,13 @@
                 <label class="form-label">Evidence Screenshot (optional)</label>
                 <div class="file-input-row">
                   <label class="file-input-label" for="matchImageInput">
-                    <i class="fas fa-camera"></i> Choose Image
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg> Choose Image
                   </label>
                   <input type="file" id="matchImageInput" accept="image/*">
                   <span class="file-name" id="match-file-chosen">No file</span>
                 </div>
               </div>
-              <button class="btn-primary w-full" onclick="submitLogScore()"><i class="fas fa-check"></i> Log Result</button>
+              <button class="btn-primary w-full" onclick="submitLogScore()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Log Result</button>
             </div>
           </div>
         </div>
@@ -505,10 +574,10 @@
         <div class="acc-item">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fas fa-random"></i></div>
+              <div class="acc-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1.5"/><rect x="14" y="2" width="8" height="8" rx="1.5"/><rect x="2" y="14" width="8" height="8" rx="1.5"/><circle cx="18" cy="18" r="3.5"/><circle cx="5" cy="5" r=".8" fill="currentColor"/><circle cx="9" cy="9" r=".8" fill="currentColor"/><circle cx="5" cy="9" r=".8" fill="currentColor"/><circle cx="9" cy="5" r=".8" fill="currentColor"/></svg></div>
               <span class="acc-title">Generate Fixtures</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
@@ -519,7 +588,7 @@
                   <label class="radio-label"><input type="radio" name="gen-mode" value="roundrobin"> Round Robin</label>
                 </div>
               </div>
-              <button class="btn-primary w-full" onclick="submitGenerateFixtures()"><i class="fas fa-dice"></i> Generate Draw</button>
+              <button class="btn-primary w-full" onclick="submitGenerateFixtures()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.5"/><circle cx="8" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="16" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="8" cy="16" r="1.2" fill="currentColor" stroke="none"/></svg> Generate Draw</button>
             </div>
           </div>
         </div>
@@ -528,10 +597,10 @@
         <div class="acc-item">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fas fa-plus-circle"></i></div>
+              <div class="acc-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
               <span class="acc-title">Manual Fixture</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
@@ -548,7 +617,7 @@
                 <label class="form-label">Date (optional)</label>
                 <input class="form-input" id="manualDate" type="date">
               </div>
-              <button class="btn-primary w-full" onclick="submitAddManualFixture()"><i class="fas fa-plus"></i> Add Fixture</button>
+              <button class="btn-primary w-full" onclick="submitAddManualFixture()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Fixture</button>
             </div>
           </div>
         </div>
@@ -557,10 +626,10 @@
         <div class="acc-item">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fas fa-user-plus"></i></div>
+              <div class="acc-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="16" y1="11" x2="22" y2="11"/></svg></div>
               <span class="acc-title">Add Player</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
@@ -576,7 +645,7 @@
                 <label class="form-label">WhatsApp Number</label>
                 <input class="form-input" id="newPlayerPhone" type="tel" placeholder="+27…">
               </div>
-              <button class="btn-primary w-full" onclick="submitAddPlayer()"><i class="fas fa-user-plus"></i> Add Player</button>
+              <button class="btn-primary w-full" onclick="submitAddPlayer()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="16" y1="11" x2="22" y2="11"/></svg> Add Player</button>
             </div>
           </div>
         </div>
@@ -585,22 +654,22 @@
         <div class="acc-item">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fas fa-file-import"></i></div>
+              <div class="acc-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="12"/><line x1="15" y1="15" x2="12" y2="12"/></svg></div>
               <span class="acc-title">Import Players</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
               <div class="info-box">Format: one player per line<br><strong>Name, Username, Phone</strong></div>
               <div class="file-input-row">
                 <label class="file-input-label" for="playerImport">
-                  <i class="fas fa-file-alt"></i> Choose .txt
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg> Choose .txt
                 </label>
                 <input type="file" id="playerImport" accept=".txt">
                 <span class="file-name" id="file-chosen">No file chosen</span>
               </div>
-              <button class="btn-primary w-full" onclick="importPlayersFromFile()"><i class="fas fa-upload"></i> Import</button>
+              <button class="btn-primary w-full" onclick="importPlayersFromFile()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg> Import</button>
             </div>
           </div>
         </div>
@@ -609,10 +678,10 @@
         <div class="acc-item">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fas fa-robot"></i></div>
+              <div class="acc-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8V5"/><circle cx="12" cy="4" r="1.5"/><line x1="9" y1="13" x2="9" y2="13.01" stroke-width="3"/><line x1="15" y1="13" x2="15" y2="13.01" stroke-width="3"/><path d="M9 17h6"/></svg></div>
               <span class="acc-title">Auto-Scheduler</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
@@ -649,7 +718,7 @@
                 <label class="form-label">Ignore list (usernames, comma-separated)</label>
                 <input class="form-input" id="sched-ignore-list" placeholder="user1, user2">
               </div>
-              <button class="btn-secondary w-full" onclick="saveAutoScheduleConfig()"><i class="fas fa-save"></i> Save Config</button>
+              <button class="btn-secondary w-full" onclick="saveAutoScheduleConfig()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Save Config</button>
             </div>
           </div>
         </div>
@@ -658,10 +727,10 @@
         <div class="acc-item">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fab fa-whatsapp"></i></div>
+              <div class="acc-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
               <span class="acc-title">WhatsApp OCR</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
@@ -670,16 +739,16 @@
                 <input class="form-input" id="gemini-api-key" type="password" placeholder="AIza…">
                 <span id="gemini-key-status"></span>
               </div>
-              <button class="btn-secondary btn-sm" onclick="saveGeminiKey()"><i class="fas fa-key"></i> Save Key</button>
+              <button class="btn-secondary btn-sm" onclick="saveGeminiKey()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg> Save Key</button>
               <hr class="acc-divider">
               <div class="file-input-row">
                 <label class="file-input-label" for="whatsappImageInput">
-                  <i class="fas fa-camera"></i> Screenshot
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg> Screenshot
                 </label>
                 <input type="file" id="whatsappImageInput" accept="image/*">
                 <span class="file-name" id="whatsapp-file-chosen">No file</span>
               </div>
-              <button class="btn-primary w-full" onclick="runWhatsAppOCR()"><i class="fas fa-search"></i> Analyse Screenshot</button>
+              <button class="btn-primary w-full" onclick="runWhatsAppOCR()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Analyse Screenshot</button>
               <div id="ocr-status" class="status-row"></div>
               <div id="ocr-results-area"></div>
             </div>
@@ -690,10 +759,10 @@
         <div class="acc-item">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fas fa-palette"></i></div>
+              <div class="acc-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.19 0 2.35-.21 3.43-.6a1.5 1.5 0 00-.43-2.93C13.5 18 12 16.5 12 14.5c0-2.49 2.01-4.5 4.5-4.5h.5A6 6 0 0012 2z"/></svg></div>
               <span class="acc-title">Theme</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
@@ -706,10 +775,10 @@
         <div class="acc-item">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fas fa-images"></i></div>
+              <div class="acc-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="15" height="15" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 3 21"/><path d="M21 3v4M21 10v.01M23 7h-4"/></svg></div>
               <span class="acc-title">Match Evidence</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
@@ -722,10 +791,10 @@
         <div class="acc-item">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fas fa-globe"></i></div>
+              <div class="acc-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
               <span class="acc-title">Public Leaderboard</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
@@ -748,8 +817,8 @@
                 <input class="form-input" id="pubToken" type="password" placeholder="ghp_…">
               </div>
               <div class="action-row">
-                <button class="btn-secondary" onclick="savePublicRepoConfig()"><i class="fas fa-save"></i> Save</button>
-                <button class="btn-primary" onclick="pushPublicLeaderboard()"><i class="fas fa-upload"></i> Push</button>
+                <button class="btn-secondary" onclick="savePublicRepoConfig()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Save</button>
+                <button class="btn-primary" onclick="pushPublicLeaderboard()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg> Push</button>
               </div>
             </div>
           </div>
@@ -759,10 +828,10 @@
         <div class="acc-item">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fas fa-user-clock"></i></div>
+              <div class="acc-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 11a4 4 0 10-8 0 4 4 0 008 0z"/><path d="M3 21v-2a7 7 0 0110.46-6.08"/><circle cx="18" cy="18" r="4"/><polyline points="18 16 18 18 20 18"/></svg></div>
               <span class="acc-title">Pending Registrations</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
@@ -775,20 +844,20 @@
         <div class="acc-item">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fas fa-database"></i></div>
+              <div class="acc-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg></div>
               <span class="acc-title">Data Management</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
-              <button class="btn-secondary w-full" onclick="exportBackup()"><i class="fas fa-download"></i> Export JSON Backup</button>
+              <button class="btn-secondary w-full" onclick="exportBackup()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"/></svg> Export JSON Backup</button>
               <div class="file-input-row">
-                <label class="file-input-label" for="importBackup"><i class="fas fa-upload"></i> Restore Backup</label>
+                <label class="file-input-label" for="importBackup"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg> Restore Backup</label>
                 <input type="file" id="importBackup" accept=".json">
               </div>
               <a href="migrate/" class="btn-secondary w-full" style="text-align:center;display:flex;justify-content:center">
-                <i class="fas fa-exchange-alt"></i> Migration Tool
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Migration Tool
               </a>
             </div>
           </div>
@@ -798,10 +867,10 @@
         <div class="acc-item danger-zone">
           <div class="acc-header">
             <div class="acc-header-left">
-              <div class="acc-icon"><i class="fas fa-skull-crossbones"></i></div>
+              <div class="acc-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="10" r="2"/><circle cx="15" cy="10" r="2"/><path d="M4 18v3M8 18v3M16 18v3M20 18v3"/><path d="M12 2a8 8 0 00-8 8v4l-1 2h18l-1-2v-4a8 8 0 00-8-8z"/><line x1="8" y1="18" x2="16" y2="18"/></svg></div>
               <span class="acc-title">Danger Zone</span>
             </div>
-            <i class="fas fa-chevron-down acc-chevron"></i>
+            <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="acc-body">
             <div class="acc-inner">
@@ -809,7 +878,7 @@
                 ⚠ These actions are <strong>permanent and cannot be undone</strong>.
               </div>
               <button class="btn-secondary btn-danger w-full" onclick="resetLeague()">
-                <i class="fas fa-trash-alt"></i> Reset All League Data
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg> Reset All League Data
               </button>
             </div>
           </div>
