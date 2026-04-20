@@ -1,5 +1,5 @@
 # Mettlestate × EA FC Mobile — Player File
-# Auto-generated: 2026-04-19T14:52:44.770Z
+# Auto-generated: 2026-04-20T07:25:17.095Z
 
 name=Dude
 username=DARK-_-CEO
@@ -14,4 +14,4 @@ ga=19
 form=L,L,D,W,L,D,D,D,D,L
 postponements=19
 suspended=false
-addedAt=2026-04-19T14:52:44.770Z
+addedAt=2026-04-20T07:25:17.095Z
