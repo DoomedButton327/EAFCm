@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:57:29.490Z
+
+id=1774990455551
+uid=81f7f289
+date=undefined
+home=Sailor
+away=RoyalAM
+homeGoals=0
+awayGoals=3
+result=away
+winner=RoyalAM
+loggedAt=2026-04-18T22:57:29.491Z
+editedAt=
+imageUrl=https://raw.githubusercontent.com/DoomedButton327/EAFC-mobile-leagues/main/match-images/Sailor_vs_RoyalAM_1774990453242.jpg
+forfeit=false
+autoWin=false
+autoForfeit=false
