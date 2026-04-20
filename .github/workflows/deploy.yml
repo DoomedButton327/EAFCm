@@ -27,7 +27,7 @@ jobs:
 
       - name: Inject Discord Webhook Secrets
         run: |
-          sed -i "s|__DISCORD_WEBHOOK_URL__|${{ secrets.DISCORD_WEBHOOK_URL }}|g" index.html
+          sed -i "s|__DISCORD_WEBHOOK_URL__|${{ secrets.DISCORD_WEBHOOK_URL }}|g" js/config.js
           sed -i "s|__DISCORD_NEWPLAYER_WEBHOOK__|${{ secrets.DISCORD_NEWPLAYER_WEBHOOK }}|g" newplayers/index.html
 
       - name: Setup Pages
