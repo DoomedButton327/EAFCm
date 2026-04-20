@@ -1,0 +1,18 @@
+# Mettlestate × EA FC Mobile — Game Record
+# Auto-generated: 2026-04-18T22:54:45.554Z
+
+id=1773991189425
+uid=d98322a1
+date=undefined
+home=leomessi
+away=KING_KHESWA.
+homeGoals=2
+awayGoals=1
+result=home
+winner=leomessi
+loggedAt=2026-04-18T22:54:45.554Z
+editedAt=
+imageUrl=
+forfeit=false
+autoWin=false
+autoForfeit=false
