@@ -138,35 +138,85 @@ async function checkDailyEventFetch() {
 async function fetchMettlestateEvents() {
   const spinner = document.getElementById('event-fetch-status');
   if (spinner) spinner.textContent = 'Fetching…';
+
+  const TARGET = 'https://mettlestate.com/events';
+  const PROXIES = [
+    `https://api.allorigins.win/raw?url=${encodeURIComponent(TARGET)}`,
+    `https://corsproxy.io/?${encodeURIComponent(TARGET)}`,
+    `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(TARGET)}`,
+  ];
+
+  let html = null;
+  for (const url of PROXIES) {
+    try {
+      const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
+      if (!res.ok) continue;
+      const text = await res.text();
+      if (text && text.length > 200) { html = text; break; }
+    } catch { /* try next */ }
+  }
+
+  if (!html) {
+    if (spinner) spinner.textContent = 'Could not fetch (using cached)';
+    return;
+  }
+
   try {
-    const url = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://mettlestate.com/events');
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('fetch failed');
-    const html = await res.text();
     const events = parseMettlestateEvents(html);
     State.mettlestateEvents = events;
     Storage.saveMEEvents(events);
-    if (spinner) spinner.textContent = `${events.length} events loaded`;
+    if (spinner) spinner.textContent = events.length ? `${events.length} events loaded` : 'No events found';
     sendDiscordWebhook({ type: 'eventSync', count: events.length });
     renderCalendar();
     renderUpcomingPanel();
-  } catch {
-    if (spinner) spinner.textContent = 'Could not fetch (using cached)';
+  } catch (e) {
+    if (spinner) spinner.textContent = 'Parse error (using cached)';
   }
 }
 
 function parseMettlestateEvents(html) {
-  // Simple heuristic: look for date-like patterns near "event" labels
   const events = [];
-  const regex = /(\d{4}-\d{2}-\d{2})/g;
-  let match;
-  while ((match = regex.exec(html)) !== null) {
-    const date = match[1];
+
+  // Strategy 1: Look for structured event cards — date near a title/heading within ~500 chars
+  // Mettlestate uses patterns like <h3>Cup Name</h3>...<span>2026-04-30</span>
+  // or data-date attributes, ISO dates near headings, etc.
+
+  // Strip HTML tags for a cleaned text pass
+  const stripped = html.replace(/<script[\s\S]*?<\/script>/gi, '')
+                       .replace(/<style[\s\S]*?<\/style>/gi, '')
+                       .replace(/<[^>]+>/g, ' ')
+                       .replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ')
+                       .replace(/\s+/g, ' ');
+
+  // Match ISO dates (YYYY-MM-DD) anywhere in the stripped text
+  const dateRegex = /\b(\d{4}-\d{2}-\d{2})\b/g;
+  let m;
+  while ((m = dateRegex.exec(stripped)) !== null) {
+    const date = m[1];
+    // Only future-ish dates (within the next 2 years) from today
+    if (date < '2024-01-01' || date > '2028-12-31') continue;
+    if (events.find(e => e.date === date)) continue;
+
+    // Grab ~120 chars before and after the date to find an event name
+    const ctx = stripped.slice(Math.max(0, m.index - 120), m.index + 80);
+    // Look for a word sequence that looks like an event name (Capitalised words)
+    const titleMatch = ctx.match(/([A-Z][A-Za-z0-9&' ]{4,60}(?:Cup|League|Tournament|Season|Event|Open|Series|Championship|Grand Prix|Finals?|Qualifier|Invitational))/i);
+    const name = titleMatch ? titleMatch[1].trim() : 'Mettlestate Event';
+    events.push({ date, name });
+  }
+
+  // Strategy 2: data-date or datetime attributes in raw HTML
+  const attrRegex = /(?:data-date|datetime|data-start)=['"]([\d]{4}-[\d]{2}-[\d]{2})/gi;
+  while ((m = attrRegex.exec(html)) !== null) {
+    const date = m[1];
     if (!events.find(e => e.date === date)) {
       events.push({ date, name: 'Mettlestate Event' });
     }
   }
-  return events.slice(0, 50);
+
+  // Sort by date and cap
+  events.sort((a, b) => a.date.localeCompare(b.date));
+  return events.slice(0, 100);
 }
 
 // ── Auto-scheduler ─────────────────────────────────────────────
