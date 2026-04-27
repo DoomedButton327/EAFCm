@@ -139,7 +139,7 @@ async function fetchMettlestateEvents() {
   const spinner = document.getElementById('event-fetch-status');
   if (spinner) spinner.textContent = 'Fetching…';
 
-  const TARGET = 'https://mettlestate.com/events';
+  const TARGET = 'https://www.mettlestate.com/games/ea-fc-mobile/events/';
   const PROXIES = [
     `https://api.allorigins.win/raw?url=${encodeURIComponent(TARGET)}`,
     `https://corsproxy.io/?${encodeURIComponent(TARGET)}`,
