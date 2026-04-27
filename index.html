@@ -584,8 +584,26 @@
               <div class="form-group">
                 <label class="form-label">Mode</label>
                 <div class="radio-group">
-                  <label class="radio-label"><input type="radio" name="gen-mode" value="random" checked> Random Pairs</label>
+                  <label class="radio-label"><input type="radio" name="gen-mode" value="random" checked> Random</label>
                   <label class="radio-label"><input type="radio" name="gen-mode" value="roundrobin"> Round Robin</label>
+                  <label class="radio-label"><input type="radio" name="gen-mode" value="maxencounters"> Max Encounters</label>
+                  <label class="radio-label"><input type="radio" name="gen-mode" value="cooldown"> Cooldown</label>
+                </div>
+                <div class="mode-hint" id="mode-hint-random" style="display:none">Fully random pairings each draw.</div>
+                <div class="mode-hint" id="mode-hint-roundrobin" style="display:none">Every player faces every other player once.</div>
+                <div class="mode-hint mode-hint-active" id="mode-hint-maxencounters" style="display:none">
+                  Everyone must verse each other at least <strong id="max-enc-hint-val">3</strong>× — same pair can't exceed that cap.
+                  <div class="mode-config-row" style="margin-top:6px">
+                    <label class="form-label" style="margin-bottom:0">Max encounters per pair</label>
+                    <input class="form-input form-input-sm" id="sched-max-encounters" type="number" min="1" max="20" value="3" onchange="saveAutoScheduleConfig(); document.getElementById('max-enc-hint-val').textContent=this.value">
+                  </div>
+                </div>
+                <div class="mode-hint mode-hint-active" id="mode-hint-cooldown" style="display:none">
+                  Random draw, but players can't rematch for <strong id="cooldown-hint-val">3</strong> matchdays after facing each other.
+                  <div class="mode-config-row" style="margin-top:6px">
+                    <label class="form-label" style="margin-bottom:0">Cooldown (matchdays)</label>
+                    <input class="form-input form-input-sm" id="sched-cooldown-days" type="number" min="1" max="30" value="3" onchange="saveAutoScheduleConfig(); document.getElementById('cooldown-hint-val').textContent=this.value">
+                  </div>
                 </div>
               </div>
               <button class="btn-primary w-full" onclick="submitGenerateFixtures()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.5"/><circle cx="8" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="16" r="1.2" fill="currentColor" stroke="none"/><circle cx="16" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="8" cy="16" r="1.2" fill="currentColor" stroke="none"/></svg> Generate Draw</button>

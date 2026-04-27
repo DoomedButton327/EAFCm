@@ -9,9 +9,38 @@ function handleMatchImagePick(e) {
   const reader = new FileReader();
   reader.onload = ev => {
     State.pendingMatchImage = { dataUrl: ev.target.result, filename: file.name };
+
+    // Show thumbnail preview
+    let preview = document.getElementById('match-image-preview');
+    if (!preview) {
+      preview = document.createElement('div');
+      preview.id = 'match-image-preview';
+      preview.className = 'match-img-preview';
+      const input = document.getElementById('matchImageInput');
+      input?.closest('.file-input-row')?.after(preview);
+    }
+    preview.innerHTML = `
+      <img src="${ev.target.result}" alt="Preview" class="match-img-thumb">
+      <span class="match-img-filename">${esc(file.name)}</span>
+      <button class="match-img-clear" onclick="clearMatchImage()" title="Remove">
+        <i class="fas fa-times"></i>
+      </button>`;
+
+    const label = document.getElementById('match-file-chosen');
+    if (label) label.textContent = file.name;
     toast('Screenshot ready to attach.', 'info');
   };
   reader.readAsDataURL(file);
+}
+
+function clearMatchImage() {
+  State.pendingMatchImage = null;
+  const fileInput = document.getElementById('matchImageInput');
+  if (fileInput) fileInput.value = '';
+  const preview = document.getElementById('match-image-preview');
+  if (preview) preview.remove();
+  const label = document.getElementById('match-file-chosen');
+  if (label) label.textContent = 'No file';
 }
 
 async function logScore() {
@@ -41,6 +70,10 @@ async function logScore() {
     State.pendingMatchImage = null;
     const fileInput = document.getElementById('matchImageInput');
     if (fileInput) fileInput.value = '';
+    const preview = document.getElementById('match-image-preview');
+    if (preview) preview.remove();
+    const label = document.getElementById('match-file-chosen');
+    if (label) label.textContent = 'No file';
   }
 
   const r = {
@@ -165,8 +198,8 @@ function renderResults() {
     ].join('');
 
     const imgBtn = (r.imageUrl || r.imageDataUrl)
-      ? `<button class="btn-evidence" onclick="openLightbox(${i})" title="View evidence">
-           <i class="fas fa-camera"></i>
+      ? `<button class="btn-evidence btn-view-screenshot" onclick="openLightbox(${i})" title="View screenshot">
+           <i class="fas fa-camera"></i><span class="btn-evidence-label">Screenshot</span>
          </button>` : '';
 
     return `
@@ -177,7 +210,7 @@ function renderResults() {
           <div class="result-actions">
             ${imgBtn}
             <button class="btn-evidence btn-edit-result" onclick="openEditResult(${r.id})" title="Edit result">
-              <i class="fas fa-pen"></i>
+              <i class="fas fa-pen"></i><span class="btn-evidence-label">Edit</span>
             </button>
           </div>
         </div>

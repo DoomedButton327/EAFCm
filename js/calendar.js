@@ -229,19 +229,31 @@ function loadAutoScheduleConfig() {
 function syncSchedulerUI() {
   const cfg = State.schedulerConfig;
   const set = (id, v) => { const el = document.getElementById(id); if (el) el.checked = v; };
+  const setVal = (id, v) => { const el = document.getElementById(id); if (el) el.value = v; };
   set('sched-autogen', cfg.autoGen);
   set('sched-autodraw', cfg.autoDraw);
   set('sched-skip-holidays', cfg.skipHolidays);
   set('sched-skip-events', cfg.skipEvents);
   const il = document.getElementById('sched-ignore-list');
   if (il) il.value = (cfg.ignoreList || []).join(', ');
+  setVal('sched-max-encounters', cfg.maxEncounters ?? 3);
+  setVal('sched-cooldown-days', cfg.cooldownDays ?? 3);
 }
 
 function saveAutoScheduleConfig() {
   const get = id => { const el = document.getElementById(id); return el ? el.checked : false; };
+  const getNum = (id, def) => { const el = document.getElementById(id); return el ? (parseInt(el.value) || def) : def; };
   const ignoreEl = document.getElementById('sched-ignore-list');
   const ignoreList = ignoreEl ? ignoreEl.value.split(',').map(s => s.trim()).filter(Boolean) : [];
-  State.schedulerConfig = { autoGen: get('sched-autogen'), autoDraw: get('sched-autodraw'), skipHolidays: get('sched-skip-holidays'), skipEvents: get('sched-skip-events'), ignoreList };
+  State.schedulerConfig = {
+    autoGen: get('sched-autogen'),
+    autoDraw: get('sched-autodraw'),
+    skipHolidays: get('sched-skip-holidays'),
+    skipEvents: get('sched-skip-events'),
+    ignoreList,
+    maxEncounters: getNum('sched-max-encounters', 3),
+    cooldownDays: getNum('sched-cooldown-days', 3),
+  };
   Storage.saveScheduler(State.schedulerConfig);
   toast('Scheduler config saved.', 'success');
 }

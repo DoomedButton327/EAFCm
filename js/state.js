@@ -17,6 +17,8 @@ const State = (() => {
     skipEvents: true,
     ignoreList: [],
     lastRun: null,
+    maxEncounters: 3,
+    cooldownDays: 3,
   };
   let _autoSchedulerTimer = null;
 

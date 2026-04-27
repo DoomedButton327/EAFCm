@@ -132,6 +132,8 @@
   min-width: 0;
 }
 .nav-btn i { font-size: 1.15rem; transition: transform .2s; }
+.nav-icon { width: 18px; height: 18px; display: block; transition: transform .2s; flex-shrink: 0; }
+.nav-btn.active .nav-icon { transform: scale(1.12); animation: navPop .3s cubic-bezier(.34,1.56,.64,1); }
 .nav-btn.active { color: var(--acid); }
 .nav-btn.active i { transform: scale(1.15); animation: navPop .3s cubic-bezier(.34,1.56,.64,1); }
 .nav-btn:active { background: var(--bg-2); }

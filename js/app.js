@@ -113,7 +113,16 @@ function wireEventListeners() {
   });
   document.getElementById('importBackup')?.addEventListener('change', importBackupFile);
 
-  // Lightbox close on backdrop click
+  // Gen mode radio — show hints
+  document.querySelectorAll('input[name="gen-mode"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const mode = radio.value;
+      ['random','roundrobin','maxencounters','cooldown'].forEach(m => {
+        const el = document.getElementById(`mode-hint-${m}`);
+        if (el) el.style.display = mode === m ? 'block' : 'none';
+      });
+    });
+  });
   document.getElementById('lightbox')?.addEventListener('click', e => {
     if (e.target === e.currentTarget) closeLightbox();
   });
