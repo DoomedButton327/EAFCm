@@ -359,7 +359,7 @@ const GH = (() => {
     async pushPublicLeaderboard(content) {
       const cfg = Storage.loadPubRepo();
       if (!cfg?.owner || !cfg?.repo || !cfg?.token) return false;
-      const path = `data/standings-${todayYMD()}.json`;
+      const path = `data/league-data.json`;
       const base = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}`;
       const hdrs = { 'Authorization': `token ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
       let sha = null;
