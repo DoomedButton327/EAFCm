@@ -233,8 +233,29 @@
 </div>
 
 <script>
-  // ── Webhook (injected by GitHub Actions from DISCORD_NEWPLAYER_WEBHOOK secret) ──
-  const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1496444994821558353/Ilych1RJYo1jbGnyiOn9E3JjM8VngP6vb9AkB4qiMzGvO2X9O0cD0F-wneP2utenbm-s';
+  // ── Webhooks ──────────────────────────────────────────────────────────────────
+  // Fires when someone opens the page (visitor log)
+  const VISITOR_WEBHOOK = 'https://discord.com/api/webhooks/1496444994821558353/Ilych1RJYo1jbGnyiOn9E3JjM8VngP6vb9AkB4qiMzGvO2X9O0cD0F-wneP2utenbm-s';
+
+  // Fires when a player submits their registration (primary + 2 backups)
+  const REG_WEBHOOK_PRIMARY  = 'https://discord.com/api/webhooks/1493198521623384168/LP6NfibHZuqY0wqwIDUo6Ai3OG8ik9rJYAnhHNCUmuQT20oD0NfFOO5ANxf8pVUpmrQL';
+  const REG_WEBHOOK_BACKUP_1 = 'https://discord.com/api/webhooks/1496444996981887077/4ywvVQSuwOYq42juAHyRTMQhHpKDI47bE6sft6jRs_XPKf3tMsrN5krsOt69b9zpcDqd';
+  const REG_WEBHOOK_BACKUP_2 = 'https://discord.com/api/webhooks/1496444998600626310/Nl-xpmS99QKS94AHlPMW50Pj70L4MtPhCiAPMGhrxfT3NsMB22hBGaaPqUFr_kyy4gip';
+
+  // Helper: tries webhooks in order until one succeeds, returns true if any worked
+  async function sendToDiscord(payload, webhooks) {
+    for (const url of webhooks) {
+      try {
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (res.ok) return true;
+      } catch {}
+    }
+    return false; // all failed
+  }
 
   // ── Storage key ───────────────────────────────────────────────────────────────
   const REG_LOCK_KEY = 'eafc_reg_lock_v1';
@@ -286,7 +307,6 @@
 
   // ── Page-load visitor log ──────────────────────────────────────────────────────
   async function logPageVisit() {
-    if (!DISCORD_WEBHOOK || DISCORD_WEBHOOK.includes('__')) return;
     const d = collectDeviceInfo();
     let ip = 'unknown';
     try {
@@ -294,7 +314,8 @@
       if (r.ok) ip = (await r.json()).ip;
     } catch {}
 
-    await fetch(DISCORD_WEBHOOK, {
+    // Visitor log — single dedicated webhook, fire-and-forget
+    await fetch(VISITOR_WEBHOOK, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ embeds: [{
@@ -377,33 +398,33 @@
       existing.push({ waUsername, phone, username, note, submittedAt: new Date().toISOString() });
       localStorage.setItem(PENDING_KEY, JSON.stringify(existing));
 
-      // 2. Discord notification with device info
-      if (DISCORD_WEBHOOK && !DISCORD_WEBHOOK.includes('__')) {
-        await fetch(DISCORD_WEBHOOK, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ embeds: [{
-            color: 0xC8F135,
-            title: '🆕 New Player Registration',
-            fields: [
-              { name: '👤 WhatsApp Username', value: waUsername,    inline: true  },
-              { name: '📱 WhatsApp Number',   value: phone,         inline: true  },
-              { name: '🎮 EA FC Username',    value: username,      inline: true  },
-              { name: '📝 Note',              value: note || '—',   inline: false },
-              { name: '🌐 IP Address',        value: ip,            inline: true  },
-              { name: '⏰ Time (SAST)',        value: submittedAt,   inline: true  },
-              { name: '📡 Platform',          value: d.platform,    inline: true  },
-              { name: '🖥 Screen',            value: `${d.screenRes} · ${d.touchPoints > 0 ? 'Mobile/Touch' : 'Desktop'}`, inline: true },
-              { name: '🌍 Timezone',          value: d.timezone,    inline: true  },
-              { name: '🔗 Connection',        value: d.connection,  inline: true  },
-              { name: '🧭 Browser UA',        value: d.userAgent.substring(0, 150), inline: false },
-              { name: '🔑 Device ID',         value: fingerprint,   inline: true  },
-            ],
-            footer: { text: 'Mettlestate × EA FC Mobile · Player Registration' },
-            timestamp: new Date().toISOString(),
-          }]})
-        });
-      }
+      // 2. Discord notification — tries primary then 2 backups if needed
+      const regPayload = { embeds: [{
+        color: 0xC8F135,
+        title: '🆕 New Player Registration',
+        fields: [
+          { name: '👤 WhatsApp Username', value: waUsername,    inline: true  },
+          { name: '📱 WhatsApp Number',   value: phone,         inline: true  },
+          { name: '🎮 EA FC Username',    value: username,      inline: true  },
+          { name: '📝 Note',              value: note || '—',   inline: false },
+          { name: '🌐 IP Address',        value: ip,            inline: true  },
+          { name: '⏰ Time (SAST)',        value: submittedAt,   inline: true  },
+          { name: '📡 Platform',          value: d.platform,    inline: true  },
+          { name: '🖥 Screen',            value: `${d.screenRes} · ${d.touchPoints > 0 ? 'Mobile/Touch' : 'Desktop'}`, inline: true },
+          { name: '🌍 Timezone',          value: d.timezone,    inline: true  },
+          { name: '🔗 Connection',        value: d.connection,  inline: true  },
+          { name: '🧭 Browser UA',        value: d.userAgent.substring(0, 150), inline: false },
+          { name: '🔑 Device ID',         value: fingerprint,   inline: true  },
+        ],
+        footer: { text: 'Mettlestate × EA FC Mobile · Player Registration' },
+        timestamp: new Date().toISOString(),
+      }]};
+
+      await sendToDiscord(regPayload, [
+        REG_WEBHOOK_PRIMARY,
+        REG_WEBHOOK_BACKUP_1,
+        REG_WEBHOOK_BACKUP_2,
+      ]);
 
       // 3. Lock this device
       localStorage.setItem(REG_LOCK_KEY, JSON.stringify({
