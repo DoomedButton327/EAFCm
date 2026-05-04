@@ -19,7 +19,13 @@ function initAccordions() {
       // Open clicked if it was closed
       if (!isOpen) {
         item.classList.add('acc-open');
-        if (body) body.style.maxHeight = body.scrollHeight + 'px';
+        if (body) {
+          body.style.maxHeight = body.scrollHeight + 'px';
+          // Re-measure after a tick in case dynamic content (selects, etc.) affects height
+          requestAnimationFrame(() => {
+            if (body) body.style.maxHeight = body.scrollHeight + 'px';
+          });
+        }
       }
     });
     // Init closed
