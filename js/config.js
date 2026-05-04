@@ -45,6 +45,8 @@ function todayYM()  { return toYM(); }
 // ── DATA PATHS (New structure v3) ─────────────────────────────
 // All players in one JSON array
 function playersJsonPath()  { return 'data/players.json'; }
+// Active fixtures in one JSON array
+function fixturesJsonPath() { return 'data/fixtures.json'; }
 // index.json lists all dates that have game data
 function leagueIndexPath()  { return 'data/index.json'; }
 // All matches for a date in one JSON array
