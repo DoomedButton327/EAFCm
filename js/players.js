@@ -7,6 +7,13 @@ function saveData() {
   Storage.saveAll();
   GH.syncData();
   renderAll();
+  // Re-measure any open accordion after render (DOM height may have changed)
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.acc-item.acc-open').forEach(item => {
+      const body = item.querySelector('.acc-body');
+      if (body) body.style.maxHeight = body.scrollHeight + 'px';
+    });
+  });
 }
 
 function sortedPlayers() {
