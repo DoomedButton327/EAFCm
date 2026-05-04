@@ -166,6 +166,14 @@ const GH = (() => {
         `Players updated — ${ts}`,
       ));
 
+      // 2. fixtures.json — all current pending fixtures
+      const fixturesPayload = JSON.stringify(State.fixtures, null, 2);
+      await enqueue(() => doCommit(
+        fixturesJsonPath(),
+        fixturesPayload,
+        `Fixtures updated — ${ts}`,
+      ));
+
       // 2. Group results by date → one matches.json per day
       const byDate = {};
       for (const r of State.results) {
@@ -322,11 +330,21 @@ const GH = (() => {
           _shaCache[playersJsonPath()] = pf.sha;
         }
 
-        // 2. Load index.json
+        // 2. Load fixtures.json
+        let fixtures = [];
+        const fr = await fetch(`${apiBase()}/contents/${fixturesJsonPath()}?ref=${_config.branch}`, { headers: headers() });
+        if (fr.ok) {
+          const ff = await fr.json();
+          const decoded = JSON.parse(decodeURIComponent(escape(atob(ff.content.replace(/\n/g, '')))));
+          fixtures = Array.isArray(decoded) ? decoded : [];
+          _shaCache[fixturesJsonPath()] = ff.sha;
+        }
+
+        // 3. Load index.json
         const ir = await fetch(`${apiBase()}/contents/${leagueIndexPath()}?ref=${_config.branch}`, { headers: headers() });
         if (!ir.ok) {
           hideBar(true, players.length ? 'Players loaded (no match data yet)' : 'No remote data yet');
-          return players.length ? { players, fixtures: [], results: [] } : null;
+          return players.length ? { players, fixtures, results: [] } : null;
         }
         const ifile = await ir.json();
         const index = JSON.parse(decodeURIComponent(escape(atob(ifile.content.replace(/\n/g, '')))));
@@ -348,7 +366,7 @@ const GH = (() => {
 
         const results = allMatches.flat().filter(m => m && m.home && m.away);
         hideBar(true, 'Loaded from GitHub');
-        return { players, fixtures: [], results };
+        return { players, fixtures, results };
       } catch(err) {
         console.error('loadRemoteData error:', err);
         hideBar(false, 'Could not load remote data');
