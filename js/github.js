@@ -158,50 +158,54 @@ const GH = (() => {
     const ts = new Date().toLocaleString('en-ZA');
 
     try {
-      // 1. players.json — single file with all player objects
-      const playersPayload = JSON.stringify(State.players, null, 2);
-      await enqueue(() => doCommit(
+      // 1. players.json
+      const playersOk = await doCommit(
         playersJsonPath(),
-        playersPayload,
+        JSON.stringify(State.players, null, 2),
         `Players updated — ${ts}`,
-      ));
+      );
+      if (!playersOk) console.warn('[GH] players.json commit failed');
 
-      // 2. fixtures.json — all current pending fixtures
-      const fixturesPayload = JSON.stringify(State.fixtures, null, 2);
-      await enqueue(() => doCommit(
+      // 2. fixtures.json — all pending fixtures
+      const fixturesSnapshot = JSON.stringify(State.fixtures, null, 2);
+      const fixturesOk = await doCommit(
         fixturesJsonPath(),
-        fixturesPayload,
+        fixturesSnapshot,
         `Fixtures updated — ${ts}`,
-      ));
+      );
+      if (!fixturesOk) console.warn('[GH] fixtures.json commit failed');
 
-      // 2. Group results by date → one matches.json per day
+      // 3. Group results by date → one matches.json per day
       const byDate = {};
       for (const r of State.results) {
         const d = r.date || 'undefined';
         if (!byDate[d]) byDate[d] = [];
         byDate[d].push(r);
       }
-      for (const [date, matches] of Object.entries(byDate)) {
-        const path = dayMatchesPath(date);
-        const payload = JSON.stringify(matches, null, 2);
-        await enqueue(() => doCommit(
+      const dateEntries = Object.entries(byDate);
+      for (let i = 0; i < dateEntries.length; i++) {
+        const date    = dateEntries[i][0];
+        const matches = dateEntries[i][1];
+        const path    = dayMatchesPath(date);
+        const ok = await doCommit(
           path,
-          payload,
+          JSON.stringify(matches, null, 2),
           `Matches ${date} — ${ts}`,
-        ));
+        );
+        if (!ok) console.warn(`[GH] matches commit failed for ${date}`);
       }
 
-      // 3. index.json
-      const indexPayload = JSON.stringify(buildIndex(), null, 2);
-      const indexOk = await enqueue(() => doCommit(
+      // 4. index.json
+      const indexOk = await doCommit(
         leagueIndexPath(),
-        indexPayload,
+        JSON.stringify(buildIndex(), null, 2),
         `Index updated — ${ts}`,
-      ));
+      );
 
-      hideBar(indexOk, indexOk ? 'Saved to GitHub' : 'Partial sync — check connection');
+      const allOk = playersOk && fixturesOk && indexOk;
+      hideBar(allOk, allOk ? 'Saved to GitHub' : 'Partial sync — check connection');
     } catch(err) {
-      console.error('GH flush error:', err);
+      console.error('[GH] flush error:', err);
       hideBar(false);
     }
   }
@@ -265,7 +269,6 @@ const GH = (() => {
       clearTimeout(_debounceTimer);
       _debounceTimer = null;
       _pendingSync = false;
-      showBar('Force syncing…');
       await flush();
     },
 
