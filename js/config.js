@@ -42,16 +42,22 @@ function toYM(d) { return toYMD(d).slice(0, 7); }
 function todayYMD() { return toYMD(); }
 function todayYM()  { return toYM(); }
 
-// ── DATA PATHS (New structure v3) ─────────────────────────────
-// All players in one JSON array
+// ── DATA PATHS (v4 — flat structure, single-commit sync) ──────
+// Why v4: v3 wrote one matches.json PER DATE, which meant a full
+// sync fired one GitHub API commit per day that had games (50+ as
+// the season went on). Each commit is a separate network round
+// trip that can fail on its own, so syncs got flaky as the season
+// grew. v4 keeps everything in 4 flat files and writes them all in
+// ONE atomic commit via the Git Trees API (see github.js flush()).
 function playersJsonPath()  { return 'data/players.json'; }
-// Active fixtures in one JSON array
 function fixturesJsonPath() { return 'data/fixtures.json'; }
-// index.json lists all dates that have game data
+function resultsJsonPath()  { return 'data/results.json'; }
 function leagueIndexPath()  { return 'data/index.json'; }
-// All matches for a date in one JSON array
+// Legacy v3 path, kept only so a one-time migration can read old
+// per-day files if they still exist in the repo. Not written to anymore.
 function dayMatchesPath(dateStr) { return `data/games/${dateStr}/matches.json`; }
-// Images folder stays the same
+// Images folder stays the same — one file per screenshot, these
+// aren't part of the JSON-data sync so they don't add to commit count.
 function matchImagesPath(dateStr) { return `data/games/${dateStr}/images/`; }
 
 // ── UNIQUE ID ─────────────────────────────────────────────────
