@@ -142,8 +142,18 @@ function loadPublicRepoConfigUI() {
 
 async function pushPublicLeaderboard() {
   const sorted = sortedPlayers();
+  // Trim results down to just the fields the public site needs (no imageUrl/uid/editedAt clutter)
+  const results = (State.results || []).map(r => ({
+    home: r.home,
+    away: r.away,
+    homeGoals: r.homeGoals,
+    awayGoals: r.awayGoals,
+    result: r.result,
+    date: r.date,
+  }));
   const data = {
     players: sorted,
+    results,
     updatedAt: new Date().toISOString(),
     matchesPlayed: State.results.length,
   };
