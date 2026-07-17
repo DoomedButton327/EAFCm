@@ -66,6 +66,12 @@ async function logScore() {
       const base64 = dataUrl.split(',')[1];
       imageUrl = await GH.uploadMatchImage(base64, fname, fix.scheduledDate || todayYMD());
     }
+    // If the upload failed (offline, rate limit, etc.), keep the image
+    // visible locally as a base64 data URL so evidence isn't lost, but
+    // this is NEVER written to GitHub as part of results.json — it stays
+    // in browser storage only. GH.syncData() retries the real upload on
+    // every future sync until it succeeds, then swaps this out for the
+    // proper imageUrl automatically. See retryPendingImageUploads() in github.js.
     if (!imageUrl) imageDataUrl = dataUrl;
     State.pendingMatchImage = null;
     const fileInput = document.getElementById('matchImageInput');
@@ -88,6 +94,11 @@ async function logScore() {
     date:      fix.scheduledDate || todayYMD(),
     imageUrl:  imageUrl || undefined,
     imageDataUrl: imageDataUrl || undefined,
+    // If the screenshot upload failed at log time, mark this result so
+    // the next sync knows to retry it. Cleared automatically once the
+    // real GitHub upload succeeds (see retryPendingImageUploads()).
+    needsImageUpload: (!!imageDataUrl && !imageUrl) || undefined,
+    _pendingImageFilename: (!!imageDataUrl && !imageUrl) ? `match_${fix.home}_vs_${fix.away}_${Date.now()}.jpg` : undefined,
   };
 
   State.results.unshift(r);
